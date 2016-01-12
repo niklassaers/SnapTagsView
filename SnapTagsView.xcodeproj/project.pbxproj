@@ -10,6 +10,17 @@
 		850FC5091C453F5200E1F75D /* SnapTagsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850FC5081C453F5200E1F75D /* SnapTagsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850FC5101C453F5200E1F75D /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
 		850FC5151C453F5200E1F75D /* SnapTagsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5141C453F5200E1F75D /* SnapTagsViewTests.swift */; };
+		850FC5261C453F7700E1F75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5251C453F7700E1F75D /* AppDelegate.swift */; };
+		850FC5281C453F7700E1F75D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5271C453F7700E1F75D /* ViewController.swift */; };
+		850FC52B1C453F7800E1F75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC5291C453F7800E1F75D /* Main.storyboard */; };
+		850FC52D1C453F7800E1F75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FC52C1C453F7800E1F75D /* Assets.xcassets */; };
+		850FC5301C453F7800E1F75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC52E1C453F7800E1F75D /* LaunchScreen.storyboard */; };
+		850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5371C45472D00E1F75D /* TagsView.swift */; };
+		850FC53C1C45472D00E1F75D /* TagsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5381C45472D00E1F75D /* TagsBarView.swift */; };
+		850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5391C45472D00E1F75D /* TagsBarButton.swift */; };
+		850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */; };
+		850FC5401C45498700E1F75D /* TagsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53F1C45498700E1F75D /* TagsButton.swift */; };
+		C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +34,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapTagsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FC5051C453F5200E1F75D /* SnapTagsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapTagsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FC5081C453F5200E1F75D /* SnapTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapTagsView.h; sourceTree = "<group>"; };
 		850FC50A1C453F5200E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		850FC50F1C453F5200E1F75D /* SnapTagsViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapTagsViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FC5141C453F5200E1F75D /* SnapTagsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapTagsViewTests.swift; sourceTree = "<group>"; };
 		850FC5161C453F5200E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850FC5231C453F7700E1F75D /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		850FC5251C453F7700E1F75D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		850FC5271C453F7700E1F75D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		850FC52A1C453F7800E1F75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		850FC52C1C453F7800E1F75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		850FC52F1C453F7800E1F75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		850FC5311C453F7800E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850FC5371C45472D00E1F75D /* TagsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		850FC5381C45472D00E1F75D /* TagsBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarView.swift; sourceTree = "<group>"; };
+		850FC5391C45472D00E1F75D /* TagsBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButton.swift; sourceTree = "<group>"; };
+		850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBar.swift; sourceTree = "<group>"; };
+		850FC53F1C45498700E1F75D /* TagsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsButton.swift; sourceTree = "<group>"; };
+		AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.release.xcconfig"; sourceTree = "<group>"; };
+		ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,15 +74,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		850FC5201C453F7700E1F75D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E1CF6DD8033E6075E43E5CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		850FC4FB1C453F5200E1F75D = {
 			isa = PBXGroup;
 			children = (
 				850FC5071C453F5200E1F75D /* SnapTagsView */,
 				850FC5131C453F5200E1F75D /* SnapTagsViewTests */,
+				850FC5241C453F7700E1F75D /* Example */,
 				850FC5061C453F5200E1F75D /* Products */,
+				CA143C1A735A94E393E0A65D /* Pods */,
+				6E1CF6DD8033E6075E43E5CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +109,7 @@
 			children = (
 				850FC5051C453F5200E1F75D /* SnapTagsView.framework */,
 				850FC50F1C453F5200E1F75D /* SnapTagsViewTests.xctest */,
+				850FC5231C453F7700E1F75D /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				850FC5081C453F5200E1F75D /* SnapTagsView.h */,
+				850FC5371C45472D00E1F75D /* TagsView.swift */,
+				850FC5381C45472D00E1F75D /* TagsBarView.swift */,
+				850FC5391C45472D00E1F75D /* TagsBarButton.swift */,
+				850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */,
+				850FC53F1C45498700E1F75D /* TagsButton.swift */,
 				850FC50A1C453F5200E1F75D /* Info.plist */,
 			);
 			path = SnapTagsView;
@@ -84,6 +135,28 @@
 				850FC5161C453F5200E1F75D /* Info.plist */,
 			);
 			path = SnapTagsViewTests;
+			sourceTree = "<group>";
+		};
+		850FC5241C453F7700E1F75D /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				850FC5251C453F7700E1F75D /* AppDelegate.swift */,
+				850FC5271C453F7700E1F75D /* ViewController.swift */,
+				850FC5291C453F7800E1F75D /* Main.storyboard */,
+				850FC52C1C453F7800E1F75D /* Assets.xcassets */,
+				850FC52E1C453F7800E1F75D /* LaunchScreen.storyboard */,
+				850FC5311C453F7800E1F75D /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		CA143C1A735A94E393E0A65D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */,
+				AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,10 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC5191C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsView" */;
 			buildPhases = (
+				24453DCF000653595AEB84F1 /* Check Pods Manifest.lock */,
 				850FC5001C453F5200E1F75D /* Sources */,
 				850FC5011C453F5200E1F75D /* Frameworks */,
 				850FC5021C453F5200E1F75D /* Headers */,
 				850FC5031C453F5200E1F75D /* Resources */,
+				0C7782D29F74B4966E9DA852 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +211,23 @@
 			productReference = 850FC50F1C453F5200E1F75D /* SnapTagsViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		850FC5221C453F7700E1F75D /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 850FC5321C453F7800E1F75D /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				850FC51F1C453F7700E1F75D /* Sources */,
+				850FC5201C453F7700E1F75D /* Frameworks */,
+				850FC5211C453F7700E1F75D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example;
+			productName = Example;
+			productReference = 850FC5231C453F7700E1F75D /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,6 +244,9 @@
 					850FC50E1C453F5200E1F75D = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					850FC5221C453F7700E1F75D = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = 850FC4FF1C453F5200E1F75D /* Build configuration list for PBXProject "SnapTagsView" */;
@@ -160,6 +255,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 850FC4FB1C453F5200E1F75D;
 			productRefGroup = 850FC5061C453F5200E1F75D /* Products */;
@@ -168,6 +264,7 @@
 			targets = (
 				850FC5041C453F5200E1F75D /* SnapTagsView */,
 				850FC50E1C453F5200E1F75D /* SnapTagsViewTests */,
+				850FC5221C453F7700E1F75D /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -187,13 +284,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		850FC5211C453F7700E1F75D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				850FC5301C453F7800E1F75D /* LaunchScreen.storyboard in Resources */,
+				850FC52D1C453F7800E1F75D /* Assets.xcassets in Resources */,
+				850FC52B1C453F7800E1F75D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C7782D29F74B4966E9DA852 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24453DCF000653595AEB84F1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		850FC5001C453F5200E1F75D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */,
+				850FC5401C45498700E1F75D /* TagsButton.swift in Sources */,
+				850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */,
+				850FC53C1C45472D00E1F75D /* TagsBarView.swift in Sources */,
+				850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +347,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				850FC5151C453F5200E1F75D /* SnapTagsViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850FC51F1C453F7700E1F75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				850FC5281C453F7700E1F75D /* ViewController.swift in Sources */,
+				850FC5261C453F7700E1F75D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +368,25 @@
 			targetProxy = 850FC5111C453F5200E1F75D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		850FC5291C453F7800E1F75D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				850FC52A1C453F7800E1F75D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		850FC52E1C453F7800E1F75D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				850FC52F1C453F7800E1F75D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		850FC5171C453F5200E1F75D /* Debug */ = {
@@ -307,7 +480,9 @@
 		};
 		850FC51A1C453F5200E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +493,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.SnapTagsView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		850FC51B1C453F5200E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -357,6 +535,28 @@
 			};
 			name = Release;
 		};
+		850FC5331C453F7800E1F75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snaptagsview.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		850FC5341C453F7800E1F75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snaptagsview.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,6 +576,7 @@
 				850FC51B1C453F5200E1F75D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		850FC51C1C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsViewTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +585,16 @@
 				850FC51E1C453F5200E1F75D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		850FC5321C453F7800E1F75D /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				850FC5331C453F7800E1F75D /* Debug */,
+				850FC5341C453F7800E1F75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
