@@ -25,6 +25,11 @@
 		85572C4D1C49A5A00003BE70 /* TagsSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */; };
 		85572C4E1C49A5A00003BE70 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C481C49A5A00003BE70 /* GlobalHelpers.swift */; };
 		85572C511C49A6860003BE70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85572C531C49A6860003BE70 /* Localizable.strings */; };
+		85572C561C49A8380003BE70 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85572C551C49A8380003BE70 /* DefaultImages.xcassets */; };
+		85572C591C49A90D0003BE70 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C571C49A90D0003BE70 /* ImageConstants.swift */; };
+		85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C581C49A90D0003BE70 /* LocalizedStrings.swift */; };
+		85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */; };
+		85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */; };
 		85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */; };
 		85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */; };
 		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
@@ -69,6 +74,11 @@
 		85572C481C49A5A00003BE70 /* GlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		85572C521C49A6860003BE70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85572C541C49A6B20003BE70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85572C551C49A8380003BE70 /* DefaultImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DefaultImages.xcassets; sourceTree = "<group>"; };
+		85572C571C49A90D0003BE70 /* ImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
+		85572C581C49A90D0003BE70 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+roseColor.swift"; sourceTree = "<group>"; };
+		85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDelegate.swift; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
@@ -137,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				850FC5081C453F5200E1F75D /* SnapTagsView.h */,
+				85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */,
+				85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */,
+				85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */,
 				85572C431C49A5A00003BE70 /* TagsButtonDelegate.swift */,
 				85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */,
 				85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */,
@@ -149,10 +162,12 @@
 				850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */,
 				850FC53F1C45498700E1F75D /* TagsButton.swift */,
 				85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */,
+				85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */,
+				85572C571C49A90D0003BE70 /* ImageConstants.swift */,
+				85572C581C49A90D0003BE70 /* LocalizedStrings.swift */,
 				850FC50A1C453F5200E1F75D /* Info.plist */,
-				85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */,
-				85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */,
 				85572C531C49A6860003BE70 /* Localizable.strings */,
+				85572C551C49A8380003BE70 /* DefaultImages.xcassets */,
 			);
 			path = SnapTagsView;
 			sourceTree = "<group>";
@@ -304,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85572C511C49A6860003BE70 /* Localizable.strings in Resources */,
+				85572C561C49A8380003BE70 /* DefaultImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,14 +384,18 @@
 				85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */,
 				85572C4B1C49A5A00003BE70 /* TagsBarViewDelegate.swift in Sources */,
 				85572C4D1C49A5A00003BE70 /* TagsSearchBarDelegate.swift in Sources */,
+				85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */,
 				85572C4A1C49A5A00003BE70 /* TagsBarButtonDelegate.swift in Sources */,
 				850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */,
 				85572C4E1C49A5A00003BE70 /* GlobalHelpers.swift in Sources */,
+				85572C591C49A90D0003BE70 /* ImageConstants.swift in Sources */,
 				85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */,
 				850FC5401C45498700E1F75D /* TagsButton.swift in Sources */,
+				85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */,
 				850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */,
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				85572C491C49A5A00003BE70 /* TagsButtonDelegate.swift in Sources */,
+				85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

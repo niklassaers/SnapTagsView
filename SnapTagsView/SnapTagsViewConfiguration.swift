@@ -10,10 +10,7 @@ public class SnapTagsViewConfiguration : NSObject {
     var alignment : NSTextAlignment = .Left
     
     func isValid() -> Bool {
-        var test = true
-        
-        
-        return test
+        return true
     }
     
     static func defaultConfiguration() -> SnapTagsViewConfiguration {
@@ -22,6 +19,3 @@ public class SnapTagsViewConfiguration : NSObject {
     
 }
 
-protocol SystemDelegate {
-    func logError(message: String)
-}

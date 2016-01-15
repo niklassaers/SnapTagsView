@@ -116,13 +116,13 @@ class TagsSearchBar: UIView {
         self.searchBar.text = ""
         self.searchBar.hideHourGlassIcon()
         
-        self.searchBar.placeholder = self.currentText != "" ? "" : NSLocalizedString("searchBarPlaceholder", comment:"")
+        self.searchBar.placeholder = self.currentText != "" ? "" : L10n.SearchBarPlaceholder.string
 
         self.updateTagsView()
     }
 
     func hideTagsView() {
-        self.searchBar.placeholder = NSLocalizedString("searchBarPlaceholder", comment:"")
+        self.searchBar.placeholder = L10n.SearchBarPlaceholder.string
         self.searchBar.showHourGlassIcon()
         self.searchBar.text = self.currentText
         self.tagsScrollView.hidden = true
@@ -166,7 +166,7 @@ class TagsSearchBar: UIView {
         self.searchBar.frame = self.bounds
         self.searchBar.backgroundColor = UIColor.clearColor()
         self.searchBar.delegate = self
-        self.searchBar.placeholder = NSLocalizedString("searchBarPlaceholder", comment:"")
+        self.searchBar.placeholder = L10n.SearchBarPlaceholder.string
         
         self.searchBar.tintColor = self.searchBarTintColor
         

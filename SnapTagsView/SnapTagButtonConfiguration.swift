@@ -48,34 +48,18 @@ public class SnapTagButtonConfiguration : NSObject {
     static func defaultConfiguration() -> SnapTagButtonConfiguration {
         let c = SnapTagButtonConfiguration()
         
+        c.onOffButtonImage = UIImage.Asset.CloseButton.image
+        c.backgroundImage = UIImage.Asset.RoundedButton.image
+        c.font = UIFont.boldSystemFontOfSize(13.0)
+        c.backgroundColor = UIColor.roseColor()
+        c.textColor = UIColor.whiteColor()
+        c.selectedBackgroundColor = UIColor.whiteColor()
+        c.selectedTextColor = UIColor.roseColor()
+        c.isTurnOnOffAble = true
+        
+        assert(c.isValid())
         return c
     }
 
 }
 
-/*
-func defaultConfiguration() -> SnapTagsConfiguration {
-backgroundImage = UIImage.Asset.RoundedButton.image
-    font = Theme.fontCustomMediumSize(13)
-    let conf = SnapTagsConfiguration
-    conf.onOffButtonImage = UIImage.Asset.Icon_s_close_yellow.image
-    
-    var defaultBackgroundColor = UIColor.roseColor()
-    var defaultSelectedBackgroundColor = UIColor.whiteColor()
-    var defaultTextColor = UIColor.whiteColor()
-    var defaultSelectedTextColor = UIColor.roseColor()
-
-    turnOnOffAble: Bool = false,
-    height: CGFloat = 44.0,
-    horizontalMargin: CGFloat = 10.0,
-    onOffButtonImage: UIImage,,
-    backgroundColor: UIColor = UIColor.roseColor(),
-    textColor: UIColor = UIColor.whiteColor(),
-    selectedBackgroundColor: UIColor = UIColor.whiteColor(),
-    selectedTextColor: UIColor = UIColor.roseColor()) {
-
-    assert(conf.isValid())
-    
-    
-}
-*/
