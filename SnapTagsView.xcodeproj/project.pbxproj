@@ -16,10 +16,15 @@
 		850FC52D1C453F7800E1F75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FC52C1C453F7800E1F75D /* Assets.xcassets */; };
 		850FC5301C453F7800E1F75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC52E1C453F7800E1F75D /* LaunchScreen.storyboard */; };
 		850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5371C45472D00E1F75D /* TagsView.swift */; };
-		850FC53C1C45472D00E1F75D /* TagsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5381C45472D00E1F75D /* TagsBarView.swift */; };
-		850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5391C45472D00E1F75D /* TagsBarButton.swift */; };
 		850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */; };
 		850FC5401C45498700E1F75D /* TagsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53F1C45498700E1F75D /* TagsButton.swift */; };
+		85572C491C49A5A00003BE70 /* TagsButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C431C49A5A00003BE70 /* TagsButtonDelegate.swift */; };
+		85572C4A1C49A5A00003BE70 /* TagsBarButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */; };
+		85572C4B1C49A5A00003BE70 /* TagsBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */; };
+		85572C4C1C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C461C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift */; };
+		85572C4D1C49A5A00003BE70 /* TagsSearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */; };
+		85572C4E1C49A5A00003BE70 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C481C49A5A00003BE70 /* GlobalHelpers.swift */; };
+		85572C511C49A6860003BE70 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85572C531C49A6860003BE70 /* Localizable.strings */; };
 		85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */; };
 		85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */; };
 		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
@@ -56,6 +61,14 @@
 		850FC5391C45472D00E1F75D /* TagsBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButton.swift; sourceTree = "<group>"; };
 		850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBar.swift; sourceTree = "<group>"; };
 		850FC53F1C45498700E1F75D /* TagsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsButton.swift; sourceTree = "<group>"; };
+		85572C431C49A5A00003BE70 /* TagsButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsButtonDelegate.swift; sourceTree = "<group>"; };
+		85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButtonDelegate.swift; sourceTree = "<group>"; };
+		85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarViewDelegate.swift; sourceTree = "<group>"; };
+		85572C461C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchAutocompleteViewDelegate.swift; sourceTree = "<group>"; };
+		85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBarDelegate.swift; sourceTree = "<group>"; };
+		85572C481C49A5A00003BE70 /* GlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
+		85572C521C49A6860003BE70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		85572C541C49A6B20003BE70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
@@ -124,6 +137,12 @@
 			isa = PBXGroup;
 			children = (
 				850FC5081C453F5200E1F75D /* SnapTagsView.h */,
+				85572C431C49A5A00003BE70 /* TagsButtonDelegate.swift */,
+				85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */,
+				85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */,
+				85572C461C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift */,
+				85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */,
+				85572C481C49A5A00003BE70 /* GlobalHelpers.swift */,
 				850FC5371C45472D00E1F75D /* TagsView.swift */,
 				850FC5381C45472D00E1F75D /* TagsBarView.swift */,
 				850FC5391C45472D00E1F75D /* TagsBarButton.swift */,
@@ -133,6 +152,7 @@
 				850FC50A1C453F5200E1F75D /* Info.plist */,
 				85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */,
 				85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */,
+				85572C531C49A6860003BE70 /* Localizable.strings */,
 			);
 			path = SnapTagsView;
 			sourceTree = "<group>";
@@ -283,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85572C511C49A6860003BE70 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,14 +364,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85572C4C1C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift in Sources */,
 				85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */,
+				85572C4B1C49A5A00003BE70 /* TagsBarViewDelegate.swift in Sources */,
+				85572C4D1C49A5A00003BE70 /* TagsSearchBarDelegate.swift in Sources */,
+				85572C4A1C49A5A00003BE70 /* TagsBarButtonDelegate.swift in Sources */,
 				850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */,
+				85572C4E1C49A5A00003BE70 /* GlobalHelpers.swift in Sources */,
 				85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */,
 				850FC5401C45498700E1F75D /* TagsButton.swift in Sources */,
 				850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */,
-				850FC53C1C45472D00E1F75D /* TagsBarView.swift in Sources */,
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
-				850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */,
+				85572C491C49A5A00003BE70 /* TagsButtonDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +421,15 @@
 				850FC52F1C453F7800E1F75D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		85572C531C49A6860003BE70 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85572C521C49A6860003BE70 /* Base */,
+				85572C541C49A6B20003BE70 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

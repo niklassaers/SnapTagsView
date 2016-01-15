@@ -1,0 +1,9 @@
+/* Localizable.strings
+  SnapTagsView
+
+  Created by Niklas Saers on 15/01/16.
+  Copyright © 2016 Snapsale. All rights reserved. */
+
+/* Placeholder text */
+"searchBarPlaceholder" = "Search";
+

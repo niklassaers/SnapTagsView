@@ -1,18 +1,5 @@
 import UIKit
 
-@objc protocol TagsButtonDelegate : class {
-    func tagButtonTapped(tag: String)
-    
-    optional func tagButtonTurnedOn(tag: String)
-    optional func tagButtonTurnedOff(tag: String)
-}
-
-//extension UIColor {
-//    static func roseColor() -> UIColor {
-//        return UIColor(red: 1.0, green: 0.0, blue: 88.0/255.0, alpha: 1.0)
-//    }
-//}
-
 public class TagsButton: UIView {
     
     var config : SnapTagButtonConfiguration!
@@ -30,11 +17,11 @@ public class TagsButton: UIView {
         tag: String,
         config: SnapTagButtonConfiguration) {
 
+            self.init(frame: CGRectMake(0.0, 0.0, 100.0, config.height))
+
             self.config = config
             self.title = tag
 
-            self.init(frame: CGRectMake(0.0, 0.0, 100.0, config.height))
-            
             self.commonInit()
     }
     

@@ -25,6 +25,13 @@ public class SnapTagButtonConfiguration : NSObject {
         super.init()
     }
     
+    convenience init(viewConfig: SnapTagsViewConfiguration) {
+        self.init()
+        
+        horizontalMargin = viewConfig.horizontalMargin
+        height = viewConfig.height
+    }
+    
     func isValid() -> Bool {
         var test = true
         
@@ -38,6 +45,12 @@ public class SnapTagButtonConfiguration : NSObject {
         return test
     }
     
+    static func defaultConfiguration() -> SnapTagButtonConfiguration {
+        let c = SnapTagButtonConfiguration()
+        
+        return c
+    }
+
 }
 
 /*

@@ -1,14 +1,5 @@
 import UIKit
 
-protocol TagsSearchBarDelegate {
-    func tagSearch(changed: String, active: Bool)
-    func tagSearchBegin()
-    func tagSearchEnd(text: String) //also called when stuff is added while not active
-}
-
-protocol TagsSearchAutocompleteViewDelegate {
-    func tagAutocompleteSetQuery(text: String)
-}
 
 class TagsSearchBar: UIView {
 
@@ -16,9 +7,14 @@ class TagsSearchBar: UIView {
     let tagsScrollView = UIScrollView()
     let tagsView = TagsView()
     
+    var tagsViewConfig : SnapTagsViewConfiguration!
+    var tagButtonConfig : SnapTagButtonConfiguration!
+    
     var currentText = ""
     
     var tagdelegate: TagsSearchBarDelegate?
+    
+    var searchBarTintColor = UIColor.yellowColor() //UIColor.roseColor()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -39,7 +35,24 @@ class TagsSearchBar: UIView {
         self.backgroundColor = UIColor.clearColor()
         self.addSubview(self.searchBar)
         self.configureSearchBar()
+        
+        self.tagButtonConfig = setupTagButtonConfiguration()
+        self.tagsViewConfig = setupTagsViewConfiguration()
+        
+        assert(self.tagButtonConfig.isValid())
+        assert(self.tagsViewConfig.isValid())
+
         self.configureTagsViewAsSubviewOf(self.searchBar)
+    }
+    
+    func setupTagButtonConfiguration() -> SnapTagButtonConfiguration {
+        // Please override me in a subclass
+        return SnapTagButtonConfiguration.defaultConfiguration()
+    }
+    
+    func setupTagsViewConfiguration() -> SnapTagsViewConfiguration {
+        // Please override me in a subclass
+        return SnapTagsViewConfiguration.defaultConfiguration()
     }
     
     func setScrollViewFrameToView(view: UIView) -> CGRect {
@@ -56,7 +69,7 @@ class TagsSearchBar: UIView {
     
     func configureTagsViewAsSubviewOf(view: UIView) {
         
-        let scrollViewFrame = setScrollViewFrameToView(view)
+//        let scrollViewFrame = setScrollViewFrameToView(view)
         
         self.tagsScrollView.backgroundColor = UIColor.clearColor()
         view.addSubview(self.tagsScrollView)
@@ -65,10 +78,10 @@ class TagsSearchBar: UIView {
         self.tagsScrollView.showsVerticalScrollIndicator = false
         self.tagsScrollView.scrollEnabled = true
         
-        self.tagsView.defaultHorizontalMargin = 2.0 as CGFloat
-        self.tagsView.defaultVerticalMargin = 0.0 as CGFloat
-        self.tagsView.defaultSpacing = 5.0 as CGFloat
-        self.tagsView.defaultHeight = scrollViewFrame.size.height
+//        self.tagsView.defaultHorizontalMargin = 2.0 as CGFloat
+//        self.tagsView.defaultVerticalMargin = 0.0 as CGFloat
+//        self.tagsView.defaultSpacing = 5.0 as CGFloat
+//        self.tagsView.defaultHeight = scrollViewFrame.size.height
         
         self.tagsScrollView.addSubview(self.tagsView)
         self.tagsView.delegate = self
@@ -132,7 +145,6 @@ class TagsSearchBar: UIView {
             return
         }
         
-        self.tagsView.alignment = .Left
         self.tagsView.boundsForDeterminingWidth = self.tagsView.bounds
         let tagsViewSize = self.tagsView.populateTagViewWithTagsAndDetermineHeight(tags, turnOnOffAble: true, horizontalMargin: 5)
         frame.size = tagsViewSize
@@ -143,7 +155,7 @@ class TagsSearchBar: UIView {
         self.tagsScrollView.contentSize = frame.size
         
         let scrollX = fmax(0, self.tagsScrollView.contentSize.width - self.tagsScrollView.bounds.width)
-        dispatchOnMainAfter(0.2) {
+        dispatchOnMainAfter(0.2) { // This really isn't the best of ideas, please rewrite while keeping the code working
             self.tagsScrollView.setContentOffset(CGPoint(x: scrollX, y: 0), animated: true)
         }
     }
@@ -156,7 +168,7 @@ class TagsSearchBar: UIView {
         self.searchBar.delegate = self
         self.searchBar.placeholder = NSLocalizedString("searchBarPlaceholder", comment:"")
         
-        self.searchBar.tintColor = UIColor.roseColor()
+        self.searchBar.tintColor = self.searchBarTintColor
         
         self.searchBar.autocapitalizationType = UITextAutocapitalizationType.None
         
@@ -174,7 +186,6 @@ class TagsSearchBar: UIView {
     func search(text: String) {
         self.searchBar.text = text.lowercaseString
         self.currentText = text.lowercaseString
-//        self.updateTagsView()
         self.tagdelegate?.tagSearch(text, active: self.searchBar.isFirstResponder())
         self.showTagsView()
 
@@ -276,8 +287,6 @@ extension TagsSearchBar : UISearchBarDelegate {
 extension TagsSearchBar : TagsButtonDelegate {
 
     func tagButtonTapped(tag: String) {
-//        Navigator2Context.getContext().showSearchWithQuery(tag)
-        
         self.tagButtonTurnedOff(tag)
     }
     
@@ -287,12 +296,9 @@ extension TagsSearchBar : TagsButtonDelegate {
             return element != tag
         }
         self.currentText = tags.joinWithSeparator(" ")
-        //self.updateTagsView()
         
         self.search(self.currentText)
     }
 
 }
-
-
 
