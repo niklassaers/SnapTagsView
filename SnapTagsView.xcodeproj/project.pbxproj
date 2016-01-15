@@ -20,6 +20,9 @@
 		850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5391C45472D00E1F75D /* TagsBarButton.swift */; };
 		850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */; };
 		850FC5401C45498700E1F75D /* TagsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC53F1C45498700E1F75D /* TagsButton.swift */; };
+		85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */; };
+		85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */; };
+		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
 		C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,9 @@
 		850FC5391C45472D00E1F75D /* TagsBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButton.swift; sourceTree = "<group>"; };
 		850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBar.swift; sourceTree = "<group>"; };
 		850FC53F1C45498700E1F75D /* TagsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsButton.swift; sourceTree = "<group>"; };
+		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
+		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
+		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
 		AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.release.xcconfig"; sourceTree = "<group>"; };
 		ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +129,10 @@
 				850FC5391C45472D00E1F75D /* TagsBarButton.swift */,
 				850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */,
 				850FC53F1C45498700E1F75D /* TagsButton.swift */,
+				85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */,
 				850FC50A1C453F5200E1F75D /* Info.plist */,
+				85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */,
+				85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */,
 			);
 			path = SnapTagsView;
 			sourceTree = "<group>";
@@ -334,10 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */,
 				850FC53E1C45472D00E1F75D /* TagsSearchBar.swift in Sources */,
+				85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */,
 				850FC5401C45498700E1F75D /* TagsButton.swift in Sources */,
 				850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */,
 				850FC53C1C45472D00E1F75D /* TagsBarView.swift in Sources */,
+				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				850FC53D1C45472D00E1F75D /* TagsBarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,3 +2,4 @@ Pods
 Podfile.lock
 SnapTagsView.xcodeproj/project.xcworkspace/xcuserdata
 SnapTagsView.xcodeproj/xcuserdata/niklas.xcuserdatad/xcschemes
+.DS_Store
