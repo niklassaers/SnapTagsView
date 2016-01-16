@@ -146,7 +146,7 @@ class TagsSearchBar: UIView {
         }
         
         self.tagsView.boundsForDeterminingWidth = self.tagsView.bounds
-        let tagsViewSize = self.tagsView.populateTagViewWithTagsAndDetermineHeight(tags, turnOnOffAble: true, horizontalMargin: 5)
+        let tagsViewSize = self.tagsView.populateTagViewWithTagsAndDetermineHeight(tags/*, turnOnOffAble: true, horizontalMargin: 5*/)
         frame.size = tagsViewSize
         frame.origin.x = 0
         frame.size.width += 50.0 // 50.0 as CGFloat // so the user has something to tap on

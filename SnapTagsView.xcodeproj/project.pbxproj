@@ -33,11 +33,20 @@
 		85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */; };
 		85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */; };
 		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
+		85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
+		85D9BA381C4AC7B000B18895 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85572C551C49A8380003BE70 /* DefaultImages.xcassets */; };
 		C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		850FC5111C453F5200E1F75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 850FC4FC1C453F5200E1F75D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 850FC5041C453F5200E1F75D;
+			remoteInfo = SnapTagsView;
+		};
+		85D9BA351C4A3EEC00B18895 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 850FC4FC1C453F5200E1F75D /* Project object */;
 			proxyType = 1;
@@ -107,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +276,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				85D9BA361C4A3EEC00B18895 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -335,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				850FC5301C453F7800E1F75D /* LaunchScreen.storyboard in Resources */,
+				85D9BA381C4AC7B000B18895 /* DefaultImages.xcassets in Resources */,
 				850FC52D1C453F7800E1F75D /* Assets.xcassets in Resources */,
 				850FC52B1C453F7800E1F75D /* Main.storyboard in Resources */,
 			);
@@ -423,6 +435,11 @@
 			isa = PBXTargetDependency;
 			target = 850FC5041C453F5200E1F75D /* SnapTagsView */;
 			targetProxy = 850FC5111C453F5200E1F75D /* PBXContainerItemProxy */;
+		};
+		85D9BA361C4A3EEC00B18895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 850FC5041C453F5200E1F75D /* SnapTagsView */;
+			targetProxy = 85D9BA351C4A3EEC00B18895 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

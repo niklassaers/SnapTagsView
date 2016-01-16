@@ -13,7 +13,7 @@ public class SnapTagsViewConfiguration : NSObject {
         return true
     }
     
-    static func defaultConfiguration() -> SnapTagsViewConfiguration {
+    public static func defaultConfiguration() -> SnapTagsViewConfiguration {
         return SnapTagsViewConfiguration()
     }
     

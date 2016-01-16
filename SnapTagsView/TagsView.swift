@@ -98,7 +98,7 @@ public class TagsView: UIView {
         }
     }
     
-    public func populateTagViewWithTagsAndDetermineHeight(tags: [String], turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0) -> CGSize {
+    public func populateTagViewWithTagsAndDetermineHeight(tags: [String]) -> CGSize { // , turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0)
         
         self.userInteractionEnabled = true
         self.translatesAutoresizingMaskIntoConstraints = false

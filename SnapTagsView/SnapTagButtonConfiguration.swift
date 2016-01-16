@@ -45,7 +45,7 @@ public class SnapTagButtonConfiguration : NSObject {
         return test
     }
     
-    static func defaultConfiguration() -> SnapTagButtonConfiguration {
+    public static func defaultConfiguration() -> SnapTagButtonConfiguration {
         let c = SnapTagButtonConfiguration()
         
         c.onOffButtonImage = UIImage.Asset.CloseButton.image
