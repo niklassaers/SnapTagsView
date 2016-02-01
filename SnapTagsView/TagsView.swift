@@ -4,25 +4,23 @@ import NSLayoutConstraint_ExpressionFormat
 
 public class TagsView: UIView {
 
+    var config : SnapTagsViewConfiguration!
+    var buttonConfig : SnapTagButtonConfiguration!
+    
+    var systemDelegate : SystemDelegate?
+    
     var delegate: TagsButtonDelegate?
-    var defaultHorizontalMargin = 5.0 as CGFloat
-    var defaultVerticalMargin = 5.0 as CGFloat
-    var defaultSpacing = 5.0 as CGFloat
-    var defaultHeight = 30.0 as CGFloat
+    
     var boundsForDeterminingWidth : CGRect?
-    
-    var alignment : NSTextAlignment = .Left
-    
-    public lazy var tagBackgroundColor = UIColor.roseColor()
-    public lazy var tagTextColor = UIColor.whiteColor()
-    public lazy var onOffButtonImage = UIImage.Asset.Icon_s_close_yellow.image
-    
-    public lazy var defaultSelectedBackgroundColor = UIColor.whiteColor()
-    public lazy var defaultSelectedTextColor = UIColor.roseColor()
 
     var backgroundImagesForState : [UInt : UIImage] = [:]
     
     var verticalStackView : OAStackView?
+    
+    public func setViewConfig(viewConfig: SnapTagsViewConfiguration, buttonConfig: SnapTagButtonConfiguration) {
+        self.config = viewConfig
+        self.buttonConfig = buttonConfig
+    }
     
     public func setBackgroundImage(image: UIImage, forState state: UIControlState) {
         self.backgroundImagesForState[state.rawValue] = image
@@ -34,12 +32,12 @@ public class TagsView: UIView {
         self.addSubview(stack)
         stack.axis = .Vertical
         stack.alignment = .Center
-        stack.spacing = self.defaultSpacing
+        stack.spacing = config.spacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         
         let hConstraints = "H:|-(hMargin)-[stack]-(hMargin)-|"
         let vConstraints = "V:|-(vMargin)-[stack]-(vMargin)-|"
-        let metrics = ["hMargin": self.defaultHorizontalMargin, "vMargin": self.defaultVerticalMargin]
+        let metrics = ["hMargin": config.horizontalMargin, "vMargin": config.verticalMargin]
         let views = ["stack": stack]
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(hConstraints, options: [], metrics: metrics, views: views))
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(vConstraints, options: [], metrics: metrics, views: views))
@@ -51,20 +49,18 @@ public class TagsView: UIView {
         
         let stack = OAStackView()
         stack.axis = .Horizontal
-        stack.spacing = self.defaultSpacing
+        stack.spacing = config.spacing
         
         
-        if self.alignment == .Center {
+        if config.alignment == .Center {
             stack.alignment = .Center
             stack.distribution = .EqualCentering
-        } else if self.alignment == .Left {
-//            stack.alignment = .Leading
-//            stack.distribution = .Fill
+        } else if config.alignment == .Left {
         }
         
         stack.translatesAutoresizingMaskIntoConstraints = false
         
-        if self.alignment == .Center || self.alignment == .Right {
+        if config.alignment == .Center || config.alignment == .Right {
             stack.addArrangedSubview(spacerView())
         }
 
@@ -80,14 +76,14 @@ public class TagsView: UIView {
     }
     
     internal func terminateHorizontalStackView(stack: OAStackView) {
-        if self.alignment == .Center {
+        if config.alignment == .Center {
             let lastSpacer = self.spacerView()
             stack.addArrangedSubview(lastSpacer)
             
             let firstSpacer = stack.arrangedSubviews.first!
             stack.addConstraint(NSLayoutConstraint(expressionFormat: "lastSpacer.width = firstSpacer.width", parameters: ["firstSpacer": firstSpacer, "lastSpacer": lastSpacer]))
             
-        } else if self.alignment == .Left {
+        } else if config.alignment == .Left {
             guard let firstButton = stack.arrangedSubviews.first else {
                 return
             }
@@ -102,7 +98,7 @@ public class TagsView: UIView {
         }
     }
     
-    public func populateTagViewWithTagsAndDetermineHeight(tags: [String], turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0) -> CGSize {
+    public func populateTagViewWithTagsAndDetermineHeight(tags: [String]) -> CGSize { // , turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0)
         
         self.userInteractionEnabled = true
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -113,7 +109,7 @@ public class TagsView: UIView {
         
         self.verticalStackView = createVerticalStackView()
         
-        var currentPosition = CGPointMake(self.defaultHorizontalMargin, self.defaultVerticalMargin)
+        var currentPosition = CGPointMake(config.horizontalMargin, config.verticalMargin)
         var lastButton : TagsButton?
         var boundsForDeterminingWidth : CGRect! = self.boundsForDeterminingWidth
         if boundsForDeterminingWidth == nil {
@@ -121,7 +117,7 @@ public class TagsView: UIView {
         }
         
         if boundsForDeterminingWidth == nil {
-            System.logError("TagsView: Could not get tagsview parent view. This is bad!")
+            self.systemDelegate?.logError("TagsView: Could not get tagsview parent view. This is bad!")
             return CGSizeMake(0, 40.0)
         }
         
@@ -129,18 +125,22 @@ public class TagsView: UIView {
         
         var hStack = createHorizontalStackView()
         
+        
+        
         for tag in tags {
             let button = TagsButton(
                 tag: tag,
-                turnOnOffAble: turnOnOffAble,
-                height: self.defaultHeight,
-                horizontalMargin: horizontalMargin,
-                onOffButtonImage: self.onOffButtonImage,
-                backgroundColor: self.tagBackgroundColor,
-                textColor: self.tagTextColor,
-                selectedBackgroundColor: self.defaultSelectedBackgroundColor,
-                selectedTextColor: self.defaultSelectedTextColor
-            )
+                config: buttonConfig)
+            
+//                turnOnOffAble: turnOnOffAble,
+//                height: config.height,
+//                horizontalMargin: horizontalMargin,
+//                onOffButtonImage: self.onOffButtonImage,
+//                backgroundColor: self.tagBackgroundColor,
+//                textColor: self.tagTextColor,
+//                selectedBackgroundColor: self.defaultSelectedBackgroundColor,
+//                selectedTextColor: self.defaultSelectedTextColor
+//            )
             //button.translatesAutoresizingMaskIntoConstraints = false
             
             for (state, image) in self.backgroundImagesForState {
@@ -158,9 +158,9 @@ public class TagsView: UIView {
                 }
             }
             
-            button.setTagBackgroundColor(self.tagBackgroundColor)
-            button.setTagTextColor(self.tagTextColor)
-            button.delegate = self
+//            button.setTagBackgroundColor(self.tagBackgroundColor)
+//            button.setTagTextColor(self.tagTextColor)
+//            button.delegate = self
             button.userInteractionEnabled = true
             
             button.addConstraint(NSLayoutConstraint(expressionFormat: "button.height = \(button.frame.size.height)", parameters: ["button": button]))
@@ -172,7 +172,7 @@ public class TagsView: UIView {
                 button.frame.origin = CGPointZero
                 hStack.addArrangedSubview(button)
                 
-                currentPosition.x += button.frame.size.width + self.defaultSpacing
+                currentPosition.x += button.frame.size.width + config.spacing
 
             } else {
                 button.frame.origin = CGPointZero
@@ -181,8 +181,8 @@ public class TagsView: UIView {
                 hStack = createHorizontalStackView()
                 hStack.addArrangedSubview(button)
 
-                currentPosition = CGPointMake(self.defaultHorizontalMargin, currentPosition.y + button.frame.size.height + self.defaultVerticalMargin)
-                currentPosition.x += button.frame.size.width + self.defaultSpacing
+                currentPosition = CGPointMake(config.horizontalMargin, currentPosition.y + button.frame.size.height + config.verticalMargin)
+                currentPosition.x += button.frame.size.width + config.spacing
             }
             lastButton = button
         }
@@ -191,10 +191,10 @@ public class TagsView: UIView {
         self.verticalStackView?.addArrangedSubview(hStack)
 
         if let lastButton = lastButton {
-            self.bounds.size = CGSizeMake(self.bounds.size.width, currentPosition.y + lastButton.frame.size.height + self.defaultHorizontalMargin)
+            self.bounds.size = CGSizeMake(self.bounds.size.width, currentPosition.y + lastButton.frame.size.height + config.horizontalMargin)
             self.setNeedsLayout()
             self.layoutIfNeeded()
-            return CGSizeMake(currentPosition.x - self.defaultSpacing ,  self.bounds.size.height)
+            return CGSizeMake(currentPosition.x - config.spacing ,  self.bounds.size.height)
         } else {
             return CGSizeMake(0, 40.0)
         }

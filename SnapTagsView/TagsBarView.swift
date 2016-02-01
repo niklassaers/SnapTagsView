@@ -1,9 +1,5 @@
 import UIKit
 
-protocol TagsBarViewDelegate {
-    func tagBar(selected: String)
-}
-
 class TagsBarView: UIScrollView , TagsBarButtonDelegate{
     
     private var tags:[String] = []

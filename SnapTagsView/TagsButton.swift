@@ -1,35 +1,13 @@
 import UIKit
 
-@objc protocol TagsButtonDelegate : class {
-    func tagButtonTapped(tag: String)
-    
-    optional func tagButtonTurnedOn(tag: String)
-    optional func tagButtonTurnedOff(tag: String)
-}
-
-extension UIColor {
-    static func roseColor() -> UIColor {
-        return UIColor(red: 1.0, green: 0.0, blue: 88.0/255.0, alpha: 1.0)
-    }
-}
-
 public class TagsButton: UIView {
+    
+    var config : SnapTagButtonConfiguration!
     
     var title: String?
     
     var selectButton: UIButton?
     var onOffButton: UIButton?
-    
-    var delegate: TagsButtonDelegate?
-    
-    public var turnOnOffAble: Bool?
-    
-    var defaultHorizontalMargin = 10.0 as CGFloat
-    
-    lazy var defaultBackgroundColor = UIColor.roseColor()
-    lazy var defaultSelectedBackgroundColor = UIColor.whiteColor()
-    lazy var defaultTextColor = UIColor.whiteColor()
-    lazy var defaultSelectedTextColor = UIColor.roseColor()
     
     internal var isSelected : Bool = true
     
@@ -37,25 +15,13 @@ public class TagsButton: UIView {
     
     public convenience init (
         tag: String,
-        turnOnOffAble: Bool = false,
-        height: CGFloat = 44.0,
-        horizontalMargin: CGFloat = 10.0,
-        onOffButtonImage: UIImage = UIImage.Asset.Icon_s_close_yellow.image,
-        backgroundColor: UIColor = UIColor.roseColor(),
-        textColor: UIColor = UIColor.whiteColor(),
-        selectedBackgroundColor: UIColor = UIColor.whiteColor(),
-        selectedTextColor: UIColor = UIColor.roseColor()) {
+        config: SnapTagButtonConfiguration) {
 
-            self.init(frame: CGRectMake(0.0, 0.0, 100.0, height))
+            self.init(frame: CGRectMake(0.0, 0.0, 100.0, config.height))
+
+            self.config = config
             self.title = tag
-            self.turnOnOffAble = turnOnOffAble
-            self.defaultHorizontalMargin = horizontalMargin
-            self.onOffButtonImage = onOffButtonImage
-            self.defaultBackgroundColor = backgroundColor
-            self.defaultTextColor = textColor
-            self.defaultSelectedBackgroundColor = selectedBackgroundColor
-            self.defaultSelectedTextColor = selectedTextColor
-            
+
             self.commonInit()
     }
     
@@ -80,14 +46,14 @@ public class TagsButton: UIView {
         
         self.addSubview(self.selectButton!)
         
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = config.cornerRadius
         
-        let margin = self.defaultHorizontalMargin
+        let margin = config.horizontalMargin
         
-        self.selectButton?.titleLabel?.font = Theme.fontCustomMediumSize(13)
+        self.selectButton?.titleLabel?.font = config.font
         self.selectButton?.setTitle(self.title!.uppercaseString, forState: UIControlState.Normal)
-        self.selectButton?.backgroundColor = self.defaultBackgroundColor
-        self.selectButton?.setTitleColor(self.defaultTextColor, forState: UIControlState.Normal)
+        self.selectButton?.backgroundColor = config.backgroundColor
+        self.selectButton?.setTitleColor(config.textColor, forState: UIControlState.Normal)
         
         self.selectButton?.sizeToFit()
         let textWidth = self.selectButton!.frame.size.width
@@ -103,10 +69,8 @@ public class TagsButton: UIView {
         self.selectButton?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         self.selectButton?.addTarget(self, action: "selectAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        if let turnOnOffAble = self.turnOnOffAble {
-            if turnOnOffAble {
-                self.setupOnOffButton()
-            }
+        if  config.isTurnOnOffAble {
+            self.setupOnOffButton()
         }
     }
 
@@ -115,7 +79,7 @@ public class TagsButton: UIView {
             return
         }
         
-        let onOffButtonSize = 24.0 as CGFloat
+        let onOffButtonSize = config.onOffButtonImage.size.height
         
         selectButton.contentHorizontalAlignment = .Left
         selectButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
@@ -154,22 +118,22 @@ public class TagsButton: UIView {
         self.isSelected = selected
         // self.selectButton?.selected = selected
         if selected {
-            self.selectButton?.backgroundColor = self.defaultSelectedBackgroundColor
+            self.selectButton?.backgroundColor = config.selectedBackgroundColor
             self.selectButton?.setBackgroundImage(nil, forState: .Normal)
-            self.selectButton?.setTitleColor(self.defaultSelectedTextColor, forState: UIControlState.Normal)
+            self.selectButton?.setTitleColor(config.selectedTextColor, forState: UIControlState.Normal)
         } else {
-            self.selectButton?.backgroundColor = self.defaultBackgroundColor
-            self.selectButton?.setBackgroundImage(UIImage.Asset.RoundedButton.image, forState: .Normal)
-            self.selectButton?.setTitleColor(self.defaultTextColor, forState: UIControlState.Normal)
+            self.selectButton?.backgroundColor = config.backgroundColor
+            self.selectButton?.setBackgroundImage(config.backgroundImage, forState: .Normal)
+            self.selectButton?.setTitleColor(config.textColor, forState: UIControlState.Normal)
         }
     }
 
     func selectAction(sender: AnyObject?) {
-        self.delegate?.tagButtonTapped(self.title ?? "")
+        config.delegate?.tagButtonTapped(self.title ?? "")
     }
     
     func onOffButtonAction(sender: UIButton) {
-        if let delegate = self.delegate {
+        if let delegate = config.delegate {
             if self.selected() {
                 delegate.tagButtonTurnedOff?(self.title ?? "")
             } else {

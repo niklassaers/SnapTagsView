@@ -1,9 +1,5 @@
 import UIKit
 
-protocol TagsBarButtonDelegate {
-    func tagBarButton(tag: String)
-}
-
 public class TagsBarButton: UIView {
 
     var text: String?
