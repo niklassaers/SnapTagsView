@@ -3,15 +3,15 @@
 import Foundation
 import UIKit
 
-extension UIImage {
-  enum Asset : String {
+public extension UIImage {
+  public enum Asset : String {
     case RedCloseButton = "RedCloseButton"
     case RoundedButton = "RoundedButton"
     case RoundedButton_WhiteWithGreyBorder = "RoundedButton_WhiteWithGreyBorder"
     case RoundedButtonFilled = "RoundedButtonFilled"
     case YellowCloseButton = "YellowCloseButton"
 
-    var image: UIImage {
+    public var image: UIImage {
       return UIImage(asset: self)
     }
   }

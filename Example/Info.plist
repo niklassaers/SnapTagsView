@@ -25,10 +25,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>GothamRnd-Bold.otf</string>
-		<string>GothamRnd-BoldItal.otf</string>
+		<string>GothamRnd-BoldIta.otf</string>
 		<string>GothamRnd-Book.otf</string>
-		<string>GothamRnd-BookItal.otf</string>
-		<string>GothamRnd-MedItal.otf</string>
+		<string>GothamRnd-BookIta.otf</string>
+		<string>GothamRnd-MedIta.otf</string>
 		<string>GothamRnd-Medium.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

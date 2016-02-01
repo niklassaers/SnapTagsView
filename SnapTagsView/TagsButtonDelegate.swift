@@ -1,6 +1,6 @@
 import Foundation
 
-@objc protocol TagsButtonDelegate : class {
+@objc public protocol TagsButtonDelegate : class {
     func tagButtonTapped(tag: String)
     
     optional func tagButtonTurnedOn(tag: String)

@@ -2,37 +2,40 @@ import Foundation
 
 public class SnapTagButtonConfiguration : NSObject {
     
-    var font : UIFont!
+    public var font : UIFont!
     
-    var backgroundImage : UIImage!
+    public var onBackgroundImage : UIImage!
+    public var offBackgroundImage : UIImage!
     
-    var backgroundColor : UIColor!
-    var textColor : UIColor!
-    var selectedBackgroundColor : UIColor!
-    var selectedTextColor : UIColor!
+    public var backgroundColor : UIColor!
+    public var textColor : UIColor!
+    public var selectedBackgroundColor : UIColor!
+    public var selectedTextColor : UIColor!
     
-    var delegate: TagsButtonDelegate?
+    public var delegate: TagsButtonDelegate?
     
-    var isTurnOnOffAble: Bool = false
+    public var isTurnOnOffAble: Bool = false
     
-    var horizontalMargin : CGFloat = 10.0
-    var height : CGFloat = 44.0
-    var cornerRadius : CGFloat = 5.0
+    public var horizontalMargin : CGFloat = 10.0
+    public var height : CGFloat = 44.0
+    public var cornerRadius : CGFloat = 5.0
     
-    var onOffButtonImage : UIImage!
+    public var onOffButtonImage : OnOffButtonConfiguration!
     
-    override init() {
+    public override init() {
         super.init()
+        
+        onOffButtonImage = OnOffButtonConfiguration()
     }
     
-    convenience init(viewConfig: SnapTagsViewConfiguration) {
+    public convenience init(viewConfig: SnapTagsViewConfiguration) {
         self.init()
         
         horizontalMargin = viewConfig.horizontalMargin
         height = viewConfig.height
     }
     
-    func isValid() -> Bool {
+    public func isValid() -> Bool {
         var test = true
         
         test = test && font != nil
@@ -40,7 +43,7 @@ public class SnapTagButtonConfiguration : NSObject {
         test = test && textColor != nil
         test = test && selectedBackgroundColor != nil
         test = test && selectedTextColor != nil
-        test = test && onOffButtonImage != nil
+        test = test && onOffButtonImage != nil && onOffButtonImage.isValid()
         
         return test
     }
@@ -48,8 +51,11 @@ public class SnapTagButtonConfiguration : NSObject {
     public static func defaultConfiguration() -> SnapTagButtonConfiguration {
         let c = SnapTagButtonConfiguration()
         
-        c.onOffButtonImage = UIImage.Asset.YellowCloseButton.image
-        c.backgroundImage = UIImage.Asset.RoundedButton.image
+        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
+        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
+        
+        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        c.offBackgroundImage = UIImage.Asset.RoundedButton.image
         c.font = UIFont.boldSystemFontOfSize(13.0)
         c.backgroundColor = UIColor.roseColor()
         c.textColor = UIColor.whiteColor()

@@ -1,37 +1,37 @@
 import Foundation
 
 enum GothamRnd : String {
-    case Bold = "GothamRnd-Bold"
-    case BoldItalic = "GothamRnd-BoldIta"
-    case Book = "GothamRnd-Book"
-    case BookItalic = "GothamRnd-BookIta"
-    case Medium = "GothamRnd-Medium"
-    case MediumItalic = "GothamRnd-MedIta"
+    case Bold = "GothamRounded-Bold"
+    case BoldItalic = "GothamRounded-BoldItalic"
+    case Book = "GothamRounded-Book"
+    case BookItalic = "GothamRounded-BookItalic"
+    case Medium = "GothamRounded-Medium"
+    case MediumItalic = "GothamRounded-MediumItalic"
 }
 
-extension UIFont {
+public extension UIFont {
     
-    static func boldWithSize(size: CGFloat) -> UIFont {
+    public static func boldWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Bold.rawValue, size: size)!
     }
     
-    static func boldItalicWithSize(size: CGFloat) -> UIFont {
+    public static func boldItalicWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.BoldItalic.rawValue, size: size)!
     }
     
-    static func bookWithSize(size: CGFloat) -> UIFont {
+    public static func bookWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Book.rawValue, size: size)!
     }
     
-    static func bookItalicWithSize(size: CGFloat) -> UIFont {
+    public static func bookItalicWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.BookItalic.rawValue, size: size)!
     }
     
-    static func mediumWithSize(size: CGFloat) -> UIFont {
+    public static func mediumWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Medium.rawValue, size: size)!
     }
     
-    static func mediumItalicWithSize(size: CGFloat) -> UIFont {
+    public static func mediumItalicWithSize(size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.MediumItalic.rawValue, size: size)!
     }
     

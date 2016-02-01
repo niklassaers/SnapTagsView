@@ -219,15 +219,15 @@ public class TagsView: UIView {
 
 extension TagsView : TagsButtonDelegate {
     
-    func tagButtonTapped(tag: String) {
+    public func tagButtonTapped(tag: String) {
         self.delegate?.tagButtonTapped(tag)
     }
-    
+  public   
     func tagButtonTurnedOn(tag: String) {
         self.delegate?.tagButtonTurnedOn?(tag)
     }
     
-    func tagButtonTurnedOff(tag: String) {
+    public func tagButtonTurnedOff(tag: String) {
         self.delegate?.tagButtonTurnedOff?(tag)
     }
 

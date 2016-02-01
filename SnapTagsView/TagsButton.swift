@@ -79,7 +79,7 @@ public class TagsButton: UIView {
             return
         }
         
-        let onOffButtonSize = config.onOffButtonImage.size.height
+        let onOffButtonSize = config.onOffButtonImage.onImage.size.height
         
         selectButton.contentHorizontalAlignment = .Left
         selectButton.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
@@ -123,7 +123,7 @@ public class TagsButton: UIView {
             self.selectButton?.setTitleColor(config.selectedTextColor, forState: UIControlState.Normal)
         } else {
             self.selectButton?.backgroundColor = config.backgroundColor
-            self.selectButton?.setBackgroundImage(config.backgroundImage, forState: .Normal)
+            self.selectButton?.setBackgroundImage(config.offBackgroundImage, forState: .Normal)
             self.selectButton?.setTitleColor(config.textColor, forState: UIControlState.Normal)
         }
     }
