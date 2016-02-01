@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,69 +18,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-tm-Oxj">
-                                <rect key="frame" x="28" y="20" width="544" height="202"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-98-GYY">
+                                <rect key="frame" x="8" y="8" width="584" height="564"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQb-cn-QZ3" customClass="TagsView" customModule="SnapTagsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="544" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="sri-0O-vDf"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1k-7j-XIU" customClass="TagsView" customModule="SnapTagsView">
-                                        <rect key="frame" x="0.0" y="44" width="544" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="b1i-bL-FcA"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etq-T0-GZ8">
-                                        <rect key="frame" x="0.0" y="74" width="544" height="128"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-tm-Oxj" userLabel="Content">
+                                        <rect key="frame" x="0.0" y="180" width="544" height="204"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-Ub-eie" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="0.0" width="172" height="128"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6P-rd-8Fm" customClass="TagsView" customModule="SnapTagsView">
-                                                <rect key="frame" x="172" y="0.0" width="200" height="128"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centered collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZ3-Oo-0bd">
+                                                <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="5tO-2l-eus"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zV-j1-GDq" userLabel="Centered Tags View" customClass="TagsView" customModule="SnapTagsView">
+                                                <rect key="frame" x="0.0" y="21" width="544" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="a7K-On-3VU"/>
-                                                    <constraint firstAttribute="width" constant="200" id="wPw-74-Zal"/>
+                                                    <constraint firstAttribute="height" constant="30" id="rQU-3S-fAe"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ou-5m-Ihs" userLabel="Spacer">
-                                                <rect key="frame" x="372" y="0.0" width="172" height="128"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-pf-qOm">
+                                                <rect key="frame" x="0.0" y="51" width="544" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="tf2-d2-Yl1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLy-qV-k0I" userLabel="Left-aligned Tags view" customClass="TagsView" customModule="SnapTagsView">
+                                                <rect key="frame" x="0.0" y="72" width="544" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="hcL-2a-X2W"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchbar with tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-R9-ruz">
+                                                <rect key="frame" x="0.0" y="102" width="544" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="hLy-kX-ivX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-UB-wZe" userLabel="Search Tags view" customClass="TagsView" customModule="SnapTagsView">
+                                                <rect key="frame" x="0.0" y="123" width="544" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="lhe-qe-Rua"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagbar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZJ-Lm-4a4">
+                                                <rect key="frame" x="0.0" y="153" width="544" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="KtT-MW-akn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leD-jP-VRS" userLabel="Tagbar Tags view" customClass="TagsView" customModule="SnapTagsView">
+                                                <rect key="frame" x="0.0" y="174" width="544" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="7fg-bK-iYN"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Aic-Ub-eie" firstAttribute="height" secondItem="W6P-rd-8Fm" secondAttribute="height" id="8X7-lo-HX6"/>
-                                            <constraint firstItem="Aic-Ub-eie" firstAttribute="width" secondItem="2ou-5m-Ihs" secondAttribute="width" id="k7W-Vt-uFa"/>
-                                            <constraint firstItem="2ou-5m-Ihs" firstAttribute="height" secondItem="W6P-rd-8Fm" secondAttribute="height" id="qRb-D5-I0u"/>
-                                        </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQX-dn-3lL" userLabel="Spacer">
+                                        <rect key="frame" x="544" y="218" width="40" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="JZN-Dr-IFq"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="o1k-7j-XIU" firstAttribute="leading" secondItem="Ved-tm-Oxj" secondAttribute="leading" id="6yY-fq-wLG"/>
-                                    <constraint firstItem="eQb-cn-QZ3" firstAttribute="leading" secondItem="Ved-tm-Oxj" secondAttribute="leading" id="NGa-qx-gsN"/>
-                                    <constraint firstAttribute="trailing" secondItem="o1k-7j-XIU" secondAttribute="trailing" id="mZy-d5-Lje"/>
-                                    <constraint firstAttribute="trailing" secondItem="eQb-cn-QZ3" secondAttribute="trailing" id="z6G-w0-h3j"/>
+                                    <constraint firstAttribute="bottom" secondItem="gQX-dn-3lL" secondAttribute="bottom" constant="218" id="dkN-xk-hBo"/>
+                                    <constraint firstItem="gQX-dn-3lL" firstAttribute="top" secondItem="pEj-98-GYY" secondAttribute="top" constant="218" id="sI4-Sb-8mT"/>
                                 </constraints>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-40" minValue="-320" maxValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-uE-rS0">
+                                <rect key="frame" x="18" y="570" width="564" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tNW-Xx-9IP"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ved-tm-Oxj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="5MH-7e-C09"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ved-tm-Oxj" secondAttribute="trailing" constant="8" id="rgk-Cs-XH6"/>
-                            <constraint firstItem="Ved-tm-Oxj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="wnR-Jq-0cc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="pEj-98-GYY" secondAttribute="bottom" constant="28" id="6ic-Rh-JBd"/>
+                            <constraint firstItem="pEj-98-GYY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="BRK-ml-Bhl"/>
+                            <constraint firstItem="KYw-uE-rS0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fy7-37-A2F"/>
+                            <constraint firstItem="pEj-98-GYY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="8" id="Ivp-fW-Mdw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KYw-uE-rS0" secondAttribute="bottom" id="S0n-hA-XdQ"/>
+                            <constraint firstAttribute="trailing" secondItem="pEj-98-GYY" secondAttribute="trailing" constant="8" id="n0q-Qx-hKR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KYw-uE-rS0" secondAttribute="trailing" id="w76-M0-ebD"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="centeredTagsView" destination="W6P-rd-8Fm" id="nAP-ge-gTp"/>
-                        <outlet property="normalSizeTagsView" destination="eQb-cn-QZ3" id="nUN-Ta-uIb"/>
-                        <outlet property="reducedHeightTagsView" destination="o1k-7j-XIU" id="XoB-mB-uOm"/>
+                        <outlet property="centeredTagsView" destination="3zV-j1-GDq" id="WM0-O3-zzw"/>
+                        <outlet property="leftAlignedTagsView" destination="SLy-qV-k0I" id="2Pi-yS-MBY"/>
+                        <outlet property="searchTagsView" destination="W0E-UB-wZe" id="FzY-7O-LYo"/>
+                        <outlet property="slider" destination="KYw-uE-rS0" id="fCy-yH-S8e"/>
+                        <outlet property="spacer" destination="gQX-dn-3lL" id="FC2-Bs-Hyp"/>
+                        <outlet property="tagBarView" destination="leD-jP-VRS" id="vuD-aa-rF2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

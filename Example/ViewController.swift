@@ -3,28 +3,36 @@ import SnapTagsView
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var normalSizeTagsView: TagsView!
-    @IBOutlet weak var reducedHeightTagsView: TagsView!
-    @IBOutlet weak var centeredTagsView: TagsView!
+    @IBOutlet weak var spacer: UIView!
+    @IBOutlet weak var slider: UISlider!
     
-    var currentTag = [ 0, 0, 0 ]
+    @IBOutlet weak var centeredTagsView: TagsView!
+    @IBOutlet weak var leftAlignedTagsView: TagsView!
+    @IBOutlet weak var searchTagsView: TagsView!
+    @IBOutlet weak var tagBarView: TagsView!
+    
+    var currentTag = [ 0, 0, 0, 0 ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        normalSizeTagsView.setViewConfig(normalSizeViewConfig(), buttonConfig: normalSizeButtonConfig())
-        normalSizeTagsView.tag = 0
+        centeredTagsView.setViewConfig(centeredTagsViewConfig(), buttonConfig: centeredTagsViewButtonConfig())
+        centeredTagsView.tag = 0
         
-        reducedHeightTagsView.setViewConfig(reducedHeightViewConfig(), buttonConfig: reducedHeightButtonConfig())
-        normalSizeTagsView.tag = 1
+        leftAlignedTagsView.setViewConfig(leftAlignedTagsViewConfig(), buttonConfig: leftAlignedTagsViewButtonConfig())
+        leftAlignedTagsView.tag = 1
         
-        centeredTagsView.setViewConfig(centeredViewConfig(), buttonConfig: centeredButtonConfig())
-        normalSizeTagsView.tag = 2
+        searchTagsView.setViewConfig(searchTagsViewConfig(), buttonConfig: searchTagsViewButtonConfig())
+        leftAlignedTagsView.tag = 2
+        
+        tagBarView.setViewConfig(tagBarViewConfig(), buttonConfig: tagBarViewButtonConfig())
+        searchTagsView.tag = 3
 
         
-        let normalSize = normalSizeTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        let reducedSize = reducedHeightTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        let centeredSize = centeredTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
+        let centeredTagsViewSize = centeredTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
+        let leftAlignedTagsViewSize = leftAlignedTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
+        let searchTagsViewSize = searchTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
+        let tagBarViewSize = tagBarView.populateTagViewWithTagsAndDetermineHeight(initialTags())
         
     }
     
@@ -64,43 +72,65 @@ class ViewController: UIViewController {
         currentTag[view.tag] = (index + 1) % rest.count
         return tag
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        slider.minimumValue = Float(self.view.bounds.size.width) * -1.0
+    }
 
-    internal func normalSizeViewConfig() -> SnapTagsViewConfiguration {
+    
+    
+    internal func centeredTagsViewConfig() -> SnapTagsViewConfiguration {
         let config = SnapTagsViewConfiguration.defaultConfiguration()
 
         return config
     }
     
-    internal func normalSizeButtonConfig() -> SnapTagButtonConfiguration {
-        let config = SnapTagButtonConfiguration.defaultConfiguration()
-        
-        return config
-    }
-    
-    internal func reducedHeightViewConfig() -> SnapTagsViewConfiguration {
+    internal func leftAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
         let config = SnapTagsViewConfiguration.defaultConfiguration()
         
         return config
     }
     
-    internal func reducedHeightButtonConfig() -> SnapTagButtonConfiguration {
-        let config = SnapTagButtonConfiguration.defaultConfiguration()
-        
-        return config
-    }
-    
-    internal func centeredViewConfig() -> SnapTagsViewConfiguration {
+    internal func searchTagsViewConfig() -> SnapTagsViewConfiguration {
         let config = SnapTagsViewConfiguration.defaultConfiguration()
         
         return config
     }
     
-    internal func centeredButtonConfig() -> SnapTagButtonConfiguration {
+    internal func tagBarViewConfig() -> SnapTagsViewConfiguration {
+        let config = SnapTagsViewConfiguration.defaultConfiguration()
+        
+        return config
+    }
+    
+
+    
+    
+    internal func centeredTagsViewButtonConfig() -> SnapTagButtonConfiguration {
         let config = SnapTagButtonConfiguration.defaultConfiguration()
         
         return config
     }
     
+    internal func leftAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
+        let config = SnapTagButtonConfiguration.defaultConfiguration()
+        
+        return config
+    }
+    
+    internal func searchTagsViewButtonConfig() -> SnapTagButtonConfiguration {
+        let config = SnapTagButtonConfiguration.defaultConfiguration()
+        
+        return config
+    }
+
+    internal func tagBarViewButtonConfig() -> SnapTagButtonConfiguration {
+        let config = SnapTagButtonConfiguration.defaultConfiguration()
+        
+        return config
+    }
+
 
 }
 
