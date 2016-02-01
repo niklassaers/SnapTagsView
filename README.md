@@ -13,8 +13,19 @@ Please download Snapsale to see it in action
 
 #Design
 This module implements the following five tag designs:
-![Centered collection](Design/CenteredAlignedTagCollection@3x.png)
-![Left-aligned collection](Design/LeftAlignedTagCollection@3x.png)
-![Searchbar with tags](Design/SearchWithTags.png@3x.png)
-![Tag bar](Design/TagBar@3x.png)
 
+###Centered collection
+![Centered collection](Design/CenteredAlignedTagCollection@3x.png)
+
+###Left-aligned collection
+![Left-aligned collection](Design/LeftAlignedTagCollection@3x.png)
+
+###Searchbar with tags
+![Searchbar with tags](Design/SearchWithTags.png@3x.png)
+
+###Tagbar
+![Tagbar](Design/TagBar@3x.png)
+
+
+#Actual implementation
+...snapshots go here
