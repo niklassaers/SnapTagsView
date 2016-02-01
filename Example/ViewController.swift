@@ -4,6 +4,7 @@ import SnapTagsView
 class ViewController: UIViewController {
     
     @IBOutlet weak var spacer: UIView!
+    @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
     
     @IBOutlet weak var centeredTagsView: TagsView!
@@ -75,9 +76,14 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        slider.minimumValue = Float(self.view.bounds.size.width) * -1.0
+        slider.minimumValue = Float(self.view.bounds.size.width) * (-1.0)
+        self.sliderValueChanged(slider)
     }
 
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        spacerWidthLayoutConstraint.constant = CGFloat(sender.value) * (-1.0)
+        self.view.setNeedsLayout()
+    }
     
     
     internal func centeredTagsViewConfig() -> SnapTagsViewConfiguration {

@@ -1,36 +1,30 @@
-//
-//  SnapTagsViewTests.swift
-//  SnapTagsViewTests
-//
-//  Created by Niklas Saers on 12/01/16.
-//  Copyright © 2016 Snapsale. All rights reserved.
-//
-
 import XCTest
+import FBSnapshotTestCase
 @testable import SnapTagsView
 
-class SnapTagsViewTests: XCTestCase {
+class SnapTagsViewTests: FBSnapshotTestCase {
+    
+    var viewConfig : SnapTagsViewConfiguration!
+    var buttonConfig : SnapTagButtonConfiguration!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+        viewConfig = SnapTagsViewConfiguration.defaultConfiguration()
+        buttonConfig = SnapTagButtonConfiguration.defaultConfiguration()
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let tv = TagsView(frame: CGRectMake(0,0,320,44))
+        
+        tv.setViewConfig(viewConfig, buttonConfig: buttonConfig)
+        tv.populateTagViewWithTagsAndDetermineHeight(initialTags())
+        
+        sut = tv
+        snapshotVerifyView(sut)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    internal func initialTags() -> [String] {
+        return "Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
     }
     
 }

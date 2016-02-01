@@ -21,10 +21,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-98-GYY">
                                 <rect key="frame" x="8" y="8" width="584" height="564"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-tm-Oxj" userLabel="Content">
-                                        <rect key="frame" x="0.0" y="180" width="544" height="204"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-tm-Oxj" userLabel="Content">
+                                        <rect key="frame" x="0.0" y="155" width="544" height="254"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centered collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZ3-Oo-0bd">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centered collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZ3-Oo-0bd">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="5tO-2l-eus"/>
@@ -33,7 +33,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zV-j1-GDq" userLabel="Centered Tags View" customClass="TagsView" customModule="SnapTagsView">
+                                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zV-j1-GDq" userLabel="Centered Tags View" customClass="TagsView" customModule="SnapTagsView">
                                                 <rect key="frame" x="0.0" y="21" width="544" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -42,21 +42,21 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-pf-qOm">
                                                 <rect key="frame" x="0.0" y="51" width="544" height="21"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="tf2-d2-Yl1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLy-qV-k0I" userLabel="Left-aligned Tags view" customClass="TagsView" customModule="SnapTagsView">
                                                 <rect key="frame" x="0.0" y="72" width="544" height="30"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.81196732949999995" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="hcL-2a-X2W"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchbar with tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-R9-ruz">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchbar with tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-R9-ruz">
                                                 <rect key="frame" x="0.0" y="102" width="544" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="hLy-kX-ivX"/>
@@ -65,14 +65,14 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-UB-wZe" userLabel="Search Tags view" customClass="TagsView" customModule="SnapTagsView">
+                                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-UB-wZe" userLabel="Search Tags view" customClass="TagsView" customModule="SnapTagsView">
                                                 <rect key="frame" x="0.0" y="123" width="544" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="lhe-qe-Rua"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagbar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZJ-Lm-4a4">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagbar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZJ-Lm-4a4">
                                                 <rect key="frame" x="0.0" y="153" width="544" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="KtT-MW-akn"/>
@@ -81,18 +81,29 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leD-jP-VRS" userLabel="Tagbar Tags view" customClass="TagsView" customModule="SnapTagsView">
+                                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leD-jP-VRS" userLabel="Tagbar Tags view" customClass="TagsView" customModule="SnapTagsView">
                                                 <rect key="frame" x="0.0" y="174" width="544" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="7fg-bK-iYN"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-E8-PBv" userLabel="Spacer">
+                                                <rect key="frame" x="0.0" y="204" width="544" height="50"/>
+                                                <color key="backgroundColor" red="1" green="0.97248051530000001" blue="0.032761088110000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="PjG-oS-Noe"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pzz-E8-PBv" secondAttribute="trailing" id="0gE-Qx-p4o"/>
+                                            <constraint firstItem="pzz-E8-PBv" firstAttribute="leading" secondItem="Ved-tm-Oxj" secondAttribute="leading" id="kNu-DK-16A"/>
+                                        </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQX-dn-3lL" userLabel="Spacer">
                                         <rect key="frame" x="544" y="218" width="40" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.50633280749999998" green="1" blue="0.37879409390000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="JZN-Dr-IFq"/>
                                         </constraints>
@@ -108,6 +119,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tNW-Xx-9IP"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="JKR-jY-Zjv"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -127,6 +141,7 @@
                         <outlet property="searchTagsView" destination="W0E-UB-wZe" id="FzY-7O-LYo"/>
                         <outlet property="slider" destination="KYw-uE-rS0" id="fCy-yH-S8e"/>
                         <outlet property="spacer" destination="gQX-dn-3lL" id="FC2-Bs-Hyp"/>
+                        <outlet property="spacerWidthLayoutConstraint" destination="JZN-Dr-IFq" id="Z8j-cu-9CQ"/>
                         <outlet property="tagBarView" destination="leD-jP-VRS" id="vuD-aa-rF2"/>
                     </connections>
                 </viewController>
