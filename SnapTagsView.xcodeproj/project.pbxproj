@@ -30,6 +30,7 @@
 		85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C581C49A90D0003BE70 /* LocalizedStrings.swift */; };
 		85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */; };
 		85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */; };
+		85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */; };
 		85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */; };
 		85D9BA321C4992F300B18895 /* UISearchBar+internalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */; };
 		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
@@ -94,6 +95,7 @@
 		85A96DC91C5FA1C000B73619 /* GothamRnd-BookIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-BookIta.otf"; path = "Fonts/GothamRnd-BookIta.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DCC1C5FA1C000B73619 /* GothamRnd-MedIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-MedIta.otf"; path = "Fonts/GothamRnd-MedIta.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DCD1C5FA1C000B73619 /* GothamRnd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Medium.otf"; path = "Fonts/GothamRnd-Medium.otf"; sourceTree = SOURCE_ROOT; };
+		85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GothamRnd.swift"; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				85A96DC91C5FA1C000B73619 /* GothamRnd-BookIta.otf */,
 				85A96DCC1C5FA1C000B73619 /* GothamRnd-MedIta.otf */,
 				85A96DCD1C5FA1C000B73619 /* GothamRnd-Medium.otf */,
+				85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */,
 				850FC5401C45498700E1F75D /* TagsButton.swift in Sources */,
 				85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */,
+				85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */,
 				850FC53B1C45472D00E1F75D /* TagsView.swift in Sources */,
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				85572C491C49A5A00003BE70 /* TagsButtonDelegate.swift in Sources */,
