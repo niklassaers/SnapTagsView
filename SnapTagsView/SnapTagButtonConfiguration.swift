@@ -48,7 +48,7 @@ public class SnapTagButtonConfiguration : NSObject {
     public static func defaultConfiguration() -> SnapTagButtonConfiguration {
         let c = SnapTagButtonConfiguration()
         
-        c.onOffButtonImage = UIImage.Asset.CloseButton.image
+        c.onOffButtonImage = UIImage.Asset.YellowCloseButton.image
         c.backgroundImage = UIImage.Asset.RoundedButton.image
         c.font = UIFont.boldSystemFontOfSize(13.0)
         c.backgroundColor = UIColor.roseColor()

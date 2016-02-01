@@ -3,7 +3,6 @@
 import Foundation
 
 enum L10n {
-  /// Search
   case SearchBarPlaceholder
 }
 
