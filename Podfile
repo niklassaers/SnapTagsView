@@ -13,6 +13,7 @@ target 'SnapTagsView' do
 end
 
 target 'SnapTagsViewTests' do
+  pod 'FBSnapshotTestCase/Core'
 end
 
 target 'Example' do

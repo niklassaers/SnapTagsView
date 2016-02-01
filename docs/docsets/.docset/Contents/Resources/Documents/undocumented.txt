@@ -1,0 +1,28 @@
+TagsButton.swift
+	public class TagsButton: UIView
+	public var turnOnOffAble: Bool?
+	public convenience init (
+        tag: String,
+        turnOnOffAble: Bool = false,
+        height: CGFloat = 44.0,
+        horizontalMargin: CGFloat = 10.0,
+        onOffButtonImage: UIImage = UIImage.Asset.Icon_s_close_yellow.image,
+        backgroundColor: UIColor = UIColor.roseColor(),
+        textColor: UIColor = UIColor.whiteColor(),
+        selectedBackgroundColor: UIColor = UIColor.whiteColor(),
+        selectedTextColor: UIColor = UIColor.roseColor())
+	public func selected() -> Bool
+	public func setSelected(selected: Bool)
+TagsView.swift
+	public class TagsView: UIView
+	public lazy var tagBackgroundColor = UIColor.roseColor()
+	public lazy var tagTextColor = UIColor.whiteColor()
+	public lazy var onOffButtonImage = UIImage.Asset.Icon_s_close_yellow.image
+	public lazy var defaultSelectedBackgroundColor = UIColor.whiteColor()
+	public lazy var defaultSelectedTextColor = UIColor.roseColor()
+	public func setBackgroundImage(image: UIImage, forState state: UIControlState)
+	public func populateTagViewWithTagsAndDetermineHeight(tags: [String], turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0) -> CGSize
+	public func buttonsForTag(tag: String) -> [TagsButton]
+TagsBarButton.swift
+	public class TagsBarButton: UIView
+	public convenience init (tag: String)
