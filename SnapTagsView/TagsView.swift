@@ -98,7 +98,7 @@ public class TagsView: UIView {
         }
     }
     
-    public func populateTagViewWithTagsAndDetermineHeight(tags: [String]) -> CGSize { // , turnOnOffAble: Bool = false, horizontalMargin:CGFloat = 10.0)
+    public func populateTagViewWithTagsAndDetermineHeight(tags: [String]) -> CGSize {
         
         self.userInteractionEnabled = true
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -132,17 +132,6 @@ public class TagsView: UIView {
                 tag: tag,
                 config: buttonConfig)
             
-//                turnOnOffAble: turnOnOffAble,
-//                height: config.height,
-//                horizontalMargin: horizontalMargin,
-//                onOffButtonImage: self.onOffButtonImage,
-//                backgroundColor: self.tagBackgroundColor,
-//                textColor: self.tagTextColor,
-//                selectedBackgroundColor: self.defaultSelectedBackgroundColor,
-//                selectedTextColor: self.defaultSelectedTextColor
-//            )
-            //button.translatesAutoresizingMaskIntoConstraints = false
-            
             for (state, image) in self.backgroundImagesForState {
                 switch(state) {
                 case UIControlState.Normal.rawValue:
@@ -158,9 +147,6 @@ public class TagsView: UIView {
                 }
             }
             
-//            button.setTagBackgroundColor(self.tagBackgroundColor)
-//            button.setTagTextColor(self.tagTextColor)
-//            button.delegate = self
             button.userInteractionEnabled = true
             
             button.addConstraint(NSLayoutConstraint(expressionFormat: "button.height = \(button.frame.size.height)", parameters: ["button": button]))
