@@ -19,6 +19,7 @@ public class SnapTagCell: UICollectionViewCell {
     @IBOutlet var onOffButtonDimensions: [NSLayoutConstraint]!
     
     internal var configuration : SnapTagButtonConfiguration!
+    internal var lastText: String = "Snapsale"
     
     public func setOnState() {
         backgroundImageForOnState.alpha = 1.0
@@ -113,6 +114,7 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     internal func setText(text: String) {
+        lastText = text
         label.text = text.uppercaseString
         let size = label.sizeThatFits(CGSizeMake(2000, 100))
         labelWidth.constant = size.width
@@ -137,12 +139,20 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     public override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
+        var label : UILabel! = self.label
+        if label == nil {
+            label = UILabel(frame: CGRectZero)
+            label.text = lastText
+            label.font = configuration.font
+        }
+        
         let attr = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
+        var newFrame = attr.frame
         self.frame = attr.frame
         self.setNeedsLayout()
         self.layoutIfNeeded()
         let size = label.sizeThatFits(CGSizeMake(2000, 100))
-        var newFrame = attr.frame
         var width = configuration.horizontalMargin * 2 + size.width
         if configuration.isTurnOnOffAble {
             width += configuration.spacingBetweenLabelAndOnOffButton + configuration.onOffButtonImage.onImage.size.height / 2.0

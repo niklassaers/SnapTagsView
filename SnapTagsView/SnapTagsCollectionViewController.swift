@@ -42,11 +42,11 @@ public class SnapTagsCollectionViewController: UIViewController {
         layout.minimumLineSpacing = configuration.spacing
         layout.minimumInteritemSpacing = configuration.spacing
         layout.estimatedItemSize = buttonConfiguration.intrinsicContentSize
-//        layout.scrollDirection = configuration.scrollDirection
-//        layout.headerReferenceSize = CGSizeZero
-//        layout.footerReferenceSize = CGSizeZero
-//        layout.sectionInset = UIEdgeInsetsZero
-//        layout.itemSize = buttonConfiguration.intrinsicContentSize
+        layout.scrollDirection = configuration.scrollDirection
+        layout.headerReferenceSize = CGSizeZero
+        layout.footerReferenceSize = CGSizeZero
+        layout.sectionInset = UIEdgeInsetsZero
+        layout.itemSize = buttonConfiguration.intrinsicContentSize
         
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clearColor()
@@ -86,24 +86,20 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
     }
 
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        print("Item #\(indexPath.row)")
         let tag = data[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SnapTagCell
         let config = buttonConfiguration.duplicate()
         
         config.isOn = tag.isOn
-//        cell.translatesAutoresizingMaskIntoConstraints = false
-        cell.setText(tag.tag)
         cell.applyConfiguration(buttonConfiguration)
+        cell.setText(tag.tag)
         
-        print("Item done #\(indexPath.row)")
         return cell
     }
 }
 
 extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout {
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        print("Size #\(indexPath.row)")
         let tag = data[indexPath.item]
 
         let height = buttonConfiguration.verticalMargin * 2 + buttonConfiguration.font.pointSize
