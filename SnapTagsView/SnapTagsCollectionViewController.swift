@@ -17,7 +17,6 @@ public class SnapTagsCollectionViewController: UIViewController {
         
         assert(configuration != nil)
         assert(buttonConfiguration != nil)
-//        assert(self.view.superview != nil)
         
         setupLayout()
 
@@ -25,10 +24,10 @@ public class SnapTagsCollectionViewController: UIViewController {
         collectionView.dataSource = self
         
         setupConstraints()
+        self.view.backgroundColor = UIColor.clearColor()
 
         // Register cell classes
         self.collectionView.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
-//        self.collectionView.registerClass(SnapTagCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     }
     
@@ -43,13 +42,14 @@ public class SnapTagsCollectionViewController: UIViewController {
         layout.minimumLineSpacing = configuration.spacing
         layout.minimumInteritemSpacing = configuration.spacing
         layout.estimatedItemSize = buttonConfiguration.intrinsicContentSize
-        layout.scrollDirection = configuration.scrollDirection
-        layout.headerReferenceSize = CGSizeZero
-        layout.footerReferenceSize = CGSizeZero
-        layout.sectionInset = UIEdgeInsetsZero
-        layout.itemSize = buttonConfiguration.intrinsicContentSize
+//        layout.scrollDirection = configuration.scrollDirection
+//        layout.headerReferenceSize = CGSizeZero
+//        layout.footerReferenceSize = CGSizeZero
+//        layout.sectionInset = UIEdgeInsetsZero
+//        layout.itemSize = buttonConfiguration.intrinsicContentSize
         
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(collectionView)
     }
     
@@ -86,6 +86,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
     }
 
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        print("Item #\(indexPath.row)")
         let tag = data[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SnapTagCell
         let config = buttonConfiguration.duplicate()
@@ -95,7 +96,28 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
         cell.setText(tag.tag)
         cell.applyConfiguration(buttonConfiguration)
         
+        print("Item done #\(indexPath.row)")
         return cell
+    }
+}
+
+extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout {
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        print("Size #\(indexPath.row)")
+        let tag = data[indexPath.item]
+
+        let height = buttonConfiguration.verticalMargin * 2 + buttonConfiguration.font.pointSize
+        
+        let label = UILabel(frame: CGRectZero)
+        label.text = tag.tag
+        label.font = buttonConfiguration.font
+        
+        let labelSize = label.sizeThatFits(CGSizeMake(1000,40))
+        var width = buttonConfiguration.horizontalMargin * 2 + labelSize.width
+        if buttonConfiguration.isTurnOnOffAble {
+            width += buttonConfiguration.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onOffButtonImage.onImage.size.width)
+        }
+        return CGSizeMake(width, height)
     }
 }
 

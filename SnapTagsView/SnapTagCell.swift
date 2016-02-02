@@ -128,4 +128,27 @@ public class SnapTagCell: UICollectionViewCell {
         backgroundImageForOffState.backgroundColor = offColor
     }
     
+    // And the classic bug-fix
+    override public var bounds: CGRect {
+        didSet {
+            contentView.frame = bounds
+            contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        }
+    }
+    
+    public override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        let attr = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
+        self.frame = attr.frame
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+        let size = label.sizeThatFits(CGSizeMake(2000, 100))
+        var newFrame = attr.frame
+        var width = configuration.horizontalMargin * 2 + size.width
+        if configuration.isTurnOnOffAble {
+            width += configuration.spacingBetweenLabelAndOnOffButton + configuration.onOffButtonImage.onImage.size.height / 2.0
+        }
+        newFrame.size = CGSizeMake(width, size.height + (2 * configuration.verticalMargin))
+        attr.frame = newFrame
+        return attr
+    }
 }

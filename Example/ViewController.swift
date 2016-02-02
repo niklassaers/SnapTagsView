@@ -21,22 +21,27 @@ class ViewController: UIViewController {
         leftAlignedCollectionViewController = SnapTagsCollectionViewController()
         leftAlignedCollectionViewController.configuration = leftAlignedTagsViewConfig()
         leftAlignedCollectionViewController.buttonConfiguration = leftAlignedTagsViewButtonConfig()
-        var i = 0
-        leftAlignedCollectionViewController.data = initialTags().map {
-            let tag = SnapTagRepresentation()
-            tag.tag = $0
-            tag.isOn = i % 2 == 0
-            i += 1
-            return tag
-        }
+        leftAlignedCollectionViewController.data = stringArrayToTags(initialTags())
         
         self.addChildViewController(leftAlignedCollectionViewController)
         contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: 2)
-        leftAlignedCollectionViewController.view.backgroundColor = UIColor.blueColor()
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         leftAlignedCollectionViewController.view.addConstraint(NSLayoutConstraint(expressionFormat: "self.height = 90", parameters: ["self": leftAlignedCollectionViewController.view]))
 
+    }
+    
+    internal func stringArrayToTags(strings: [String]) -> [SnapTagRepresentation] {
+        var i = 0
+        return strings.map {
+            let tag = SnapTagRepresentation()
+            tag.tag = $0.stringByTrimmingCharactersInSet(
+                NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            )
+            tag.isOn = i % 2 == 0
+            i += 1
+            return tag
+        }
     }
     
     internal func initialTags() -> [String] {
@@ -112,6 +117,8 @@ class ViewController: UIViewController {
         config.horizontalMargin = 5.0 as CGFloat
         config.verticalMargin = 5.0 as CGFloat
         config.contentHeight = 13.0 as CGFloat
+//        config.alignment = .Center
+        config.alignment = .Left
         
         return config
     }
@@ -152,7 +159,7 @@ class ViewController: UIViewController {
         let c = SnapTagButtonConfiguration()
         
         c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        //c.onOffButtonImage.onTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
         c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image

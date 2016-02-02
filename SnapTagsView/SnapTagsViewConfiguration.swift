@@ -9,7 +9,7 @@ public class SnapTagsViewConfiguration : NSObject {
     public var contentHeight = 30.0 as CGFloat
     public var scrollDirection : UICollectionViewScrollDirection = .Vertical
     
-    var alignment : NSTextAlignment = .Left //*
+    public var alignment : NSTextAlignment = .Left
     
     func isValid() -> Bool {
         return true
