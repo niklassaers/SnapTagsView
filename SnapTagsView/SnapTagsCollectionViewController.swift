@@ -27,7 +27,8 @@ public class SnapTagsCollectionViewController: UIViewController {
         setupConstraints()
 
         // Register cell classes
-        self.collectionView.registerClass(SnapTagCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView.registerClass(SnapTagCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     }
     
@@ -60,11 +61,11 @@ public class SnapTagsCollectionViewController: UIViewController {
             "vMargin": configuration.verticalMargin,
             "height": configuration.contentHeight]
         let views = [ "cv": collectionView ]
-        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|-(hMargin)-[cv]-(hMargin)-|",
+        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[cv]-(hMargin)-|",
             options: [],
             metrics: metrics,
             views: views)
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|-(vMargin)-[cv(height)]-(vMargin)-|",
+        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[cv(>=height)]-(vMargin)-|",
             options: [],
             metrics: metrics,
             views: views)
@@ -90,8 +91,9 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
         let config = buttonConfiguration.duplicate()
         
         config.isOn = tag.isOn
-        cell.applyConfiguration(buttonConfiguration)
+//        cell.translatesAutoresizingMaskIntoConstraints = false
         cell.setText(tag.tag)
+        cell.applyConfiguration(buttonConfiguration)
         
         return cell
     }

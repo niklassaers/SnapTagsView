@@ -1,14 +1,17 @@
 import UIKit
 import SnapTagsView
+import NSLayoutConstraint_ExpressionFormat
+
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var contentStackView: UIStackView!
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
 
-    @IBOutlet weak var leftAlignedCollectionContainer: UIView!
     
+    @IBOutlet weak var leftAlignLabel: UILabel!
     var leftAlignedCollectionViewController : SnapTagsCollectionViewController!
     var currentTag = [ 0, 0, 0, 0 ]
 
@@ -26,28 +29,18 @@ class ViewController: UIViewController {
             i += 1
             return tag
         }
+        
         self.addChildViewController(leftAlignedCollectionViewController)
-        for subview in leftAlignedCollectionContainer.subviews {
-            subview.removeFromSuperview()
-        }
-        leftAlignedCollectionContainer.addSubview(leftAlignedCollectionViewController.view)
-        leftAlignedCollectionContainer.translatesAutoresizingMaskIntoConstraints = false
+        contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: 2)
+        leftAlignedCollectionViewController.view.backgroundColor = UIColor.blueColor()
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        let views = [ "view": leftAlignedCollectionViewController.view ]
-        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view]|",
-            options: [],
-            metrics: nil,
-            views: views)
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view]|",
-            options: [],
-            metrics: nil,
-            views: views)
-        self.view.addConstraints(hConstraints)
-        self.view.addConstraints(vConstraints)
+        
+        leftAlignedCollectionViewController.view.addConstraint(NSLayoutConstraint(expressionFormat: "self.height = 90", parameters: ["self": leftAlignedCollectionViewController.view]))
+
     }
     
     internal func initialTags() -> [String] {
-        return "Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
+        return "Sienaasappellimonadesiroop Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
     }
     
     /*
@@ -159,7 +152,7 @@ class ViewController: UIViewController {
         let c = SnapTagButtonConfiguration()
         
         c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.onTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        //c.onOffButtonImage.onTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
         c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image

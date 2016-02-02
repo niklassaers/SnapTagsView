@@ -3,6 +3,7 @@ import UIKit
 public class SnapTagCell: UICollectionViewCell {
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var labelWidth: NSLayoutConstraint!
     
     @IBOutlet weak var backgroundImageForOnState: UIImageView!
     @IBOutlet weak var backgroundImageForOffState: UIImageView!
@@ -98,17 +99,23 @@ public class SnapTagCell: UICollectionViewCell {
     
     internal func enableOnOffButton() {
         for constraint in onOffButtonDimensions {
-            constraint.constant = configuration.onOffButtonImage.onImage.size.height
+            constraint.constant = configuration.onOffButtonImage.onImage.size.height / 2.0
         }
         spacingMargin.constant = configuration.spacingBetweenLabelAndOnOffButton
     }
     
     internal func setFont(font: UIFont) {
         label.font = font
+        if label.text != "" {
+            let size = label.sizeThatFits(CGSizeMake(2000, 100))
+            labelWidth.constant = size.width
+        }
     }
     
     internal func setText(text: String) {
-        label.text = text
+        label.text = text.uppercaseString
+        let size = label.sizeThatFits(CGSizeMake(2000, 100))
+        labelWidth.constant = size.width
     }
     
     internal func setBackgroundImages(onImage onImage: UIImage, offImage: UIImage) {

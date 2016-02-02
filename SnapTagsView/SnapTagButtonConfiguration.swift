@@ -26,7 +26,7 @@ public class SnapTagButtonConfiguration : NSObject {
     
     public var spacingBetweenLabelAndOnOffButton : CGFloat = 8.0
     
-    public var intrinsicContentSize = CGSizeMake(100, 44)
+    public var intrinsicContentSize = CGSizeMake(30, 30)
     
     public override init() {
         super.init()
