@@ -6,41 +6,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
+
+    @IBOutlet weak var leftAlignedCollectionContainer: UIView!
     
-    @IBOutlet weak var centeredTagsView: TagsView!
-    @IBOutlet weak var leftAlignedTagsView: TagsView!
-    @IBOutlet weak var searchTagsView: TagsView!
-    @IBOutlet weak var tagBarView: TagsView!
-    
+    var leftAlignedCollectionViewController : SnapTagsCollectionViewController!
     var currentTag = [ 0, 0, 0, 0 ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        centeredTagsView.setViewConfig(centeredTagsViewConfig(), buttonConfig: centeredTagsViewButtonConfig())
-        centeredTagsView.tag = 0
-        
-        leftAlignedTagsView.setViewConfig(leftAlignedTagsViewConfig(), buttonConfig: leftAlignedTagsViewButtonConfig())
-        leftAlignedTagsView.tag = 1
-        
-        searchTagsView.setViewConfig(searchTagsViewConfig(), buttonConfig: searchTagsViewButtonConfig())
-        leftAlignedTagsView.tag = 2
-        
-        tagBarView.setViewConfig(tagBarViewConfig(), buttonConfig: tagBarViewButtonConfig())
-        searchTagsView.tag = 3
-
-        
-        let centeredTagsViewSize = centeredTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        let leftAlignedTagsViewSize = leftAlignedTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        let searchTagsViewSize = searchTagsView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        let tagBarViewSize = tagBarView.populateTagViewWithTagsAndDetermineHeight(initialTags())
-        
+        leftAlignedCollectionViewController = SnapTagsCollectionViewController()
+        leftAlignedCollectionViewController.configuration = leftAlignedTagsViewConfig()
+        leftAlignedCollectionViewController.buttonConfiguration = leftAlignedTagsViewButtonConfig()
+        var i = 0
+        leftAlignedCollectionViewController.data = initialTags().map {
+            let tag = SnapTagRepresentation()
+            tag.tag = $0
+            tag.isOn = i % 2 == 0
+            i += 1
+            return tag
+        }
+        self.addChildViewController(leftAlignedCollectionViewController)
+        for subview in leftAlignedCollectionContainer.subviews {
+            subview.removeFromSuperview()
+        }
+        leftAlignedCollectionContainer.addSubview(leftAlignedCollectionViewController.view)
+        leftAlignedCollectionContainer.translatesAutoresizingMaskIntoConstraints = false
+        leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        let views = [ "view": leftAlignedCollectionViewController.view ]
+        let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view]|",
+            options: [],
+            metrics: nil,
+            views: views)
+        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view]|",
+            options: [],
+            metrics: nil,
+            views: views)
+        self.view.addConstraints(hConstraints)
+        self.view.addConstraints(vConstraints)
     }
     
     internal func initialTags() -> [String] {
         return "Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
     }
     
+    /*
     internal func nextTag(view: TagsView) -> String {
         let rest = (
                 "Sumens illud Ave " +
@@ -72,7 +82,7 @@ class ViewController: UIViewController {
         let tag = rest[index]
         currentTag[view.tag] = (index + 1) % rest.count
         return tag
-    }
+    }*/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -93,7 +103,22 @@ class ViewController: UIViewController {
     }
     
     internal func leftAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
-        let config = SnapTagsViewConfiguration.defaultConfiguration()
+        // 30 dp high
+        // 5 dp vertical spacing
+        // 5 horizontal spacing
+        // 10 dp between last letter and X
+        // 10 dp between leading edge and first letter
+        // 10 dp betwwen trailing X and trailing edge
+        // 10 dp margin top and bottom
+        // Font 13dp Medium #FFFFFF
+        // Background #FF0058
+        // Corner radius 4dp
+        
+        let config = SnapTagsViewConfiguration()
+        config.spacing = 5.0 as CGFloat
+        config.horizontalMargin = 5.0 as CGFloat
+        config.verticalMargin = 5.0 as CGFloat
+        config.contentHeight = 13.0 as CGFloat
         
         return config
     }
@@ -120,9 +145,35 @@ class ViewController: UIViewController {
     }
     
     internal func leftAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        let config = SnapTagButtonConfiguration.defaultConfiguration()
+        // 30 dp high
+        // 5 dp vertical spacing
+        // 5 horizontal spacing
+        // 10 dp between last letter and X
+        // 10 dp between leading edge and first letter
+        // 10 dp betwwen trailing X and trailing edge
+        // 10 dp margin top and bottom
+        // Font 13dp Medium #FFFFFF
+        // Background #FF0058
+        // Corner radius 4dp
+
+        let c = SnapTagButtonConfiguration()
         
-        return config
+        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
+        c.onOffButtonImage.onTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
+        
+        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        c.offBackgroundImage = UIImage.Asset.RoundedButton.image
+
+        c.font = UIFont.boldWithSize(13.0)
+        c.onBackgroundColor = UIColor.roseColor()
+        c.offBackgroundColor = UIColor.whiteColor()
+        c.onTextColor = UIColor.whiteColor()
+        c.offTextColor = UIColor.roseColor()
+        c.isTurnOnOffAble = true
+        
+        assert(c.isValid())
+        return c
     }
     
     internal func searchTagsViewButtonConfig() -> SnapTagButtonConfiguration {
