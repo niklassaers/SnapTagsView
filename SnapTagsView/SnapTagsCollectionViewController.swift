@@ -1,5 +1,7 @@
 import UIKit
 import KTCenterFlowLayout
+import UICollectionViewLeftAlignedLayout
+import UICollectionViewRightAlignedLayout
 
 private let reuseIdentifier = String(SnapTagCell)
 
@@ -35,6 +37,10 @@ public class SnapTagsCollectionViewController: UIViewController {
         var layout : UICollectionViewFlowLayout
         if configuration.alignment == .Center {
             layout = KTCenterFlowLayout()
+        } else if configuration.alignment == .Right {
+            layout = UICollectionViewRightAlignedLayout()
+        } else if configuration.alignment == .Left {
+            layout = UICollectionViewLeftAlignedLayout()
         } else {
             layout = UICollectionViewFlowLayout()
         }
@@ -47,6 +53,7 @@ public class SnapTagsCollectionViewController: UIViewController {
         layout.footerReferenceSize = CGSizeZero
         layout.sectionInset = UIEdgeInsetsZero
         layout.itemSize = buttonConfiguration.intrinsicContentSize
+
         
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clearColor()
