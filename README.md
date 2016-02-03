@@ -20,6 +20,9 @@ This module implements the following five tag designs:
 ###Left-aligned collection
 ![Left-aligned collection](Design/LeftAlignedTagCollection@3x.png)
 
+####Left-aligned with some buttons turned on and off
+![Left-aligned on/off](Design/OnOffTags@2x.png)
+
 ###Searchbar with tags
 ![Searchbar with tags](Design/SearchWithTags.png@3x.png)
 
