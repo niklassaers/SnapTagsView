@@ -22,12 +22,12 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="550"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-98-GYY">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-tm-Oxj" userLabel="Content">
-                                                <rect key="frame" x="0.0" y="0.0" width="560" height="71"/>
+                                                <rect key="frame" x="0.0" y="5" width="560" height="195"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-pf-qOm">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-pf-qOm">
                                                         <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" identifier="DDD" id="tf2-d2-Yl1"/>
@@ -35,8 +35,64 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9e-J4-hWi" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="21" width="560" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" identifier="EEE" id="ZT8-IO-e8B"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centered collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpk-kE-jb2" userLabel="Centered Collection">
+                                                        <rect key="frame" x="0.0" y="31" width="560" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" identifier="DDD" id="rqQ-TL-Ekj"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcn-vv-x6v" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="52" width="560" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" identifier="EEE" id="Cyb-Qx-WPZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned mixed on/off" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="820-XN-nPF">
+                                                        <rect key="frame" x="0.0" y="62" width="560" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" identifier="DDD" id="ESY-13-aay"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lH3-to-5AV" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="83" width="560" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" identifier="EEE" id="kVH-Bl-dhu"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchbar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2X-0W-tzo">
+                                                        <rect key="frame" x="0.0" y="93" width="560" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" identifier="DDD" id="r11-Kh-lpd"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65J-2Q-Z0y" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="114" width="560" height="10"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="10" identifier="EEE" id="pfZ-3S-bTC"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tagbar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfK-cB-Tmk">
+                                                        <rect key="frame" x="0.0" y="124" width="560" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" identifier="DDD" id="7CC-Oe-SFU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-E8-PBv" userLabel="Spacer">
-                                                        <rect key="frame" x="0.0" y="21" width="560" height="50"/>
+                                                        <rect key="frame" x="0.0" y="145" width="560" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" identifier="EEE" id="PjG-oS-Noe"/>
                                                         </constraints>
@@ -47,7 +103,7 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQX-dn-3lL" userLabel="Spacer">
-                                                <rect key="frame" x="560" y="0.0" width="40" height="71"/>
+                                                <rect key="frame" x="560" y="0.0" width="40" height="205"/>
                                                 <color key="backgroundColor" red="0.50633280749999998" green="1" blue="0.37879409390000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" identifier="spacerWidthLayoutConstraint" id="JZN-Dr-IFq"/>
@@ -91,7 +147,6 @@
                     </view>
                     <connections>
                         <outlet property="contentStackView" destination="Ved-tm-Oxj" id="r5D-pk-P4a"/>
-                        <outlet property="leftAlignLabel" destination="8Jq-pf-qOm" id="Akn-M2-ZNp"/>
                         <outlet property="slider" destination="KYw-uE-rS0" id="fCy-yH-S8e"/>
                         <outlet property="spacer" destination="gQX-dn-3lL" id="FC2-Bs-Hyp"/>
                         <outlet property="spacerWidthLayoutConstraint" destination="JZN-Dr-IFq" id="Z8j-cu-9CQ"/>
