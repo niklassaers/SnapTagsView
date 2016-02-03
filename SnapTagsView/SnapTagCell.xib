@@ -99,16 +99,16 @@
             <connections>
                 <outlet property="backgroundImageForOffState" destination="gzB-SW-mYG" id="hZa-wD-0aO"/>
                 <outlet property="backgroundImageForOnState" destination="ohz-BJ-KEk" id="kqn-5A-V8u"/>
+                <outlet property="bottomMargin" destination="Z6f-hr-zmQ" id="3FJ-EA-XRo"/>
                 <outlet property="label" destination="sNq-Fa-Bcn" id="N1L-Gu-Ut9"/>
                 <outlet property="labelWidth" destination="D1Y-8g-5Jj" id="PT8-e2-hJn"/>
+                <outlet property="leadingMargin" destination="uke-0k-JXu" id="ghw-MP-8ld"/>
                 <outlet property="offButtonImage" destination="KLB-6i-uSg" id="Ia9-9S-Z9h"/>
                 <outlet property="onButtonImage" destination="VHA-08-cqy" id="UBs-aW-Ef6"/>
                 <outlet property="onOffButton" destination="kDM-lU-QhE" id="XwG-nD-E7j"/>
                 <outlet property="spacingMargin" destination="tb0-JE-4Ds" id="7Ig-9D-g50"/>
-                <outletCollection property="verticalMargins" destination="JXn-I4-zV2" collectionClass="NSMutableArray" id="eIV-TK-2Mw"/>
-                <outletCollection property="verticalMargins" destination="Z6f-hr-zmQ" collectionClass="NSMutableArray" id="DeK-Ag-5rV"/>
-                <outletCollection property="horizontalMargins" destination="uke-0k-JXu" collectionClass="NSMutableArray" id="pw2-NU-gzM"/>
-                <outletCollection property="horizontalMargins" destination="cPg-9w-bgu" collectionClass="NSMutableArray" id="yAl-H5-6eJ"/>
+                <outlet property="topMargin" destination="JXn-I4-zV2" id="2uk-Za-8sT"/>
+                <outlet property="trailingMargin" destination="cPg-9w-bgu" id="gCp-Gp-UEb"/>
                 <outletCollection property="onOffButtonDimensions" destination="EPB-ee-cAf" collectionClass="NSMutableArray" id="8j5-Ew-Hdh"/>
                 <outletCollection property="onOffButtonDimensions" destination="wYh-k6-fgj" collectionClass="NSMutableArray" id="im3-VP-QNX"/>
             </connections>

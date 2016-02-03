@@ -28,6 +28,9 @@ public class SnapTagButtonConfiguration : NSObject {
     
     public var intrinsicContentSize = CGSizeMake(30, 30)
     
+    public var labelVOffset : CGFloat = 0.0
+    public var labelHOffset : CGFloat = 0.0
+    
     public override init() {
         super.init()
         

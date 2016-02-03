@@ -133,8 +133,7 @@ class ViewController: UIViewController {
         config.horizontalMargin = 5.0 as CGFloat
         config.verticalMargin = 5.0 as CGFloat
         config.contentHeight = 13.0 as CGFloat
-        config.alignment = .Center
-//        config.alignment = .Left
+        config.alignment = .Left
 //        config.alignment = .Natural
         
         return config
@@ -179,8 +178,8 @@ class ViewController: UIViewController {
         c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
-        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        c.offBackgroundImage = UIImage.Asset.RoundedButton.image
+//        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
 
         c.font = UIFont.boldWithSize(13.0)
         c.onBackgroundColor = UIColor.roseColor()
@@ -188,6 +187,8 @@ class ViewController: UIViewController {
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
+        c.labelVOffset = 0.5
+        c.cornerRadius = 5.0
         
         assert(c.isValid())
         return c

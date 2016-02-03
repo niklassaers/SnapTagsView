@@ -34,6 +34,7 @@
 		85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C581C49A90D0003BE70 /* LocalizedStrings.swift */; };
 		85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */; };
 		85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */; };
+		857D431A1C6222D1009316C8 /* KTCenterFlowLayoutFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */; };
 		85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */; };
 		85C771331C5FD85000B18A02 /* OnOffButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C771321C5FD85000B18A02 /* OnOffButtonConfiguration.swift */; };
 		85C771351C5FEB6400B18A02 /* GothamRnd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */; };
@@ -115,6 +116,7 @@
 		85572C581C49A90D0003BE70 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+roseColor.swift"; sourceTree = "<group>"; };
 		85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDelegate.swift; sourceTree = "<group>"; };
+		857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCenterFlowLayoutFix.swift; sourceTree = "<group>"; };
 		85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Bold.otf"; path = "Fonts/GothamRnd-Bold.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DC71C5FA1C000B73619 /* GothamRnd-BoldIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-BoldIta.otf"; path = "Fonts/GothamRnd-BoldIta.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DC81C5FA1C000B73619 /* GothamRnd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Book.otf"; path = "Fonts/GothamRnd-Book.otf"; sourceTree = SOURCE_ROOT; };
@@ -256,6 +258,7 @@
 				854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */,
 				85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */,
 				854494F51C61F156006489E8 /* SnapTextSizer.swift */,
+				857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */,
 			);
 			name = "CollectionView Implementation";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				854494F61C61F156006489E8 /* SnapTextSizer.swift in Sources */,
 				85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */,
 				85C771331C5FD85000B18A02 /* OnOffButtonConfiguration.swift in Sources */,
+				857D431A1C6222D1009316C8 /* KTCenterFlowLayoutFix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

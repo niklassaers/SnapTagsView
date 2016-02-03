@@ -14,8 +14,10 @@ public class SnapTagCell: UICollectionViewCell {
     @IBOutlet weak var onButtonImage: UIImageView!
     @IBOutlet weak var offButtonImage: UIImageView!
     
-    @IBOutlet var verticalMargins: [NSLayoutConstraint]!
-    @IBOutlet var horizontalMargins: [NSLayoutConstraint]!
+    @IBOutlet weak var topMargin: NSLayoutConstraint!
+    @IBOutlet weak var bottomMargin: NSLayoutConstraint!
+    @IBOutlet weak var leadingMargin: NSLayoutConstraint!
+    @IBOutlet weak var trailingMargin: NSLayoutConstraint!
     @IBOutlet weak var spacingMargin: NSLayoutConstraint!
     
     @IBOutlet var onOffButtonDimensions: [NSLayoutConstraint]!
@@ -39,6 +41,14 @@ public class SnapTagCell: UICollectionViewCell {
         offButtonImage.alpha = 0.0
         onOffButton.transform = configuration.onOffButtonImage.offTransform
         setTextColor(configuration.offTextColor)
+    }
+    
+    public func setHighlightState() {
+        backgroundImageForOnState.alpha = 0.5
+        backgroundImageForOffState.alpha = 1.0
+        onButtonImage.alpha = 0.5
+        offButtonImage.alpha = 1.0
+        setTextColor(configuration.onTextColor)
     }
     
     public func applyConfiguration(configuration: SnapTagButtonConfiguration) {
@@ -84,13 +94,9 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     internal func setupMargins() {
-        for margin in horizontalMargins {
-            margin.constant = configuration.horizontalMargin
-        }
-        
-        for margin in verticalMargins {
-            margin.constant = configuration.verticalMargin
-        }
+        topMargin.constant = configuration.horizontalMargin + configuration.labelVOffset
+        bottomMargin.constant = configuration.horizontalMargin - configuration.labelVOffset
+        leadingMargin.constant = configuration.verticalMargin + configuration.labelHOffset
     }
     
     internal func disableOnOffButton() {
@@ -134,7 +140,7 @@ public class SnapTagCell: UICollectionViewCell {
         labelWidth.constant = size.width
     }
     
-    internal func setBackgroundImages(onImage onImage: UIImage, offImage: UIImage) {
+    internal func setBackgroundImages(onImage onImage: UIImage?, offImage: UIImage?) {
         backgroundImageForOnState.image = onImage
         backgroundImageForOffState.image = offImage
     }
