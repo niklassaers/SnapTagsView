@@ -363,18 +363,18 @@ class ViewController: UIViewController {
         c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
-        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        //c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
         c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         
         c.font = UIFont.boldWithSize(13.0)
-//        c.onBackgroundColor = UIColor.roseColor()
+        c.onBackgroundColor = UIColor.roseColor()
 //        c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
-        c.offCornerRadius = 5.0
+        c.offCornerRadius = 0.0
         
         assert(c.isValid())
         return c
