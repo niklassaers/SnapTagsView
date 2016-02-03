@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         leftAlignedCollectionViewController.data = stringArrayToTags(initialTags())
         
         self.addChildViewController(leftAlignedCollectionViewController)
-        contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: 2)
+        contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: 1)
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedCollectionViewController.view])
@@ -98,9 +98,15 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         leftAlignedCollectionViewController.scrollEnabled = false
+        /*
         let leftAlignedContentSize = leftAlignedCollectionViewController.contentSize()
-        leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
-        contentStackView.setNeedsLayout()
+        if leftAlignedContentSize.height > 40.0 {
+            leftAlignedCollectionViewHeightConstraint.constant = 40.0
+            leftAlignedCollectionViewController.view.backgroundColor = UIColor.purpleColor()
+        } else {
+            leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
+        }
+        contentStackView.setNeedsLayout()*/
     }
 
     @IBAction func sliderValueChanged(sender: UISlider) {
