@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SnapTagsView/SnapTagCell.swift"
-            timestampString = "476113953.645982"
+            filePath = "SnapTagsView/SnapTagsCollectionViewController.swift"
+            timestampString = "476182060.230657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "preferredLayoutAttributesFittingAttributes(_:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "setupLayout()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,6 +9,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
+    
+    let sizer = SnapTextWidthSizers()
 
     
     @IBOutlet weak var leftAlignLabel: UILabel!
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         leftAlignedCollectionViewController = SnapTagsCollectionViewController()
+        leftAlignedCollectionViewController.sizer = sizer
         leftAlignedCollectionViewController.configuration = leftAlignedTagsViewConfig()
         leftAlignedCollectionViewController.buttonConfiguration = leftAlignedTagsViewButtonConfig()
         leftAlignedCollectionViewController.data = stringArrayToTags(initialTags())
@@ -119,6 +122,7 @@ class ViewController: UIViewController {
         config.contentHeight = 13.0 as CGFloat
 //        config.alignment = .Center
         config.alignment = .Left
+//        config.alignment = .Natural
         
         return config
     }

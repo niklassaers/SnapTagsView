@@ -1,6 +1,8 @@
 import UIKit
 
 public class SnapTagCell: UICollectionViewCell {
+    
+    weak var sizer : SnapTextWidthSizers?
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelWidth: NSLayoutConstraint!
@@ -108,15 +110,27 @@ public class SnapTagCell: UICollectionViewCell {
     internal func setFont(font: UIFont) {
         label.font = font
         if label.text != "" {
-            let size = label.sizeThatFits(CGSizeMake(2000, 100))
+
+            let size = sizeForLabel(label)
             labelWidth.constant = size.width
         }
     }
     
+    internal func sizeForLabel(label: UILabel) -> CGSize {
+        let size : CGSize
+        if let sizer = sizer {
+            size = sizer.calculateSizeFor(label.text ?? "", font: label.font)
+        } else {
+            size = label.sizeThatFits(CGSizeMake(2000, 100))
+        }
+        return size
+    }
+    
     internal func setText(text: String) {
-        lastText = text
+        lastText = text.uppercaseString
         label.text = text.uppercaseString
-        let size = label.sizeThatFits(CGSizeMake(2000, 100))
+
+        let size = sizeForLabel(label)
         labelWidth.constant = size.width
     }
     
@@ -140,25 +154,46 @@ public class SnapTagCell: UICollectionViewCell {
     
     public override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         
-        var label : UILabel! = self.label
-        if label == nil {
-            label = UILabel(frame: CGRectZero)
-            label.text = lastText
-            label.font = configuration.font
+        var width : CGFloat
+        var height : CGFloat
+        
+        if let sizer = sizer {
+            let size = sizer.calculateSizeFor(lastText, font: configuration.font)
+            width = size.width
+            width += configuration.horizontalMargin * 2
+            
+            if configuration.isTurnOnOffAble {
+                width += configuration.spacingBetweenLabelAndOnOffButton
+                width += configuration.onOffButtonImage.onImage.size.height
+            }
+            
+            height = size.height
+            height += configuration.verticalMargin * 2
+            
+        } else {
+            print("argh")
+            width = configuration.intrinsicContentSize.width
+            height = configuration.intrinsicContentSize.height
         }
         
-        let attr = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
-        var newFrame = attr.frame
-        self.frame = attr.frame
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
-        let size = label.sizeThatFits(CGSizeMake(2000, 100))
-        var width = configuration.horizontalMargin * 2 + size.width
-        if configuration.isTurnOnOffAble {
-            width += configuration.spacingBetweenLabelAndOnOffButton + configuration.onOffButtonImage.onImage.size.height / 2.0
+        let size = CGSizeMake(round(width), round(height))
+
+        if size == layoutAttributes.frame.size {
+            print("yay")
+            return layoutAttributes
+        } else {
+
+            
+            let attr = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
+
+            var frame = layoutAttributes.frame
+            frame.size.height = size.height
+            if abs(frame.size.width - size.width) > 2.0 { // Less is just not worth quarelling about
+                print("\(size.width) vs \(layoutAttributes.frame.size.width)")
+                frame.size.width = size.width
+            }
+            attr.frame = frame
+            return attr
         }
-        newFrame.size = CGSizeMake(width, size.height + (2 * configuration.verticalMargin))
-        attr.frame = newFrame
-        return attr
     }
 }

@@ -24,7 +24,7 @@ public class SnapTagButtonConfiguration : NSObject {
     
     public var onOffButtonImage : OnOffButtonConfiguration!
     
-    public var spacingBetweenLabelAndOnOffButton : CGFloat = 8.0
+    public var spacingBetweenLabelAndOnOffButton : CGFloat = 0.0
     
     public var intrinsicContentSize = CGSizeMake(30, 30)
     

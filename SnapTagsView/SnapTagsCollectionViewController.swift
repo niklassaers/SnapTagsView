@@ -13,6 +13,8 @@ public class SnapTagsCollectionViewController: UIViewController {
     public var delegate : SnapTagsButtonDelegate?
     
     internal var collectionView : UICollectionView!
+    
+    public lazy var sizer = SnapTextWidthSizers()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +99,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SnapTagCell
         let config = buttonConfiguration.duplicate()
         
+        cell.sizer = sizer
         config.isOn = tag.isOn
         cell.applyConfiguration(buttonConfiguration)
         cell.setText(tag.tag)
@@ -112,10 +115,10 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout 
         let height = buttonConfiguration.verticalMargin * 2 + buttonConfiguration.font.pointSize
         
         let label = UILabel(frame: CGRectZero)
-        label.text = tag.tag
+        label.text = tag.tag.uppercaseString
         label.font = buttonConfiguration.font
         
-        let labelSize = label.sizeThatFits(CGSizeMake(1000,40))
+        let labelSize = sizer.calculateSizeFor(label.text ?? "", font: label.font)
         var width = buttonConfiguration.horizontalMargin * 2 + labelSize.width
         if buttonConfiguration.isTurnOnOffAble {
             width += buttonConfiguration.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onOffButtonImage.onImage.size.width)

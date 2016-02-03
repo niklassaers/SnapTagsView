@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0909B68D2B0584E78D7F5B7F /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80C358BC507F3F953E0879 /* Pods_Example.framework */; };
 		2C92BF5BE4D74750262CF980 /* Pods_SnapTagsViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C4B7F9EA052F6BB13D4EC3 /* Pods_SnapTagsViewTests.framework */; };
 		850FC5091C453F5200E1F75D /* SnapTagsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850FC5081C453F5200E1F75D /* SnapTagsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850FC5101C453F5200E1F75D /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
@@ -20,6 +21,7 @@
 		854494F01C609570006489E8 /* SnapTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854494EF1C609570006489E8 /* SnapTagCell.xib */; };
 		854494F21C60A589006489E8 /* SnapTagsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854494F11C60A589006489E8 /* SnapTagsCollectionViewController.swift */; };
 		854494F41C60A5F4006489E8 /* SnapTagRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */; };
+		854494F61C61F156006489E8 /* SnapTextSizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854494F51C61F156006489E8 /* SnapTextSizer.swift */; };
 		85572C491C49A5A00003BE70 /* SnapTagsButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */; };
 		85572C4A1C49A5A00003BE70 /* TagsBarButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */; };
 		85572C4B1C49A5A00003BE70 /* TagsBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */; };
@@ -99,6 +101,7 @@
 		854494EF1C609570006489E8 /* SnapTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnapTagCell.xib; sourceTree = "<group>"; };
 		854494F11C60A589006489E8 /* SnapTagsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsCollectionViewController.swift; sourceTree = "<group>"; };
 		854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagRepresentation.swift; sourceTree = "<group>"; };
+		854494F51C61F156006489E8 /* SnapTextSizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTextSizer.swift; sourceTree = "<group>"; };
 		85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsButtonDelegate.swift; sourceTree = "<group>"; };
 		85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButtonDelegate.swift; sourceTree = "<group>"; };
 		85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarViewDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */,
+				0909B68D2B0584E78D7F5B7F /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +255,7 @@
 				854494F11C60A589006489E8 /* SnapTagsCollectionViewController.swift */,
 				854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */,
 				85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */,
+				854494F51C61F156006489E8 /* SnapTextSizer.swift */,
 			);
 			name = "CollectionView Implementation";
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */,
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				85572C491C49A5A00003BE70 /* SnapTagsButtonDelegate.swift in Sources */,
+				854494F61C61F156006489E8 /* SnapTextSizer.swift in Sources */,
 				85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */,
 				85C771331C5FD85000B18A02 /* OnOffButtonConfiguration.swift in Sources */,
 			);
@@ -762,8 +768,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PODS_FRAMEWORK_BUILD_PATH = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-SnapTagsView";
-				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snaptagsview.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -776,8 +780,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PODS_FRAMEWORK_BUILD_PATH = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-SnapTagsView";
-				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snaptagsview.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
