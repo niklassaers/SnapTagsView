@@ -77,8 +77,23 @@ public class SnapTagCell: UICollectionViewCell {
     internal func setupBackground() {
         setBackgroundColor(onColor: configuration.onBackgroundColor, offColor: configuration.offBackgroundColor)
         setBackgroundImages(onImage: configuration.onBackgroundImage, offImage: configuration.offBackgroundImage)
-        self.layer.cornerRadius = configuration.cornerRadius
-        self.layer.masksToBounds = true
+        backgroundImageForOnState.layer.cornerRadius = configuration.onCornerRadius
+        backgroundImageForOnState.layer.masksToBounds = true
+        backgroundImageForOffState.layer.cornerRadius = configuration.offCornerRadius
+        backgroundImageForOffState.layer.masksToBounds = true
+
+        if let onBorderColor = configuration.onBorderColor,
+            let onBorderWidth = configuration.onBorderWidth {
+                backgroundImageForOnState.layer.borderColor = onBorderColor.CGColor
+                backgroundImageForOnState.layer.borderWidth = onBorderWidth
+        }
+        
+        if let offBorderColor = configuration.offBorderColor,
+            let offBorderWidth = configuration.offBorderWidth {
+                backgroundImageForOffState.layer.borderColor = offBorderColor.CGColor
+                backgroundImageForOffState.layer.borderWidth = offBorderWidth
+        }
+        
     }
     
     internal func setupLabel() {
@@ -145,7 +160,7 @@ public class SnapTagCell: UICollectionViewCell {
         backgroundImageForOffState.image = offImage
     }
     
-    internal func setBackgroundColor(onColor onColor: UIColor, offColor: UIColor) {
+    internal func setBackgroundColor(onColor onColor: UIColor?, offColor: UIColor?) {
         backgroundImageForOnState.backgroundColor = onColor
         backgroundImageForOffState.backgroundColor = offColor
     }

@@ -242,8 +242,12 @@ class ViewController: UIViewController {
         c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
-        //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        // c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        // c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        
+        c.offBorderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+        c.offBorderWidth = 1.0
+        
         
         c.font = UIFont.boldWithSize(13.0)
         c.onBackgroundColor = UIColor.roseColor()
@@ -252,7 +256,8 @@ class ViewController: UIViewController {
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
-        c.cornerRadius = 5.0
+        c.onCornerRadius = 5.0
+        c.offCornerRadius = 5.0
         
         assert(c.isValid())
         return c
@@ -309,7 +314,8 @@ class ViewController: UIViewController {
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
-        c.cornerRadius = 5.0
+        c.onCornerRadius = 5.0
+        c.offCornerRadius = 5.0
         
         assert(c.isValid())
         return c
@@ -357,17 +363,18 @@ class ViewController: UIViewController {
         c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
         c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
-        //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
+        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
         c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         
         c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-        c.offBackgroundColor = UIColor.whiteColor()
+//        c.onBackgroundColor = UIColor.roseColor()
+//        c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
-        c.cornerRadius = 5.0
+        c.onCornerRadius = 5.0
+        c.offCornerRadius = 5.0
         
         assert(c.isValid())
         return c
@@ -425,7 +432,8 @@ class ViewController: UIViewController {
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
-        c.cornerRadius = 5.0
+        c.onCornerRadius = 5.0
+        c.offCornerRadius = 5.0
         
         assert(c.isValid())
         return c
@@ -483,7 +491,8 @@ class ViewController: UIViewController {
         c.offTextColor = UIColor.roseColor()
         c.isTurnOnOffAble = true
         c.labelVOffset = 0.5
-        c.cornerRadius = 5.0
+        c.onCornerRadius = 5.0
+        c.offCornerRadius = 5.0
         
         assert(c.isValid())
         return c

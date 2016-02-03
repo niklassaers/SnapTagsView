@@ -5,6 +5,7 @@ public class SnapTagButtonConfiguration : NSObject {
     public var isOn : Bool = true
     
     public var font : UIFont!
+    
 
     public var onTextColor : UIColor!
     public var offTextColor : UIColor!
@@ -20,8 +21,10 @@ public class SnapTagButtonConfiguration : NSObject {
     
     public var horizontalMargin : CGFloat = 10.0
     public var verticalMargin : CGFloat = 10.0
-    public var cornerRadius : CGFloat = 5.0
-    
+
+    public var onCornerRadius : CGFloat = 5.0
+    public var offCornerRadius : CGFloat = 5.0
+
     public var onOffButtonImage : OnOffButtonConfiguration!
     
     public var spacingBetweenLabelAndOnOffButton : CGFloat = 0.0
@@ -30,6 +33,12 @@ public class SnapTagButtonConfiguration : NSObject {
     
     public var labelVOffset : CGFloat = 0.0
     public var labelHOffset : CGFloat = 0.0
+    
+    public var onBorderColor : UIColor?
+    public var onBorderWidth : CGFloat?
+    public var offBorderColor : UIColor?
+    public var offBorderWidth : CGFloat?
+
     
     public override init() {
         super.init()
@@ -57,7 +66,8 @@ public class SnapTagButtonConfiguration : NSObject {
         copy.isTurnOnOffAble = isTurnOnOffAble
         copy.horizontalMargin = horizontalMargin
         copy.verticalMargin = verticalMargin
-        copy.cornerRadius = cornerRadius
+        copy.onCornerRadius = onCornerRadius
+        copy.offCornerRadius = offCornerRadius
         copy.onOffButtonImage = OnOffButtonConfiguration()
         copy.onOffButtonImage.onImage = onOffButtonImage.onImage
         copy.onOffButtonImage.offImage = onOffButtonImage.offImage
@@ -65,6 +75,12 @@ public class SnapTagButtonConfiguration : NSObject {
         copy.onOffButtonImage.offTransform = onOffButtonImage.offTransform
         copy.spacingBetweenLabelAndOnOffButton = spacingBetweenLabelAndOnOffButton
         copy.intrinsicContentSize = intrinsicContentSize
+        copy.labelVOffset = labelVOffset
+        copy.labelHOffset = labelHOffset
+        copy.onBorderColor = onBorderColor
+        copy.onBorderWidth = onBorderWidth
+        copy.offBorderColor = offBorderColor
+        copy.offBorderWidth = offBorderWidth
         
         return copy
     }
@@ -73,8 +89,8 @@ public class SnapTagButtonConfiguration : NSObject {
         var test = true
         
         test = test && font != nil
-        test = test && onBackgroundColor != nil
-        test = test && offBackgroundColor != nil
+//        test = test && onBackgroundColor != nil
+//        test = test && offBackgroundColor != nil
         test = test && onTextColor != nil
         test = test && offTextColor != nil
         test = test && onOffButtonImage != nil && onOffButtonImage.isValid()

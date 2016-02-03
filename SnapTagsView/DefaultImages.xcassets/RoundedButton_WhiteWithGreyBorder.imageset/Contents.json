@@ -2,7 +2,21 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "RoundedButton_WhiteWithGreyBorder.pdf"
+      "filename" : "RoundedButton_WhiteWithGreyBorder.pdf",
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 22,
+          "top" : 21,
+          "right" : 3,
+          "left" : 3
+        }
+      }
     }
   ],
   "info" : {
