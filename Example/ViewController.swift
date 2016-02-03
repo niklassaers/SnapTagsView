@@ -100,7 +100,6 @@ class ViewController: UIViewController {
         leftAlignedCollectionViewController.scrollEnabled = false
         let leftAlignedContentSize = leftAlignedCollectionViewController.contentSize()
         leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
-//        leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = \(leftAlignedContentSize.width)", parameters: ["self": leftAlignedCollectionViewController.view])
         contentStackView.setNeedsLayout()
     }
 
