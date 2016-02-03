@@ -26,7 +26,6 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left-aligned collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jq-pf-qOm">
                                                 <rect key="frame" x="0.0" y="0.0" width="544" height="21"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.34509804840000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="tf2-d2-Yl1"/>
                                                 </constraints>

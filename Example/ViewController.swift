@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     
     let sizer = SnapTextWidthSizers()
+    var leftAlignedCollectionViewHeightConstraint : NSLayoutConstraint!
 
     
     @IBOutlet weak var leftAlignLabel: UILabel!
@@ -30,7 +31,8 @@ class ViewController: UIViewController {
         contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: 2)
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        leftAlignedCollectionViewController.view.addConstraint(NSLayoutConstraint(expressionFormat: "self.height = 90", parameters: ["self": leftAlignedCollectionViewController.view]))
+        leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedCollectionViewController.view])
+        leftAlignedCollectionViewController.view.addConstraint(leftAlignedCollectionViewHeightConstraint)
 
     }
     
@@ -89,6 +91,17 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         slider.minimumValue = Float(self.view.bounds.size.width) * (-1.0)
         self.sliderValueChanged(slider)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        leftAlignedCollectionViewController.scrollEnabled = false
+        let leftAlignedContentSize = leftAlignedCollectionViewController.contentSize()
+        leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
+//        leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = \(leftAlignedContentSize.width)", parameters: ["self": leftAlignedCollectionViewController.view])
+        contentStackView.setNeedsLayout()
     }
 
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -120,8 +133,8 @@ class ViewController: UIViewController {
         config.horizontalMargin = 5.0 as CGFloat
         config.verticalMargin = 5.0 as CGFloat
         config.contentHeight = 13.0 as CGFloat
-//        config.alignment = .Center
-        config.alignment = .Left
+        config.alignment = .Center
+//        config.alignment = .Left
 //        config.alignment = .Natural
         
         return config

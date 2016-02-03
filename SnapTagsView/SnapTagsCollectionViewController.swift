@@ -81,6 +81,24 @@ public class SnapTagsCollectionViewController: UIViewController {
         self.view.addConstraints(hConstraints)
         self.view.addConstraints(vConstraints)
     }
+
+    public func contentOffset() -> CGPoint {
+        return collectionView.contentOffset
+    }
+
+    public func contentSize() -> CGSize {
+        return collectionView.contentSize
+    }
+    
+    public var scrollEnabled : Bool {
+        get {
+            return collectionView.scrollEnabled
+        }
+        
+        set(value) {
+            collectionView.scrollEnabled = value
+        }
+    }
 }
 
 extension SnapTagsCollectionViewController : UICollectionViewDataSource {
