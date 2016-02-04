@@ -199,7 +199,7 @@ public class SnapTagCell: UICollectionViewCell {
             
             if configuration.hasOnOffButton {
                 width += configuration.spacingBetweenLabelAndOnOffButton
-                width += configuration.onOffButtonImage.onImage.size.height
+                width += configuration.onOffButtonImage.onImage.size.width
             }
             
             height = size.height

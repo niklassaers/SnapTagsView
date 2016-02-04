@@ -148,8 +148,13 @@ class ViewController: UIViewController {
 
         searchBarController.scrollEnabled = false
         searchBarController.view.translatesAutoresizingMaskIntoConstraints = true
+//        searchBarController.view.subviews.first?.translatesAutoresizingMaskIntoConstraints = true
+        
+        searchBar.setNeedsLayout()
+        searchBar.layoutIfNeeded()
+        
         var frame = searchBarController.view.frame
-        frame.size.width = 2000
+        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width// 2000
         frame.size.height = tagScrollView.frame.height
         searchBarController.view.frame = frame
         /*

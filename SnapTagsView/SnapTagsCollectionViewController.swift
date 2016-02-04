@@ -82,6 +82,47 @@ public class SnapTagsCollectionViewController: UIViewController {
         self.view.addConstraints(vConstraints)
     }
 
+    internal func calculateContentSizeForTag(tag: SnapTagRepresentation) -> CGSize {
+        
+        let size = sizer.calculateSizeFor(tag.tag, font: buttonConfiguration.font)
+        var width = size.width
+        width += buttonConfiguration.horizontalMargin * 2
+        
+        if buttonConfiguration.hasOnOffButton {
+            width += buttonConfiguration.spacingBetweenLabelAndOnOffButton
+            width += buttonConfiguration.onOffButtonImage.onImage.size.width
+        }
+        
+        var height = size.height
+        height += buttonConfiguration.verticalMargin * 2
+
+        return CGSizeMake(width, height)
+    }
+    
+    public func calculateContentSizeForTags(tags: [SnapTagRepresentation]) -> CGSize {
+        var width = CGFloat(0.0) // configuration.horizontalMargin * 2
+        width += CGFloat(collectionView.numberOfItemsInSection(0) - 1) * configuration.spacing
+        var height = CGFloat(0.0) // configuration.verticalMargin * 2 + configuration.contentHeight
+        let sizes = tags.map { calculateContentSizeForTag($0) }
+        height += sizes.reduce(CGFloat(0.0), combine: { (last, size) -> CGFloat in
+            return fmax(last, size.height)
+        })
+        width += sizes.reduce(CGFloat(0.0), combine: { (sum, size) -> CGFloat in
+            return sum + size.width
+        })
+        return CGSizeMake(width, height)
+    }
+    /*
+    public func contentWidth() -> CGFloat {
+        let lastIndexPath = NSIndexPath(forItem: collectionView.numberOfItemsInSection(0) - 1, inSection: 0)
+        if let cell = collectionView.cellForItemAtIndexPath(lastIndexPath) {
+            let width = cell.frame.origin.x + cell.frame.size.width
+            return width
+        } else {
+            return self.view.frame.size.width
+        }
+    }*/
+    
     public func contentOffset() -> CGPoint {
         return collectionView.contentOffset
     }
