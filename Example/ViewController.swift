@@ -116,7 +116,8 @@ class ViewController: UIViewController {
         let tagScrollView = UIScrollView(frame: CGRectZero)
         tagScrollView.showsHorizontalScrollIndicator = false
         tagScrollView.showsVerticalScrollIndicator = false
-        tagScrollView.bounces = false
+        tagScrollView.bounces = true
+        tagScrollView.alwaysBounceVertical = false
         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
         searchTextField.addSubview(tagScrollView)
         
@@ -140,9 +141,9 @@ class ViewController: UIViewController {
         
         constraints = []
         dict = ["self": searchBarController.view, "super": tagScrollView]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left", parameters: dict))
+//        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left", parameters: dict))
         constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top", parameters: dict))
+//        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top", parameters: dict))
         constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom", parameters: dict))
         tagScrollView.addConstraints(constraints)
 
@@ -150,13 +151,14 @@ class ViewController: UIViewController {
         searchBarController.view.translatesAutoresizingMaskIntoConstraints = true
 //        searchBarController.view.subviews.first?.translatesAutoresizingMaskIntoConstraints = true
         
+        var frame = searchBarController.view.frame
+        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width // 2000
+        frame.size.height = tagScrollView.frame.height
+        searchBarController.view.frame = frame
+
         searchBar.setNeedsLayout()
         searchBar.layoutIfNeeded()
         
-        var frame = searchBarController.view.frame
-        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width// 2000
-        frame.size.height = tagScrollView.frame.height
-        searchBarController.view.frame = frame
         /*
         
         searchBarController.view.setNeedsLayout()
@@ -169,8 +171,14 @@ class ViewController: UIViewController {
         var textFieldFrame = searchTextField.frame
         textFieldFrame.size.height = 34
         searchTextField.frame = textFieldFrame
+        
+        searchBar.setNeedsLayout()
+        searchBar.layoutIfNeeded()
+
 
         
+//        searchBarController.allowBouncingHorizontally(true, vertically: false)
+
 //        searchTextField.backgroundColor = UIColor.cyanColor()
 //        tagScrollView.backgroundColor = UIColor.yellowColor()
 //        searchBarController.view.backgroundColor = UIColor.greenColor()

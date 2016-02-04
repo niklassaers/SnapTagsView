@@ -32,6 +32,10 @@ public class SnapTagsCollectionViewController: UIViewController {
 
         // Register cell classes
         self.collectionView.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
+        
+        delay(0.3) {
+            print("\(self.collectionView.frame) in \(self.view.frame) in \(self.view.superview!.frame)")
+        }
 
     }
     
@@ -97,6 +101,12 @@ public class SnapTagsCollectionViewController: UIViewController {
         height += buttonConfiguration.verticalMargin * 2
 
         return CGSizeMake(width, height)
+    }
+    
+    public func allowBouncingHorizontally(horizontalBounce: Bool, vertically verticalBounce: Bool) {
+        self.collectionView.bounces = horizontalBounce || verticalBounce
+        self.collectionView.alwaysBounceHorizontal = horizontalBounce
+        self.collectionView.alwaysBounceVertical = verticalBounce
     }
     
     public func calculateContentSizeForTags(tags: [SnapTagRepresentation]) -> CGSize {

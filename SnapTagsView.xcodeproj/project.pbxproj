@@ -35,6 +35,7 @@
 		85572C5E1C49AAEF0003BE70 /* SystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */; };
 		857D431A1C6222D1009316C8 /* KTCenterFlowLayoutFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */; };
 		85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */; };
+		85B9A5781C63A1CC000F4C62 /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A5771C63A1CC000F4C62 /* GlobalHelper.swift */; };
 		85C771331C5FD85000B18A02 /* OnOffButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C771321C5FD85000B18A02 /* OnOffButtonConfiguration.swift */; };
 		85C771351C5FEB6400B18A02 /* GothamRnd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */; };
 		85C771361C5FEB6400B18A02 /* GothamRnd-BoldIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC71C5FA1C000B73619 /* GothamRnd-BoldIta.otf */; };
@@ -123,6 +124,7 @@
 		85A96DCC1C5FA1C000B73619 /* GothamRnd-MedIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-MedIta.otf"; path = "Fonts/GothamRnd-MedIta.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DCD1C5FA1C000B73619 /* GothamRnd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Medium.otf"; path = "Fonts/GothamRnd-Medium.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GothamRnd.swift"; sourceTree = "<group>"; };
+		85B9A5771C63A1CC000F4C62 /* GlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
 		85C771321C5FD85000B18A02 /* OnOffButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnOffButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				850FC52C1C453F7800E1F75D /* Assets.xcassets */,
 				850FC52E1C453F7800E1F75D /* LaunchScreen.storyboard */,
 				850FC5311C453F7800E1F75D /* Info.plist */,
+				85B9A5771C63A1CC000F4C62 /* GlobalHelper.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B9A5781C63A1CC000F4C62 /* GlobalHelper.swift in Sources */,
 				850FC5281C453F7700E1F75D /* ViewController.swift in Sources */,
 				850FC5261C453F7700E1F75D /* AppDelegate.swift in Sources */,
 			);
