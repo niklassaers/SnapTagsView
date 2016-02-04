@@ -69,7 +69,7 @@ public class TagsButton: UIView {
         self.selectButton?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         self.selectButton?.addTarget(self, action: "selectAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        if  config.isTurnOnOffAble {
+        if  config.hasOnOffButton {
             self.setupOnOffButton()
         }
     }

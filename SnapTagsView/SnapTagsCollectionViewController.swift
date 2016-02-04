@@ -141,7 +141,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout 
         
         let labelSize = sizer.calculateSizeFor(label.text ?? "", font: label.font)
         var width = buttonConfiguration.horizontalMargin * 2 + labelSize.width
-        if buttonConfiguration.isTurnOnOffAble {
+        if buttonConfiguration.hasOnOffButton {
             width += buttonConfiguration.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onOffButtonImage.onImage.size.width)
         }
         return CGSizeMake(width, height)
@@ -152,7 +152,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
     
     public func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return buttonConfiguration.isTurnOnOffAble
+        return buttonConfiguration.canBeTurnedOnAndOff || buttonConfiguration.isTappable
     }
     
     public func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
@@ -168,29 +168,35 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
     }
     
     public func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return buttonConfiguration.isTurnOnOffAble
+        return buttonConfiguration.canBeTurnedOnAndOff || buttonConfiguration.isTappable
     }
     
 
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let tag = data[indexPath.row]
-        tag.isOn = !tag.isOn
-        data[indexPath.row] = tag
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
-        UIView.animateWithDuration(0.3) {
-            if tag.isOn {
-                cell.setOnState()
-            } else {
-                cell.setOffState()
+        if buttonConfiguration.canBeTurnedOnAndOff {
+            let tag = data[indexPath.row]
+            tag.isOn = !tag.isOn
+            data[indexPath.row] = tag
+            
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
+            UIView.animateWithDuration(0.3) {
+                if tag.isOn {
+                    cell.setOnState()
+                } else {
+                    cell.setOffState()
+                }
             }
+        } else if buttonConfiguration.isTappable {
+            print("did tap")
         }
     }
 
     
     public func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return buttonConfiguration.isTurnOnOffAble
+        
+        return buttonConfiguration.canBeTurnedOnAndOff
     }
     
     public func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {

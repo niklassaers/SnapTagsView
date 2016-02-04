@@ -17,7 +17,9 @@ public class SnapTagButtonConfiguration : NSObject {
     public var onBackgroundColor : UIColor!
     public var offBackgroundColor : UIColor!
     
-    public var isTurnOnOffAble: Bool = false
+    public var canBeTurnedOnAndOff: Bool = false
+    public var hasOnOffButton : Bool = false
+    public var isTappable : Bool = true
     
     public var horizontalMargin : CGFloat = 10.0
     public var verticalMargin : CGFloat = 10.0
@@ -63,7 +65,8 @@ public class SnapTagButtonConfiguration : NSObject {
         copy.offBackgroundImage = offBackgroundImage
         copy.onBackgroundColor = onBackgroundColor
         copy.offBackgroundColor = offBackgroundColor
-        copy.isTurnOnOffAble = isTurnOnOffAble
+        copy.canBeTurnedOnAndOff = canBeTurnedOnAndOff
+        copy.hasOnOffButton = hasOnOffButton
         copy.horizontalMargin = horizontalMargin
         copy.verticalMargin = verticalMargin
         copy.onCornerRadius = onCornerRadius
@@ -111,7 +114,8 @@ public class SnapTagButtonConfiguration : NSObject {
         c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.canBeTurnedOnAndOff = true
+        c.hasOnOffButton = true
         
         assert(c.isValid())
         return c

@@ -35,7 +35,7 @@ public class SnapTagCell: UICollectionViewCell {
         onOffButton.transform = configuration.onOffButtonImage.onTransform
         setTextColor(configuration.onTextColor)
         
-        highlightBackground.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        highlightBackground.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
         highlightBackground.layer.cornerRadius = configuration.onCornerRadius
         
         self.selected = true
@@ -56,7 +56,7 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     public func setHighlightState(enabled : Bool) {
-        self.highlightBackground.alpha = enabled ? 0.3 : 0.0
+        self.highlightBackground.alpha = enabled ? 1.0 : 0.0
 //        backgroundImageForOnState.alpha = 0.5
 //        backgroundImageForOffState.alpha = 1.0
 //        onButtonImage.alpha = 0.5
@@ -115,7 +115,7 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     internal func setupOnOffButton() {
-        if configuration.isTurnOnOffAble {
+        if configuration.hasOnOffButton {
             enableOnOffButton()
         } else {
             disableOnOffButton()
@@ -197,7 +197,7 @@ public class SnapTagCell: UICollectionViewCell {
             width = size.width
             width += configuration.horizontalMargin * 2
             
-            if configuration.isTurnOnOffAble {
+            if configuration.hasOnOffButton {
                 width += configuration.spacingBetweenLabelAndOnOffButton
                 width += configuration.onOffButtonImage.onImage.size.height
             }

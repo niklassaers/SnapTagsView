@@ -264,7 +264,8 @@ class ViewController: UIViewController {
         c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.canBeTurnedOnAndOff = true
+        c.hasOnOffButton = false
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
         c.offCornerRadius = 5.0
@@ -316,13 +317,16 @@ class ViewController: UIViewController {
         
         //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
         c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+
         
         c.font = UIFont.boldWithSize(13.0)
         c.onBackgroundColor = UIColor.roseColor()
         c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.canBeTurnedOnAndOff = false
+        c.hasOnOffButton = true
+        c.isTappable = true
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
         c.offCornerRadius = 5.0
@@ -380,8 +384,9 @@ class ViewController: UIViewController {
         c.onBackgroundColor = UIColor.roseColor()
 //        c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
-        c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.offTextColor = UIColor.blackColor()
+        c.canBeTurnedOnAndOff = true
+        c.hasOnOffButton = true
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
         c.offCornerRadius = 0.0
@@ -440,7 +445,8 @@ class ViewController: UIViewController {
         c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.canBeTurnedOnAndOff = false
+        c.hasOnOffButton = true
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
         c.offCornerRadius = 5.0
@@ -499,7 +505,8 @@ class ViewController: UIViewController {
         c.offBackgroundColor = UIColor.whiteColor()
         c.onTextColor = UIColor.whiteColor()
         c.offTextColor = UIColor.roseColor()
-        c.isTurnOnOffAble = true
+        c.canBeTurnedOnAndOff = false
+        c.hasOnOffButton = false
         c.labelVOffset = 0.5
         c.onCornerRadius = 5.0
         c.offCornerRadius = 5.0
