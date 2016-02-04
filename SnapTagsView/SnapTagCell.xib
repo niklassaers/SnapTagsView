@@ -30,15 +30,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9z-Xy-e57" userLabel="HighlightBackground">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gzB-SW-mYG" firstAttribute="top" secondItem="xS8-mJ-FvD" secondAttribute="top" id="2dD-sB-tTH"/>
                             <constraint firstItem="ohz-BJ-KEk" firstAttribute="top" secondItem="xS8-mJ-FvD" secondAttribute="top" id="Jfv-80-1dV"/>
+                            <constraint firstItem="n9z-Xy-e57" firstAttribute="leading" secondItem="xS8-mJ-FvD" secondAttribute="leading" id="OO6-MQ-itK"/>
                             <constraint firstAttribute="bottom" secondItem="ohz-BJ-KEk" secondAttribute="bottom" id="R81-WZ-jsn"/>
                             <constraint firstItem="gzB-SW-mYG" firstAttribute="leading" secondItem="xS8-mJ-FvD" secondAttribute="leading" id="W4z-Mh-e7v"/>
                             <constraint firstAttribute="trailing" secondItem="ohz-BJ-KEk" secondAttribute="trailing" id="WOW-5h-tbJ"/>
+                            <constraint firstAttribute="bottom" secondItem="n9z-Xy-e57" secondAttribute="bottom" id="YVy-EC-qom"/>
                             <constraint firstAttribute="bottom" secondItem="gzB-SW-mYG" secondAttribute="bottom" id="Zi7-xD-Vtn"/>
+                            <constraint firstItem="n9z-Xy-e57" firstAttribute="top" secondItem="xS8-mJ-FvD" secondAttribute="top" id="avn-jE-tRQ"/>
+                            <constraint firstAttribute="trailing" secondItem="n9z-Xy-e57" secondAttribute="trailing" id="hDn-TJ-cgB"/>
                             <constraint firstAttribute="trailing" secondItem="gzB-SW-mYG" secondAttribute="trailing" id="nKh-VH-jnz"/>
                             <constraint firstItem="ohz-BJ-KEk" firstAttribute="leading" secondItem="xS8-mJ-FvD" secondAttribute="leading" id="yBD-8E-XH5"/>
                         </constraints>
@@ -100,6 +108,7 @@
                 <outlet property="backgroundImageForOffState" destination="gzB-SW-mYG" id="hZa-wD-0aO"/>
                 <outlet property="backgroundImageForOnState" destination="ohz-BJ-KEk" id="kqn-5A-V8u"/>
                 <outlet property="bottomMargin" destination="Z6f-hr-zmQ" id="3FJ-EA-XRo"/>
+                <outlet property="highlightBackground" destination="n9z-Xy-e57" id="tNC-wS-LIv"/>
                 <outlet property="label" destination="sNq-Fa-Bcn" id="N1L-Gu-Ut9"/>
                 <outlet property="labelWidth" destination="D1Y-8g-5Jj" id="PT8-e2-hJn"/>
                 <outlet property="leadingMargin" destination="uke-0k-JXu" id="ghw-MP-8ld"/>
@@ -118,7 +127,7 @@
     <resources>
         <image name="RedCloseButton" width="16" height="16"/>
         <image name="RoundedButton" width="7" height="7"/>
-        <image name="RoundedButtonFilled" width="73" height="30"/>
+        <image name="RoundedButtonFilled" width="7" height="7"/>
         <image name="YellowCloseButton" width="16" height="16"/>
     </resources>
 </document>

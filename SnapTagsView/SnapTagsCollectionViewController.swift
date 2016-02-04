@@ -157,30 +157,37 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
     
     public func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
-        cell.setHighlightState()
+        cell.setHighlightState(true)
     }
     
     public func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
+        UIView.animateWithDuration(0.3) {
+            cell.setHighlightState(false)
+        }
     }
     
     public func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return buttonConfiguration.isTurnOnOffAble
     }
     
-    public func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return buttonConfiguration.isTurnOnOffAble
-    }
+
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let tag = data[indexPath.row]
+        tag.isOn = !tag.isOn
+        data[indexPath.row] = tag
+        
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
-        cell.setOnState()
+        UIView.animateWithDuration(0.3) {
+            if tag.isOn {
+                cell.setOnState()
+            } else {
+                cell.setOffState()
+            }
+        }
     }
-    
-    public func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
-        cell.setOffState()
-    }
+
     
     public func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return buttonConfiguration.isTurnOnOffAble

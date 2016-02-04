@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0909B68D2B0584E78D7F5B7F /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80C358BC507F3F953E0879 /* Pods_Example.framework */; };
 		2C92BF5BE4D74750262CF980 /* Pods_SnapTagsViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C4B7F9EA052F6BB13D4EC3 /* Pods_SnapTagsViewTests.framework */; };
 		850FC5091C453F5200E1F75D /* SnapTagsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850FC5081C453F5200E1F75D /* SnapTagsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850FC5101C453F5200E1F75D /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
@@ -157,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */,
-				0909B68D2B0584E78D7F5B7F /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

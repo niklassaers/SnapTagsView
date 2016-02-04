@@ -178,15 +178,25 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         leftAlignedCollectionViewController.scrollEnabled = false
-        /*
         let leftAlignedContentSize = leftAlignedCollectionViewController.contentSize()
-        if leftAlignedContentSize.height > 40.0 {
-            leftAlignedCollectionViewHeightConstraint.constant = 40.0
-            leftAlignedCollectionViewController.view.backgroundColor = UIColor.purpleColor()
-        } else {
-            leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
-        }
-        contentStackView.setNeedsLayout()*/
+        leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
+        
+        centerAlignedCollectionViewController.scrollEnabled = false
+        let centerAlignedContentSize = centerAlignedCollectionViewController.contentSize()
+        centerAlignedCollectionViewHeightConstraint.constant = centerAlignedContentSize.height
+
+        leftAlignedMixedOnOffCollectionViewController.scrollEnabled = false
+        let leftAlignedMixedOnOffContentSize = leftAlignedMixedOnOffCollectionViewController.contentSize()
+        leftAlignedMixedOnOffCollectionViewHeightConstraint.constant = leftAlignedMixedOnOffContentSize.height
+        
+        searchBarController.scrollEnabled = false
+        let searchBarContentSize = searchBarController.contentSize()
+        searchBarHeightConstraint.constant = searchBarContentSize.height
+
+        tagBarViewController.scrollEnabled = false
+        let tagBarContentSize = tagBarViewController.contentSize()
+        tagBarViewHeightConstraint.constant = tagBarContentSize.height
+
     }
 
     @IBAction func sliderValueChanged(sender: UISlider) {

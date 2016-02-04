@@ -10,6 +10,8 @@ public class SnapTagCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImageForOnState: UIImageView!
     @IBOutlet weak var backgroundImageForOffState: UIImageView!
     
+    @IBOutlet weak var highlightBackground: UIView!
+    
     @IBOutlet weak var onOffButton: UIView!
     @IBOutlet weak var onButtonImage: UIImageView!
     @IBOutlet weak var offButtonImage: UIImageView!
@@ -32,6 +34,11 @@ public class SnapTagCell: UICollectionViewCell {
         offButtonImage.alpha = 1.0
         onOffButton.transform = configuration.onOffButtonImage.onTransform
         setTextColor(configuration.onTextColor)
+        
+        highlightBackground.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        highlightBackground.layer.cornerRadius = configuration.onCornerRadius
+        
+        self.selected = true
     }
     
     public func setOffState() {
@@ -41,14 +48,21 @@ public class SnapTagCell: UICollectionViewCell {
         offButtonImage.alpha = 0.0
         onOffButton.transform = configuration.onOffButtonImage.offTransform
         setTextColor(configuration.offTextColor)
+
+        highlightBackground.backgroundColor = UIColor.roseColor()
+        highlightBackground.layer.cornerRadius = configuration.offCornerRadius
+        
+        self.selected = false
     }
     
-    public func setHighlightState() {
-        backgroundImageForOnState.alpha = 0.5
-        backgroundImageForOffState.alpha = 1.0
-        onButtonImage.alpha = 0.5
-        offButtonImage.alpha = 1.0
-        setTextColor(configuration.onTextColor)
+    public func setHighlightState(enabled : Bool) {
+        self.highlightBackground.alpha = enabled ? 0.3 : 0.0
+//        backgroundImageForOnState.alpha = 0.5
+//        backgroundImageForOffState.alpha = 1.0
+//        onButtonImage.alpha = 0.5
+//        offButtonImage.alpha = 1.0
+//        setTextColor(configuration.onTextColor)
+
     }
     
     public func applyConfiguration(configuration: SnapTagButtonConfiguration) {
