@@ -41,8 +41,15 @@ This style is used in the centered collection.
 
 ---
 
-###Searchbar with tags
+### Search bar with tags
 ![](Design/search_bar_tags.png)
+
+---
+
+### Tag bar
+![](Design/tag_bar.png)
+
+Used together with the search bar above as a filter/search.
 
 
 #Actual implementation
