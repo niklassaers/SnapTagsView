@@ -90,21 +90,12 @@
 		850FC52C1C453F7800E1F75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		850FC52F1C453F7800E1F75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		850FC5311C453F7800E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		850FC5371C45472D00E1F75D /* TagsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
-		850FC5381C45472D00E1F75D /* TagsBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarView.swift; sourceTree = "<group>"; };
-		850FC5391C45472D00E1F75D /* TagsBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButton.swift; sourceTree = "<group>"; };
-		850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBar.swift; sourceTree = "<group>"; };
-		850FC53F1C45498700E1F75D /* TagsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsButton.swift; sourceTree = "<group>"; };
 		854494ED1C6094D8006489E8 /* SnapTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagCell.swift; sourceTree = "<group>"; };
 		854494EF1C609570006489E8 /* SnapTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SnapTagCell.xib; sourceTree = "<group>"; };
 		854494F11C60A589006489E8 /* SnapTagsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsCollectionViewController.swift; sourceTree = "<group>"; };
 		854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagRepresentation.swift; sourceTree = "<group>"; };
 		854494F51C61F156006489E8 /* SnapTextSizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTextSizer.swift; sourceTree = "<group>"; };
 		85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsButtonDelegate.swift; sourceTree = "<group>"; };
-		85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarButtonDelegate.swift; sourceTree = "<group>"; };
-		85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBarViewDelegate.swift; sourceTree = "<group>"; };
-		85572C461C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchAutocompleteViewDelegate.swift; sourceTree = "<group>"; };
-		85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsSearchBarDelegate.swift; sourceTree = "<group>"; };
 		85572C481C49A5A00003BE70 /* GlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		85572C521C49A6860003BE70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		85572C541C49A6B20003BE70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -112,7 +103,6 @@
 		85572C571C49A90D0003BE70 /* ImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		85572C581C49A90D0003BE70 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+roseColor.swift"; sourceTree = "<group>"; };
-		85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemDelegate.swift; sourceTree = "<group>"; };
 		857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCenterFlowLayoutFix.swift; sourceTree = "<group>"; };
 		85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Bold.otf"; path = "Fonts/GothamRnd-Bold.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DC71C5FA1C000B73619 /* GothamRnd-BoldIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-BoldIta.otf"; path = "Fonts/GothamRnd-BoldIta.otf"; sourceTree = SOURCE_ROOT; };
@@ -127,7 +117,6 @@
 		85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SnapTagsView.storyboard; sourceTree = "<group>"; };
 		85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsHorizontalScrollView.swift; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
-		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
 		AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.release.xcconfig"; sourceTree = "<group>"; };
 		ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,18 +188,10 @@
 		850FC5071C453F5200E1F75D /* SnapTagsView */ = {
 			isa = PBXGroup;
 			children = (
-				85B9A5821C649B71000F4C62 /* Legacy */,
+				85B9A58D1C64C5F6000F4C62 /* Resources */,
 				85A96DC51C5FA1A600B73619 /* Fonts */,
 				854494EC1C6094B3006489E8 /* CollectionView Implementation */,
 				85B9A5791C649646000F4C62 /* Configurations */,
-				850FC5081C453F5200E1F75D /* SnapTagsView.h */,
-				85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */,
-				85572C481C49A5A00003BE70 /* GlobalHelpers.swift */,
-				85572C571C49A90D0003BE70 /* ImageConstants.swift */,
-				85572C581C49A90D0003BE70 /* LocalizedStrings.swift */,
-				850FC50A1C453F5200E1F75D /* Info.plist */,
-				85572C531C49A6860003BE70 /* Localizable.strings */,
-				85572C551C49A8380003BE70 /* DefaultImages.xcassets */,
 			);
 			path = SnapTagsView;
 			sourceTree = "<group>";
@@ -279,22 +260,19 @@
 			name = Configurations;
 			sourceTree = "<group>";
 		};
-		85B9A5821C649B71000F4C62 /* Legacy */ = {
+		85B9A58D1C64C5F6000F4C62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				85572C5D1C49AAEF0003BE70 /* SystemDelegate.swift */,
-				85572C441C49A5A00003BE70 /* TagsBarButtonDelegate.swift */,
-				85572C451C49A5A00003BE70 /* TagsBarViewDelegate.swift */,
-				85572C461C49A5A00003BE70 /* TagsSearchAutocompleteViewDelegate.swift */,
-				85572C471C49A5A00003BE70 /* TagsSearchBarDelegate.swift */,
-				850FC5371C45472D00E1F75D /* TagsView.swift */,
-				850FC5381C45472D00E1F75D /* TagsBarView.swift */,
-				850FC5391C45472D00E1F75D /* TagsBarButton.swift */,
-				850FC53A1C45472D00E1F75D /* TagsSearchBar.swift */,
-				850FC53F1C45498700E1F75D /* TagsButton.swift */,
-				85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */,
+				850FC5081C453F5200E1F75D /* SnapTagsView.h */,
+				85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */,
+				85572C481C49A5A00003BE70 /* GlobalHelpers.swift */,
+				85572C571C49A90D0003BE70 /* ImageConstants.swift */,
+				85572C581C49A90D0003BE70 /* LocalizedStrings.swift */,
+				850FC50A1C453F5200E1F75D /* Info.plist */,
+				85572C531C49A6860003BE70 /* Localizable.strings */,
+				85572C551C49A8380003BE70 /* DefaultImages.xcassets */,
 			);
-			name = Legacy;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CA143C1A735A94E393E0A65D /* Pods */ = {
