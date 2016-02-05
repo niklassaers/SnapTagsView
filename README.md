@@ -7,27 +7,42 @@ SnapTagsView is our collection of:
 - Search bar that displays text as tags when it is not first responder
 - Tag bar view that acts as a stand-alone search field using tags
 
-Please download Snapsale to see it in action
+Download Snapsale from the [App Store](http://r.yoz.io/x5.c.h?utm_content=GithubSnapTagsView&instanceId=5984489495330816&yozio_ipad_deeplink_url=snapsale://instance/5984489495330816&yozio_iphone_deeplink_url=snapsale://instance/5984489495330816) to see it in action.
 
 
+# Design
+This module implements the following five tag designs, the tags can be used in a centered and/or a left-aligned layout.
 
-#Design
-This module implements the following five tag designs:
+#### Tag state toggled
+![](Design/tags_active.png)
 
-###Centered collection
-![Centered collection](Design/CenteredAlignedTagCollection@3x.png)
+This style is used together with the untoggled state tags.
 
-###Left-aligned collection
-![Left-aligned collection](Design/LeftAlignedTagCollection@3x.png)
+---
 
-####Left-aligned with some buttons turned on and off
-![Left-aligned on/off](Design/OnOffTags@2x.png)
+#### Tags state untoggled
+![](Design/tags_inactive.png)
+
+This style is used together with the toggled state tags.
+
+---
+
+#### Tags state clickable
+![](Design/tags_clickable.png)
+
+This style is used in the tagbar.
+
+---
+
+#### Tags state toggled alternate version for contrast background colors.
+![](Design/tags_centered_clickable.png)
+
+This style is used in the centered collection.
+
+---
 
 ###Searchbar with tags
-![Searchbar with tags](Design/SearchWithTags.png@3x.png)
-
-###Tagbar
-![Tagbar](Design/TagBar@3x.png)
+![](Design/search_bar_tags.png)
 
 
 #Actual implementation
