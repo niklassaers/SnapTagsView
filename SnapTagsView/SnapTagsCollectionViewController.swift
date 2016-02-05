@@ -93,8 +93,8 @@ public class SnapTagsCollectionViewController: UIViewController {
         width += buttonConfiguration.horizontalMargin * 2
         
         if buttonConfiguration.hasOnOffButton {
-            width += buttonConfiguration.spacingBetweenLabelAndOnOffButton
-            width += buttonConfiguration.onOffButtonImage.onImage.size.width
+            width += buttonConfiguration.onState.spacingBetweenLabelAndOnOffButton
+            width += buttonConfiguration.onState.buttonImage?.size.width ?? 0.0
         }
         
         var height = size.height
@@ -169,7 +169,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let tag = data[indexPath.item]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SnapTagCell
-        let config = buttonConfiguration.duplicate()
+        var config = buttonConfiguration
         
         cell.sizer = sizer
         config.isOn = tag.isOn
@@ -193,7 +193,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout 
         let labelSize = sizer.calculateSizeFor(label.text ?? "", font: label.font)
         var width = buttonConfiguration.horizontalMargin * 2 + labelSize.width
         if buttonConfiguration.hasOnOffButton {
-            width += buttonConfiguration.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onOffButtonImage.onImage.size.width)
+            width += buttonConfiguration.onState.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onState.buttonImage?.size.width ?? 0.0)
         }
         return CGSizeMake(width, height)
     }

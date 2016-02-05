@@ -1,23 +1,18 @@
 import Foundation
 import UIKit
 
-public class SnapTagsViewConfiguration : NSObject {
+public struct SnapTagsViewConfiguration {
     
-    public var spacing = 5.0 as CGFloat
-    public var horizontalMargin = 5.0 as CGFloat
-    public var verticalMargin = 5.0 as CGFloat
-    public var contentHeight = 30.0 as CGFloat
+    public var spacing : CGFloat = 5.0
+    public var horizontalMargin : CGFloat = 5.0
+    public var verticalMargin : CGFloat = 5.0
+    public var contentHeight : CGFloat = 30.0
     public var scrollDirection : UICollectionViewScrollDirection = .Vertical
     
     public var alignment : NSTextAlignment = .Left
     
-    func isValid() -> Bool {
-        return true
+    public init() {
+        
     }
-    
-    public static func defaultConfiguration() -> SnapTagsViewConfiguration {
-        return SnapTagsViewConfiguration()
-    }
-    
 }
 

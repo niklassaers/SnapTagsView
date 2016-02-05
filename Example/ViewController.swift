@@ -322,315 +322,248 @@ class ViewController: UIViewController {
     
     
     internal func centeredTagsViewConfig() -> SnapTagsViewConfiguration {
-        let config = SnapTagsViewConfiguration.defaultConfiguration()
+        let config = SnapTagsViewConfiguration()
 
         return config
     }
     
     //MARK: Left aligned config
     internal func leftAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
-        
-        let config = SnapTagsViewConfiguration()
-        config.spacing = 5.0 as CGFloat
-        config.horizontalMargin = 5.0 as CGFloat
-        config.verticalMargin = 5.0 as CGFloat
-        config.contentHeight = 13.0 as CGFloat
+
+        var config = SnapTagsViewConfiguration()
+        config.spacing = 5.0
+        config.horizontalMargin = 5.0
+        config.verticalMargin = 5.0
+        config.contentHeight = 13.0
         config.alignment = .Left
         
         return config
     }
     
     internal func leftAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let c = SnapTagButtonConfiguration()
-        
-        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
-        
-        // c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        // c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
-        
-        c.offBorderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
-        c.offBorderWidth = 1.0
-        
-        
+        var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.whiteColor()
-        c.offTextColor = UIColor.roseColor()
         c.canBeTurnedOnAndOff = true
-        c.hasOnOffButton = false
         c.labelVOffset = 0.5
-        c.onCornerRadius = 5.0
-        c.offCornerRadius = 5.0
+
         
-        assert(c.isValid())
+        var onState = ButtonStateConfiguration()
+        onState.buttonImage = UIImage.Asset.YellowCloseButton.image
+        onState.backgroundColor = UIColor.roseColor()
+        onState.textColor = UIColor.whiteColor()
+        onState.hasButton = false
+        onState.cornerRadius = 5.0
+        
+        var offState = onState
+        offState.buttonImage = UIImage.Asset.RedCloseButton.image
+        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        offState.backgroundColor = UIColor.whiteColor()
+        offState.textColor = UIColor.roseColor()
+        offState.borderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+        offState.borderWidth = 1.0
+        
+        var highlightedOnState = onState
+        highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        var highlightedOffState = offState
+        highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        c.onState = onState
+        c.offState = offState
+        c.highlightedWhileOnState = highlightedOnState
+        c.highlightedWhileOffState = highlightedOffState
+        
         return c
     }
     
     //MARK: Center aligned config
     internal func centerAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let config = SnapTagsViewConfiguration()
-        config.spacing = 5.0 as CGFloat
-        config.horizontalMargin = 5.0 as CGFloat
-        config.verticalMargin = 5.0 as CGFloat
-        config.contentHeight = 13.0 as CGFloat
+        var config = SnapTagsViewConfiguration()
+        config.spacing = 5.0
+        config.horizontalMargin = 5.0
+        config.verticalMargin = 5.0
+        config.contentHeight = 13.0
         config.alignment = .Center
         
         return config
     }
     
     internal func centerAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let c = SnapTagButtonConfiguration()
+        var c = SnapTagButtonConfiguration()
+        c.font = UIFont.boldWithSize(13.0)
+        c.canBeTurnedOnAndOff = false
+        c.labelVOffset = 0.5
+        c.isTappable = true
         
-        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
-        
-        //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        var onState = ButtonStateConfiguration()
+        onState.buttonImage = UIImage.Asset.YellowCloseButton.image
+        onState.backgroundColor = UIColor.roseColor()
+        onState.textColor = UIColor.whiteColor()
+        onState.hasButton = true
+        onState.cornerRadius = 5.0
+
+        var offState = onState
+        offState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        offState.backgroundColor = UIColor.whiteColor()
+        offState.textColor = UIColor.roseColor()
+        offState.buttonImage = UIImage.Asset.RedCloseButton.image
+        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
 
         
-        c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.whiteColor()
-        c.offTextColor = UIColor.roseColor()
-        c.canBeTurnedOnAndOff = false
-        c.hasOnOffButton = true
-        c.isTappable = true
-        c.labelVOffset = 0.5
-        c.onCornerRadius = 5.0
-        c.offCornerRadius = 5.0
+        var highlightedOnState = onState
+        highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
         
-        assert(c.isValid())
+        var highlightedOffState = offState
+        highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        c.onState = onState
+        c.offState = offState
+        c.highlightedWhileOnState = highlightedOnState
+        c.highlightedWhileOffState = highlightedOffState
+        
         return c
     }
     
     //MARK: Left aligned mixed on/off config
     internal func leftAlignedMixedOnOffTagsViewConfig() -> SnapTagsViewConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let config = SnapTagsViewConfiguration()
-        config.spacing = 5.0 as CGFloat
-        config.horizontalMargin = 5.0 as CGFloat
-        config.verticalMargin = 5.0 as CGFloat
-        config.contentHeight = 13.0 as CGFloat
+        var config = SnapTagsViewConfiguration()
+        config.spacing = 5.0
+        config.horizontalMargin = 5.0
+        config.verticalMargin = 5.0
+        config.contentHeight = 13.0
         config.alignment = .Left
-        //        config.alignment = .Natural
         
         return config
     }
     
     internal func leftAlignedMixedOnOffTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let c = SnapTagButtonConfiguration()
-        
-        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
-        
-        //c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
-        
+        var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-//        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.whiteColor()
-        c.offTextColor = UIColor.blackColor()
         c.canBeTurnedOnAndOff = true
-        c.hasOnOffButton = true
         c.labelVOffset = 0.5
-        c.onCornerRadius = 5.0
-        c.offCornerRadius = 0.0
+        c.isTappable = true
         
-        assert(c.isValid())
+        var onState = ButtonStateConfiguration()
+        onState.buttonImage = UIImage.Asset.YellowCloseButton.image
+        onState.backgroundColor = UIColor.roseColor()
+        onState.textColor = UIColor.whiteColor()
+        onState.hasButton = true
+        onState.cornerRadius = 5.0
+        
+        var offState = onState
+        offState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        offState.backgroundColor = UIColor.whiteColor()
+        offState.textColor = UIColor.blackColor()
+        offState.buttonImage = UIImage.Asset.RedCloseButton.image
+        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        
+        var highlightedOnState = onState
+        highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        var highlightedOffState = offState
+        highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        c.onState = onState
+        c.offState = offState
+        c.highlightedWhileOnState = highlightedOnState
+        c.highlightedWhileOffState = highlightedOffState
+        
         return c
     }
     
     //MARK: Search Bar config
     internal func searchBarViewConfig() -> SnapTagsViewConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let config = SnapTagsViewConfiguration()
-        config.spacing = 5.0 as CGFloat
-        config.horizontalMargin = 1.0 as CGFloat
-        config.verticalMargin = 1.0 as CGFloat
-        config.contentHeight = 13.0 as CGFloat
+        var config = SnapTagsViewConfiguration()
+        config.spacing = 5.0
+        config.horizontalMargin = 1.0
+        config.verticalMargin = 1.0
+        config.contentHeight = 13.0
         config.alignment = .Left
-        //        config.alignment = .Natural
         
         return config
     }
     
     internal func searchBarViewButtonConfig() -> SnapTagButtonConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let c = SnapTagButtonConfiguration()
-        
-        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
-        
-        //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
-        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
-        
+        var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.whiteColor()
-        c.offTextColor = UIColor.roseColor()
         c.canBeTurnedOnAndOff = false
-        c.hasOnOffButton = true
         c.labelVOffset = 0.5
-        c.onCornerRadius = 3.0
-        c.offCornerRadius = 3.0
-        
+        c.isTappable = true
         c.horizontalMargin = 6.0
         c.verticalMargin = 5.0
         
-        assert(c.isValid())
+        var onState = ButtonStateConfiguration()
+        onState.backgroundColor = UIColor.roseColor()
+        onState.textColor = UIColor.whiteColor()
+        onState.buttonImage = UIImage.Asset.YellowCloseButton.image
+        onState.hasButton = true
+        onState.cornerRadius = 3.0
+        
+        var offState = onState
+        offState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        offState.backgroundColor = UIColor.whiteColor()
+        offState.textColor = UIColor.roseColor()
+        offState.buttonImage = UIImage.Asset.RedCloseButton.image
+        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        
+        var highlightedOnState = onState
+        highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        var highlightedOffState = offState
+        highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
+        
+        c.onState = onState
+        c.offState = offState
+        c.highlightedWhileOnState = highlightedOnState
+        c.highlightedWhileOffState = highlightedOffState
+        
         return c
     }
     
     //MARK: Tag bar config
     internal func tagBarViewConfig() -> SnapTagsViewConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
         
-        let config = SnapTagsViewConfiguration()
-        config.spacing = 5.0 as CGFloat
-        config.horizontalMargin = 5.0 as CGFloat
-        config.verticalMargin = 5.0 as CGFloat
-        config.contentHeight = 13.0 as CGFloat
+        var config = SnapTagsViewConfiguration()
+        config.spacing = 5.0
+        config.horizontalMargin = 5.0
+        config.verticalMargin = 5.0
+        config.contentHeight = 13.0
         config.alignment = .Left
-        //        config.alignment = .Natural
         
         return config
     }
     
     internal func tagBarViewButtonConfig() -> SnapTagButtonConfiguration {
-        // 30 dp high
-        // 5 dp vertical spacing
-        // 5 horizontal spacing
-        // 10 dp between last letter and X
-        // 10 dp between leading edge and first letter
-        // 10 dp betwwen trailing X and trailing edge
-        // 10 dp margin top and bottom
-        // Font 13dp Medium #FFFFFF
-        // Background #FF0058
-        // Corner radius 4dp
-        
-        let c = SnapTagButtonConfiguration()
-        
-//        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-//        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-//        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
-        
-        c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
-        c.onBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
 
+        var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
-//        c.onBackgroundColor = UIColor.roseColor()
-//        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.roseColor()
-        c.offTextColor = UIColor.roseColor()
         c.canBeTurnedOnAndOff = false
-        c.hasOnOffButton = false
         c.labelVOffset = 0.5
-        c.onCornerRadius = 0.0
-        c.offCornerRadius = 0.0
         
-        assert(c.isValid())
+        var onState = ButtonStateConfiguration()
+        onState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+        onState.textColor = UIColor.roseColor()
+        onState.cornerRadius = 0.0
+        onState.hasButton = false
+        
+        let offState = onState
+        
+        let highlightedOnState = onState
+        
+        let highlightedOffState = offState
+        
+        c.onState = onState
+        c.offState = offState
+        c.highlightedWhileOnState = highlightedOnState
+        c.highlightedWhileOffState = highlightedOffState
+        
         return c
     }
     

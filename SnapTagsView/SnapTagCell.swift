@@ -32,11 +32,11 @@ public class SnapTagCell: UICollectionViewCell {
         backgroundImageForOffState.alpha = 0.0
         onButtonImage.alpha = 0.0
         offButtonImage.alpha = 1.0
-        onOffButton.transform = configuration.onOffButtonImage.onTransform
-        setTextColor(configuration.onTextColor)
+        onOffButton.transform = configuration.onState.buttonTransform
+        setTextColor(configuration.onState.textColor)
         
-        highlightBackground.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        highlightBackground.layer.cornerRadius = configuration.onCornerRadius
+        highlightBackground.backgroundColor = configuration.highlightedWhileOnState.backgroundColor
+        highlightBackground.layer.cornerRadius = configuration.highlightedWhileOnState.cornerRadius
         
         self.selected = true
     }
@@ -46,23 +46,21 @@ public class SnapTagCell: UICollectionViewCell {
         backgroundImageForOffState.alpha = 1.0
         onButtonImage.alpha = 1.0
         offButtonImage.alpha = 0.0
-        onOffButton.transform = configuration.onOffButtonImage.offTransform
-        setTextColor(configuration.offTextColor)
+        onOffButton.transform = configuration.offState.buttonTransform
+        setTextColor(configuration.offState.textColor)
 
-        highlightBackground.backgroundColor = UIColor.roseColor()
-        highlightBackground.layer.cornerRadius = configuration.offCornerRadius
+        highlightBackground.backgroundColor = configuration.highlightedWhileOffState.backgroundColor
+        highlightBackground.layer.cornerRadius = configuration.highlightedWhileOffState.cornerRadius
         
         self.selected = false
     }
     
     public func setHighlightState(enabled : Bool) {
-        self.highlightBackground.alpha = enabled ? 1.0 : 0.0
-//        backgroundImageForOnState.alpha = 0.5
-//        backgroundImageForOffState.alpha = 1.0
-//        onButtonImage.alpha = 0.5
-//        offButtonImage.alpha = 1.0
-//        setTextColor(configuration.onTextColor)
-
+        let onValue = configuration.isOn ?
+            configuration.highlightedWhileOnState.alpha :
+            configuration.highlightedWhileOffState.alpha
+        
+        self.highlightBackground.alpha = enabled ? onValue : 0.0
     }
     
     public func applyConfiguration(configuration: SnapTagButtonConfiguration) {
@@ -89,21 +87,21 @@ public class SnapTagCell: UICollectionViewCell {
     }
     
     internal func setupBackground() {
-        setBackgroundColor(onColor: configuration.onBackgroundColor, offColor: configuration.offBackgroundColor)
-        setBackgroundImages(onImage: configuration.onBackgroundImage, offImage: configuration.offBackgroundImage)
-        backgroundImageForOnState.layer.cornerRadius = configuration.onCornerRadius
+        setBackgroundColor(onColor: configuration.onState.backgroundColor, offColor: configuration.offState.backgroundColor)
+        setBackgroundImages(onImage: configuration.onState.backgroundImage, offImage: configuration.offState.backgroundImage)
+        backgroundImageForOnState.layer.cornerRadius = configuration.onState.cornerRadius
         backgroundImageForOnState.layer.masksToBounds = true
-        backgroundImageForOffState.layer.cornerRadius = configuration.offCornerRadius
+        backgroundImageForOffState.layer.cornerRadius = configuration.offState.cornerRadius
         backgroundImageForOffState.layer.masksToBounds = true
 
-        if let onBorderColor = configuration.onBorderColor,
-            let onBorderWidth = configuration.onBorderWidth {
+        if let onBorderColor = configuration.onState.borderColor,
+            let onBorderWidth = configuration.onState.borderWidth {
                 backgroundImageForOnState.layer.borderColor = onBorderColor.CGColor
                 backgroundImageForOnState.layer.borderWidth = onBorderWidth
         }
         
-        if let offBorderColor = configuration.offBorderColor,
-            let offBorderWidth = configuration.offBorderWidth {
+        if let offBorderColor = configuration.offState.borderColor,
+            let offBorderWidth = configuration.offState.borderWidth {
                 backgroundImageForOffState.layer.borderColor = offBorderColor.CGColor
                 backgroundImageForOffState.layer.borderWidth = offBorderWidth
         }
@@ -137,9 +135,9 @@ public class SnapTagCell: UICollectionViewCell {
     
     internal func enableOnOffButton() {
         for constraint in onOffButtonDimensions {
-            constraint.constant = configuration.onOffButtonImage.onImage.size.height / 2.0
+            constraint.constant = (configuration.onState.buttonImage?.size.height ?? 0.0) / 2.0
         }
-        spacingMargin.constant = configuration.spacingBetweenLabelAndOnOffButton
+        spacingMargin.constant = configuration.onState.spacingBetweenLabelAndOnOffButton
     }
     
     internal func setFont(font: UIFont) {
@@ -198,8 +196,8 @@ public class SnapTagCell: UICollectionViewCell {
             width += configuration.horizontalMargin * 2
             
             if configuration.hasOnOffButton {
-                width += configuration.spacingBetweenLabelAndOnOffButton
-                width += configuration.onOffButtonImage.onImage.size.width
+                width += configuration.onState.spacingBetweenLabelAndOnOffButton
+                width += configuration.onState.buttonImage?.size.width ?? 0.0
             }
             
             height = size.height
