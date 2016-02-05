@@ -19,7 +19,7 @@
   "platforms": {
     "ios": 8.0
   },
-  "source_files": "SnapOperationQueue/*.swift",
+  "source_files": "SnapTagsView/*.swift",
   "frameworks": "Foundation",
   "exclude_files": "Example*",
   "dependencies": {
