@@ -25,4 +25,3 @@ extension L10n : CustomStringConvertible {
 func tr(key: L10n) -> String {
   return key.string
 }
-

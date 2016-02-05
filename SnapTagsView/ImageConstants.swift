@@ -20,4 +20,3 @@ public extension UIImage {
     self.init(named: asset.rawValue)
   }
 }
-

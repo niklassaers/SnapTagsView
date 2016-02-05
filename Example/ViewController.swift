@@ -4,113 +4,113 @@ import NSLayoutConstraint_ExpressionFormat
 
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var contentStackView: UIStackView!
     @IBOutlet weak var spacer: UIView!
     @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
-    
+
     var searchBarController : SnapSearchBarController!
     let sizer = SnapTextWidthSizers()
-    
+
     var leftAlignedCollectionViewHeightConstraint : NSLayoutConstraint!
     var centerAlignedCollectionViewHeightConstraint : NSLayoutConstraint!
     var leftAlignedMixedOnOffCollectionViewHeightConstraint : NSLayoutConstraint!
 //    var searchBarHeightConstraint : NSLayoutConstraint!
 //    var tagBarViewHeightConstraint : NSLayoutConstraint!
 
-    
-    
+
+
     var leftAlignedCollectionViewController : SnapTagsCollectionViewController!
     var centerAlignedCollectionViewController : SnapTagsCollectionViewController!
     var leftAlignedMixedOnOffCollectionViewController : SnapTagsCollectionViewController!
     var tagBarViewController : SnapTagsCollectionViewController!
-    
+
     var currentTag = [ 0, 0, 0, 0, 0 ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupLeftAlignedCollectionViewControllerAtIndex(1)
         setupCenterAlignedCollectionViewControllerAtIndex(4)
         setupLeftAlignedMixedOnOffCollectionViewControllerAtIndex(7)
         setupSearchBarControllerAtIndex(10)
         setupTagBarViewControllerAtIndex(13)
     }
-    
+
     internal func setupLeftAlignedCollectionViewControllerAtIndex(index: Int) {
         leftAlignedCollectionViewController = SnapTagsCollectionViewController()
         leftAlignedCollectionViewController.sizer = sizer
         leftAlignedCollectionViewController.configuration = leftAlignedTagsViewConfig()
         leftAlignedCollectionViewController.buttonConfiguration = leftAlignedTagsViewButtonConfig()
         leftAlignedCollectionViewController.data = stringArrayToTags(initialTags())
-        
+
         self.addChildViewController(leftAlignedCollectionViewController)
         contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: index)
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedCollectionViewController.view])
         leftAlignedCollectionViewController.view.addConstraint(leftAlignedCollectionViewHeightConstraint)
     }
-    
+
     internal func setupCenterAlignedCollectionViewControllerAtIndex(index: Int) {
         centerAlignedCollectionViewController = SnapTagsCollectionViewController()
         centerAlignedCollectionViewController.sizer = sizer
         centerAlignedCollectionViewController.configuration = centerAlignedTagsViewConfig()
         centerAlignedCollectionViewController.buttonConfiguration = centerAlignedTagsViewButtonConfig()
         centerAlignedCollectionViewController.data = stringArrayToTags(initialTags())
-        
+
         self.addChildViewController(centerAlignedCollectionViewController)
         contentStackView.insertArrangedSubview(centerAlignedCollectionViewController.view, atIndex: index)
         centerAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         centerAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": centerAlignedCollectionViewController.view])
         centerAlignedCollectionViewController.view.addConstraint(centerAlignedCollectionViewHeightConstraint)
     }
-    
+
     internal func setupLeftAlignedMixedOnOffCollectionViewControllerAtIndex(index: Int) {
         leftAlignedMixedOnOffCollectionViewController = SnapTagsCollectionViewController()
         leftAlignedMixedOnOffCollectionViewController.sizer = sizer
         leftAlignedMixedOnOffCollectionViewController.configuration = leftAlignedMixedOnOffTagsViewConfig()
         leftAlignedMixedOnOffCollectionViewController.buttonConfiguration = leftAlignedMixedOnOffTagsViewButtonConfig()
         leftAlignedMixedOnOffCollectionViewController.data = stringArrayToTags(initialTags())
-        
+
         var i = 0
         for tag in leftAlignedMixedOnOffCollectionViewController.data {
             tag.isOn = i % 2 == 0
             i += 1
         }
-        
+
         self.addChildViewController(leftAlignedMixedOnOffCollectionViewController)
         contentStackView.insertArrangedSubview(leftAlignedMixedOnOffCollectionViewController.view, atIndex: index)
         leftAlignedMixedOnOffCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
+
         leftAlignedMixedOnOffCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedMixedOnOffCollectionViewController.view])
         leftAlignedMixedOnOffCollectionViewController.view.addConstraint(leftAlignedMixedOnOffCollectionViewHeightConstraint)
     }
-    
-    
-    
+
+
+
     internal func setupSearchBarControllerAtIndex(index: Int) {
-        
+
         let storyBoard = UIStoryboard(name: "SnapTagsView", bundle: NSBundle(forClass: SnapSearchBarController.self))
         searchBarController = storyBoard.instantiateViewControllerWithIdentifier(String(SnapSearchBarController)) as! SnapSearchBarController
         searchBarController.sizer = sizer
         searchBarController.configuration = searchBarViewConfig()
         searchBarController.buttonConfiguration = searchBarViewButtonConfig()
         searchBarController.data = stringArrayToTags(initialTags())
-        
+
         contentStackView.insertArrangedSubview(searchBarController.view, atIndex: index)
 
 
     }
-    
 
-    
-    
-    
+
+
+
+
     internal func setupTagBarViewControllerAtIndex(index: Int) {
-        
+
         let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
         contentStackView.insertArrangedSubview(tagScrollView, atIndex: index)
         var constraints = [NSLayoutConstraint]()
@@ -119,16 +119,16 @@ class ViewController: UIViewController {
         constraints.append(NSLayoutConstraint(expressionFormat: "self.height = 44", parameters: dict))
         view.addConstraints(constraints)
 
-        
+
         tagBarViewController = SnapTagsCollectionViewController()
         tagBarViewController.sizer = sizer
         tagBarViewController.configuration = tagBarViewConfig()
         tagBarViewController.buttonConfiguration = tagBarViewButtonConfig()
         tagBarViewController.data = stringArrayToTags(initialTags())
-        
+
         self.addChildViewController(tagBarViewController)
         tagScrollView.addSubview(tagBarViewController.view)
-        
+
         constraints = [NSLayoutConstraint]()
         dict = ["self": tagBarViewController.view, "super": tagScrollView]
         constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left", parameters: dict))
@@ -146,9 +146,9 @@ class ViewController: UIViewController {
         constraints.append(NSLayoutConstraint(expressionFormat: "self.height >= \(sizeForTags.height + (tagBarViewController.configuration.verticalMargin * 2))", parameters: dict))
         tagScrollView.addConstraints(constraints)
 
-        
+
     }
-    
+
     internal func stringArrayToTags(strings: [String]) -> [SnapTagRepresentation] {
         return strings.map {
             let tag = SnapTagRepresentation()
@@ -158,11 +158,11 @@ class ViewController: UIViewController {
             return tag
         }
     }
-    
+
     internal func initialTags() -> [String] {
         return "Sienaasappellimonadesiroop Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
     }
-    
+
     /*
     internal func nextTag(view: TagsView) -> String {
         let rest = (
@@ -196,21 +196,21 @@ class ViewController: UIViewController {
         currentTag[view.tag] = (index + 1) % rest.count
         return tag
     }*/
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         slider.minimumValue = Float(self.view.bounds.size.width) * (-1.0)
         self.sliderValueChanged(slider)
-        
+
     }
-    
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         leftAlignedCollectionViewController.scrollEnabled = false
         let leftAlignedContentSize = leftAlignedCollectionViewController.contentSize()
         leftAlignedCollectionViewHeightConstraint.constant = leftAlignedContentSize.height
-        
+
         centerAlignedCollectionViewController.scrollEnabled = false
         let centerAlignedContentSize = centerAlignedCollectionViewController.contentSize()
         centerAlignedCollectionViewHeightConstraint.constant = centerAlignedContentSize.height
@@ -218,7 +218,7 @@ class ViewController: UIViewController {
         leftAlignedMixedOnOffCollectionViewController.scrollEnabled = false
         let leftAlignedMixedOnOffContentSize = leftAlignedMixedOnOffCollectionViewController.contentSize()
         leftAlignedMixedOnOffCollectionViewHeightConstraint.constant = leftAlignedMixedOnOffContentSize.height
-        
+
 
         tagBarViewController.scrollEnabled = false
 
@@ -228,14 +228,14 @@ class ViewController: UIViewController {
         spacerWidthLayoutConstraint.constant = CGFloat(sender.value) * (-1.0)
         self.view.setNeedsLayout()
     }
-    
-    
+
+
     internal func centeredTagsViewConfig() -> SnapTagsViewConfiguration {
         let config = SnapTagsViewConfiguration()
 
         return config
     }
-    
+
     //MARK: Left aligned config
     internal func leftAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
 
@@ -245,25 +245,25 @@ class ViewController: UIViewController {
         config.verticalMargin = 5.0
         config.contentHeight = 13.0
         config.alignment = .Left
-        
+
         return config
     }
-    
+
     internal func leftAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        
+
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
         c.labelVOffset = 0.5
 
-        
+
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.Asset.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
         onState.textColor = UIColor.whiteColor()
         onState.hasButton = false
         onState.cornerRadius = 5.0
-        
+
         var offState = onState
         offState.buttonImage = UIImage.Asset.RedCloseButton.image
         offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
@@ -271,42 +271,42 @@ class ViewController: UIViewController {
         offState.textColor = UIColor.roseColor()
         offState.borderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
         offState.borderWidth = 1.0
-        
+
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         var highlightedOffState = offState
         highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
-        
+
         return c
     }
-    
+
     //MARK: Center aligned config
     internal func centerAlignedTagsViewConfig() -> SnapTagsViewConfiguration {
-        
+
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
         config.contentHeight = 13.0
         config.alignment = .Center
-        
+
         return config
     }
-    
+
     internal func centerAlignedTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        
+
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
         c.labelVOffset = 0.5
         c.isTappable = true
-        
+
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.Asset.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
@@ -321,85 +321,85 @@ class ViewController: UIViewController {
         offState.buttonImage = UIImage.Asset.RedCloseButton.image
         offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
 
-        
+
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         var highlightedOffState = offState
         highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
-        
+
         return c
     }
-    
+
     //MARK: Left aligned mixed on/off config
     internal func leftAlignedMixedOnOffTagsViewConfig() -> SnapTagsViewConfiguration {
-        
+
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
         config.contentHeight = 13.0
         config.alignment = .Left
-        
+
         return config
     }
-    
+
     internal func leftAlignedMixedOnOffTagsViewButtonConfig() -> SnapTagButtonConfiguration {
-        
+
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
         c.labelVOffset = 0.5
         c.isTappable = true
-        
+
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.Asset.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
         onState.textColor = UIColor.whiteColor()
         onState.hasButton = true
         onState.cornerRadius = 5.0
-        
+
         var offState = onState
         offState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         offState.backgroundColor = UIColor.whiteColor()
         offState.textColor = UIColor.blackColor()
         offState.buttonImage = UIImage.Asset.RedCloseButton.image
         offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        
+
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         var highlightedOffState = offState
         highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
-        
+
         return c
     }
-    
+
     //MARK: Search Bar config
     internal func searchBarViewConfig() -> SnapTagsViewConfiguration {
-        
+
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
         config.horizontalMargin = 1.0
         config.verticalMargin = 1.0
         config.contentHeight = 13.0
         config.alignment = .Left
-        
+
         return config
     }
-    
+
     internal func searchBarViewButtonConfig() -> SnapTagButtonConfiguration {
-        
+
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
@@ -407,73 +407,73 @@ class ViewController: UIViewController {
         c.isTappable = true
         c.horizontalMargin = 6.0
         c.verticalMargin = 5.0
-        
+
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.roseColor()
         onState.textColor = UIColor.whiteColor()
         onState.buttonImage = UIImage.Asset.YellowCloseButton.image
         onState.hasButton = true
         onState.cornerRadius = 3.0
-        
+
         var offState = onState
         offState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         offState.backgroundColor = UIColor.whiteColor()
         offState.textColor = UIColor.roseColor()
         offState.buttonImage = UIImage.Asset.RedCloseButton.image
         offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        
+
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         var highlightedOffState = offState
         highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-        
+
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
-        
+
         return c
     }
-    
+
     //MARK: Tag bar config
     internal func tagBarViewConfig() -> SnapTagsViewConfiguration {
-        
+
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
         config.contentHeight = 13.0
         config.alignment = .Left
-        
+
         return config
     }
-    
+
     internal func tagBarViewButtonConfig() -> SnapTagButtonConfiguration {
 
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
         c.labelVOffset = 0.5
-        
+
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.whiteColor()
         onState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         onState.textColor = UIColor.roseColor()
         onState.cornerRadius = 0.0
         onState.hasButton = false
-        
+
         let offState = onState
-        
+
         let highlightedOnState = onState
-        
+
         let highlightedOffState = offState
-        
+
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
-        
+
         return c
     }
 

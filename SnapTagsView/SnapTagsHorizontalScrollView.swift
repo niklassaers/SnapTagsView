@@ -2,7 +2,7 @@ import UIKit
 import NSLayoutConstraint_ExpressionFormat
 
 public class SnapTagsHorizontalScrollView : UIViewController {
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
@@ -13,7 +13,7 @@ public class SnapTagsHorizontalScrollView : UIViewController {
         setupTagScrollView(tagScrollView)
         return tagScrollView
     }
-    
+
     public static func setupTagScrollView(tagScrollView: UIScrollView) {
         tagScrollView.showsHorizontalScrollIndicator = false
         tagScrollView.showsVerticalScrollIndicator = false
@@ -26,7 +26,7 @@ public class SnapTagsHorizontalScrollView : UIViewController {
         let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
         setupTagScrollView(tagScrollView)
         view.addSubview(tagScrollView)
-        
+
         var constraints = [NSLayoutConstraint]()
         let dict : [String:UIView] = ["self": tagScrollView, "super": view]
         constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + 3", parameters: dict))
