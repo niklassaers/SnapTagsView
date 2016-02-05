@@ -20,7 +20,7 @@
     "ios": 8.0
   },
   "source_files": ["SnapTagsView/*.swift"],
-  "resources": [ "SnapTagsView/*.xib", "SnapTagsView/DefaultImages.xcassets"]
+  "resources": [ "SnapTagsView/*.xib", "SnapTagsView/DefaultImages.xcassets"],
   "frameworks": "Foundation",
   "exclude_files": "Example*",
   "dependencies": {
