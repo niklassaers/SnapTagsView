@@ -1,6 +1,6 @@
 {
   "name": "SnapTagsView",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "summary": "Tag buttons, a tag bar and UISearchBar with tags",
   "description": "",
   "homepage": "https://github.com/skylib/SnapTagsView",
@@ -14,7 +14,7 @@
   "social_media_url": "http://twitter.com/snapsale_com",
   "source": {
     "git": "https://github.com/skylib/SnapTagsView.git",
-    "commit": "xxx"
+    "tag": "0.5"
   },
   "platforms": {
     "ios": 8.0
@@ -23,7 +23,9 @@
   "frameworks": "Foundation",
   "exclude_files": "Example*",
   "dependencies": {
-	  "OAStackView": [ "1.0.0" ],
-	  "NSLayoutConstraint+ExpressionFormat": [ "0.1.0" ]
+	  "NSLayoutConstraint+ExpressionFormat": [ ],
+	  "KTCenterFlowLayout": [ ],
+	  "UICollectionViewLeftAlignedLayout": [ ],
+	  "UICollectionViewRightAlignedLayout": [ ]
   }
 }
