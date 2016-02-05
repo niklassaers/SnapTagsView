@@ -548,6 +548,7 @@ class ViewController: UIViewController {
         c.labelVOffset = 0.5
         
         var onState = ButtonStateConfiguration()
+        onState.backgroundColor = UIColor.whiteColor()
         onState.backgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
         onState.textColor = UIColor.roseColor()
         onState.cornerRadius = 0.0
