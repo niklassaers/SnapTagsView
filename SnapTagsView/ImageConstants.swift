@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 
 public extension UIImage {
-  public enum Asset : String {
+  public enum SnapTagsViewAssets : String {
     case RedCloseButton = "RedCloseButton"
     case RoundedButton = "RoundedButton"
     case RoundedButton_WhiteWithGreyBorder = "RoundedButton_WhiteWithGreyBorder"
@@ -16,7 +16,7 @@ public extension UIImage {
     }
   }
 
-  convenience init!(asset: Asset) {
+  convenience init!(asset: SnapTagsViewAssets) {
     self.init(named: asset.rawValue)
   }
 }
