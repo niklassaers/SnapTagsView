@@ -112,22 +112,9 @@ class ViewController: UIViewController {
         
         searchTextField.leftViewMode = .Never
         searchTextField.rightViewMode = .Never
-    
-        let tagScrollView = UIScrollView(frame: CGRectZero)
-        tagScrollView.showsHorizontalScrollIndicator = false
-        tagScrollView.showsVerticalScrollIndicator = false
-        tagScrollView.bounces = true
-        tagScrollView.alwaysBounceVertical = false
-        tagScrollView.translatesAutoresizingMaskIntoConstraints = false
-        searchTextField.addSubview(tagScrollView)
-        
-        var constraints = [NSLayoutConstraint]()
-        var dict : [String:UIView] = ["self": tagScrollView, "super": searchTextField]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right - 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top + 4", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom - 4", parameters: dict))
-        searchTextField.addConstraints(constraints)
+
+        let tagScrollView = setupTagScrollViewAsSubviewOf(searchTextField)
+
 
         
         searchBarController = SnapTagsCollectionViewController()
@@ -139,50 +126,29 @@ class ViewController: UIViewController {
         self.addChildViewController(searchBarController)
         tagScrollView.addSubview(searchBarController.view)
         
-        constraints = []
-        dict = ["self": searchBarController.view, "super": tagScrollView]
-//        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left", parameters: dict))
+        var constraints = [NSLayoutConstraint]()
+        let dict = ["self": searchBarController.view, "super": tagScrollView]
         constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right", parameters: dict))
-//        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top", parameters: dict))
         constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom", parameters: dict))
         tagScrollView.addConstraints(constraints)
 
         searchBarController.scrollEnabled = false
         searchBarController.view.translatesAutoresizingMaskIntoConstraints = true
-//        searchBarController.view.subviews.first?.translatesAutoresizingMaskIntoConstraints = true
         
         var frame = searchBarController.view.frame
-        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width // 2000
+        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width
         frame.size.height = tagScrollView.frame.height
         searchBarController.view.frame = frame
 
         searchBar.setNeedsLayout()
         searchBar.layoutIfNeeded()
         
-        /*
-        
-        searchBarController.view.setNeedsLayout()
-        searchBarController.view.layoutIfNeeded()
-        let size = searchBarController.contentSize()
-        let delta = (tagScrollView.frame.size.width / 3.0)
-        frame.size.width = size.width + delta
-        searchBarController.view.frame = frame*/
-
         var textFieldFrame = searchTextField.frame
         textFieldFrame.size.height = 34
         searchTextField.frame = textFieldFrame
         
         searchBar.setNeedsLayout()
         searchBar.layoutIfNeeded()
-
-
-        
-//        searchBarController.allowBouncingHorizontally(true, vertically: false)
-
-//        searchTextField.backgroundColor = UIColor.cyanColor()
-//        tagScrollView.backgroundColor = UIColor.yellowColor()
-//        searchBarController.view.backgroundColor = UIColor.greenColor()
-        
     }
     
     override func viewDidLayoutSubviews()
@@ -208,8 +174,42 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    internal func createTagScrollView() -> UIScrollView {
+        let tagScrollView = UIScrollView(frame: CGRectZero)
+        tagScrollView.showsHorizontalScrollIndicator = false
+        tagScrollView.showsVerticalScrollIndicator = false
+        tagScrollView.bounces = true
+        tagScrollView.alwaysBounceVertical = false
+        tagScrollView.translatesAutoresizingMaskIntoConstraints = false
+        return tagScrollView
+    }
+    
+    internal func setupTagScrollViewAsSubviewOf(view: UIView) -> UIScrollView {
+        let tagScrollView = createTagScrollView()
+        view.addSubview(tagScrollView)
+        
+        var constraints = [NSLayoutConstraint]()
+        let dict : [String:UIView] = ["self": tagScrollView, "super": view]
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + 3", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right - 3", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top + 4", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom - 4", parameters: dict))
+        view.addConstraints(constraints)
+        return tagScrollView
+    }
     
     internal func setupTagBarViewControllerAtIndex(index: Int) {
+        
+        let tagScrollView = createTagScrollView()
+        contentStackView.insertArrangedSubview(tagScrollView, atIndex: index)
+        var constraints = [NSLayoutConstraint]()
+        var dict : [String:UIView] = ["self": tagScrollView, "super": contentStackView]
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.width = super.width", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.height = 44", parameters: dict))
+        view.addConstraints(constraints)
+
+        
         tagBarViewController = SnapTagsCollectionViewController()
         tagBarViewController.sizer = sizer
         tagBarViewController.configuration = tagBarViewConfig()
@@ -217,11 +217,26 @@ class ViewController: UIViewController {
         tagBarViewController.data = stringArrayToTags(initialTags())
         
         self.addChildViewController(tagBarViewController)
-        contentStackView.insertArrangedSubview(tagBarViewController.view, atIndex: index)
-        tagBarViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        tagScrollView.addSubview(tagBarViewController.view)
         
-        tagBarViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": tagBarViewController.view])
-        tagBarViewController.view.addConstraint(tagBarViewHeightConstraint)
+        constraints = [NSLayoutConstraint]()
+        dict = ["self": tagBarViewController.view, "super": tagScrollView]
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom", parameters: dict))
+        tagScrollView.addConstraints(constraints)
+
+        tagBarViewController.scrollEnabled = false
+        let sizeForTags = tagBarViewController.calculateContentSizeForTags(tagBarViewController.data)
+
+        constraints = [NSLayoutConstraint]()
+        dict = ["self": tagBarViewController.view, "super": tagScrollView]
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.width >= \(sizeForTags.width)", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.height >= \(sizeForTags.height + (tagBarViewController.configuration.verticalMargin * 2))", parameters: dict))
+        tagScrollView.addConstraints(constraints)
+
+        
     }
     
     internal func stringArrayToTags(strings: [String]) -> [SnapTagRepresentation] {
@@ -295,12 +310,8 @@ class ViewController: UIViewController {
         leftAlignedMixedOnOffCollectionViewHeightConstraint.constant = leftAlignedMixedOnOffContentSize.height
         
         searchBarController.scrollEnabled = true
-//        let searchBarContentSize = searchBarController.contentSize()
-//        searchBarHeightConstraint.constant = searchBarContentSize.height
 
         tagBarViewController.scrollEnabled = false
-        let tagBarContentSize = tagBarViewController.contentSize()
-        tagBarViewHeightConstraint.constant = tagBarContentSize.height
 
     }
 
@@ -601,23 +612,23 @@ class ViewController: UIViewController {
         
         let c = SnapTagButtonConfiguration()
         
-        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
-        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
+//        c.onOffButtonImage.onImage = UIImage.Asset.YellowCloseButton.image
+//        c.onOffButtonImage.offTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+//        c.onOffButtonImage.offImage = UIImage.Asset.RedCloseButton.image
         
-        //        c.onBackgroundImage = UIImage.Asset.RoundedButtonFilled.image
         c.offBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
-        
+        c.onBackgroundImage = UIImage.Asset.RoundedButton_WhiteWithGreyBorder.image
+
         c.font = UIFont.boldWithSize(13.0)
-        c.onBackgroundColor = UIColor.roseColor()
-        c.offBackgroundColor = UIColor.whiteColor()
-        c.onTextColor = UIColor.whiteColor()
+//        c.onBackgroundColor = UIColor.roseColor()
+//        c.offBackgroundColor = UIColor.whiteColor()
+        c.onTextColor = UIColor.roseColor()
         c.offTextColor = UIColor.roseColor()
         c.canBeTurnedOnAndOff = false
         c.hasOnOffButton = false
         c.labelVOffset = 0.5
-        c.onCornerRadius = 5.0
-        c.offCornerRadius = 5.0
+        c.onCornerRadius = 0.0
+        c.offCornerRadius = 0.0
         
         assert(c.isValid())
         return c

@@ -92,11 +92,12 @@ public class SnapTagButtonConfiguration : NSObject {
         var test = true
         
         test = test && font != nil
-//        test = test && onBackgroundColor != nil
-//        test = test && offBackgroundColor != nil
         test = test && onTextColor != nil
         test = test && offTextColor != nil
-        test = test && onOffButtonImage != nil && onOffButtonImage.isValid()
+        
+        if hasOnOffButton {
+            test = test && onOffButtonImage != nil && onOffButtonImage.isValid()
+        }
         
         return test
     }
