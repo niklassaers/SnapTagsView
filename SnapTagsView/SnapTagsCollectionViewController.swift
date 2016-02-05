@@ -33,9 +33,10 @@ public class SnapTagsCollectionViewController: UIViewController {
         // Register cell classes
         self.collectionView.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
         
+        /*
         delay(0.3) {
             print("\(self.collectionView.frame) in \(self.view.frame) in \(self.view.superview!.frame)")
-        }
+        }*/
 
     }
     
@@ -122,16 +123,6 @@ public class SnapTagsCollectionViewController: UIViewController {
         })
         return CGSizeMake(width, height)
     }
-    /*
-    public func contentWidth() -> CGFloat {
-        let lastIndexPath = NSIndexPath(forItem: collectionView.numberOfItemsInSection(0) - 1, inSection: 0)
-        if let cell = collectionView.cellForItemAtIndexPath(lastIndexPath) {
-            let width = cell.frame.origin.x + cell.frame.size.width
-            return width
-        } else {
-            return self.view.frame.size.width
-        }
-    }*/
     
     public func contentOffset() -> CGPoint {
         return collectionView.contentOffset

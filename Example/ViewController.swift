@@ -10,21 +10,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var spacerWidthLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var slider: UISlider!
     
-    let searchBar = UISearchBar(frame: CGRectZero)
+    var searchBarController : SnapSearchBarController!
     let sizer = SnapTextWidthSizers()
     
     var leftAlignedCollectionViewHeightConstraint : NSLayoutConstraint!
     var centerAlignedCollectionViewHeightConstraint : NSLayoutConstraint!
     var leftAlignedMixedOnOffCollectionViewHeightConstraint : NSLayoutConstraint!
-    var searchBarHeightConstraint : NSLayoutConstraint!
-    var tagBarViewHeightConstraint : NSLayoutConstraint!
+//    var searchBarHeightConstraint : NSLayoutConstraint!
+//    var tagBarViewHeightConstraint : NSLayoutConstraint!
 
     
     
     var leftAlignedCollectionViewController : SnapTagsCollectionViewController!
     var centerAlignedCollectionViewController : SnapTagsCollectionViewController!
     var leftAlignedMixedOnOffCollectionViewController : SnapTagsCollectionViewController!
-    var searchBarController : SnapTagsCollectionViewController!
     var tagBarViewController : SnapTagsCollectionViewController!
     
     var currentTag = [ 0, 0, 0, 0, 0 ]
@@ -93,115 +92,26 @@ class ViewController: UIViewController {
     
     
     internal func setupSearchBarControllerAtIndex(index: Int) {
-        contentStackView.insertArrangedSubview(searchBar, atIndex: index)
-        searchBar.delegate = self
-        searchBar.setNeedsLayout()
-        searchBar.layoutIfNeeded()
-        var searchTextField_ : UITextField? = nil
-        for subview in searchBar.subviews.first?.subviews ?? [UIView]() {
-            if let subview = subview as? UITextField {
-                searchTextField_ = subview
-                break
-            }
-        }
         
-        guard let searchTextField = searchTextField_ else {
-            print("Could not find textfield in searchbar")
-            return
-        }
-        
-        searchTextField.leftViewMode = .Never
-        searchTextField.rightViewMode = .Never
-
-        let tagScrollView = setupTagScrollViewAsSubviewOf(searchTextField)
-
-
-        
-        searchBarController = SnapTagsCollectionViewController()
+        let storyBoard = UIStoryboard(name: "SnapTagsView", bundle: NSBundle(forClass: SnapSearchBarController.self))
+        searchBarController = storyBoard.instantiateViewControllerWithIdentifier(String(SnapSearchBarController)) as! SnapSearchBarController
         searchBarController.sizer = sizer
         searchBarController.configuration = searchBarViewConfig()
         searchBarController.buttonConfiguration = searchBarViewButtonConfig()
         searchBarController.data = stringArrayToTags(initialTags())
         
-        self.addChildViewController(searchBarController)
-        tagScrollView.addSubview(searchBarController.view)
-        
-        var constraints = [NSLayoutConstraint]()
-        let dict = ["self": searchBarController.view, "super": tagScrollView]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom", parameters: dict))
-        tagScrollView.addConstraints(constraints)
+        contentStackView.insertArrangedSubview(searchBarController.view, atIndex: index)
 
-        searchBarController.scrollEnabled = false
-        searchBarController.view.translatesAutoresizingMaskIntoConstraints = true
-        
-        var frame = searchBarController.view.frame
-        frame.size.width = searchBarController.calculateContentSizeForTags(searchBarController.data).width
-        frame.size.height = tagScrollView.frame.height
-        searchBarController.view.frame = frame
 
-        searchBar.setNeedsLayout()
-        searchBar.layoutIfNeeded()
-        
-        var textFieldFrame = searchTextField.frame
-        textFieldFrame.size.height = 34
-        searchTextField.frame = textFieldFrame
-        
-        searchBar.setNeedsLayout()
-        searchBar.layoutIfNeeded()
     }
     
-    override func viewDidLayoutSubviews()
-    {
-        super.viewDidLayoutSubviews()
-        self.searchBar.layoutIfNeeded()
-        self.searchBar.layoutSubviews()
-        
-//        var searchBarFrame = searchBar.frame
-        let newHeight: CGFloat = 36 //desired textField Height.
-        for subView in searchBar.subviews
-        {
-            for subsubView in subView.subviews
-            {
-                if let textField = subsubView as? UITextField
-                {
-                    var currentTextFieldBounds = textField.bounds
-                    currentTextFieldBounds.size.height = newHeight
-                    textField.bounds = currentTextFieldBounds
-                    textField.borderStyle = UITextBorderStyle.RoundedRect
-                    //textField.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-                }
-            }
-        }
-    }
 
-    internal func createTagScrollView() -> UIScrollView {
-        let tagScrollView = UIScrollView(frame: CGRectZero)
-        tagScrollView.showsHorizontalScrollIndicator = false
-        tagScrollView.showsVerticalScrollIndicator = false
-        tagScrollView.bounces = true
-        tagScrollView.alwaysBounceVertical = false
-        tagScrollView.translatesAutoresizingMaskIntoConstraints = false
-        return tagScrollView
-    }
     
-    internal func setupTagScrollViewAsSubviewOf(view: UIView) -> UIScrollView {
-        let tagScrollView = createTagScrollView()
-        view.addSubview(tagScrollView)
-        
-        var constraints = [NSLayoutConstraint]()
-        let dict : [String:UIView] = ["self": tagScrollView, "super": view]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right - 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top + 4", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom - 4", parameters: dict))
-        view.addConstraints(constraints)
-        return tagScrollView
-    }
+    
     
     internal func setupTagBarViewControllerAtIndex(index: Int) {
         
-        let tagScrollView = createTagScrollView()
+        let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
         contentStackView.insertArrangedSubview(tagScrollView, atIndex: index)
         var constraints = [NSLayoutConstraint]()
         var dict : [String:UIView] = ["self": tagScrollView, "super": contentStackView]
@@ -309,7 +219,6 @@ class ViewController: UIViewController {
         let leftAlignedMixedOnOffContentSize = leftAlignedMixedOnOffCollectionViewController.contentSize()
         leftAlignedMixedOnOffCollectionViewHeightConstraint.constant = leftAlignedMixedOnOffContentSize.height
         
-        searchBarController.scrollEnabled = true
 
         tagBarViewController.scrollEnabled = false
 
@@ -567,13 +476,5 @@ class ViewController: UIViewController {
         
         return c
     }
-    
 
-
-}
-
-extension ViewController : UISearchBarDelegate {
-    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-        return false
-    }
 }

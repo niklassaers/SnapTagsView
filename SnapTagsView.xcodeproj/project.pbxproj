@@ -32,6 +32,9 @@
 		85B9A57B1C649710000F4C62 /* ButtonStateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A57A1C649710000F4C62 /* ButtonStateConfiguration.swift */; };
 		85B9A5811C649B67000F4C62 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C481C49A5A00003BE70 /* GlobalHelpers.swift */; };
 		85B9A5831C649B88000F4C62 /* SnapTagsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 850FC5081C453F5200E1F75D /* SnapTagsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		85B9A5851C64A9C6000F4C62 /* SnapSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A5841C64A9C6000F4C62 /* SnapSearchBarController.swift */; };
+		85B9A5891C64AA75000F4C62 /* SnapTagsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */; };
+		85B9A58B1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */; };
 		85C771351C5FEB6400B18A02 /* GothamRnd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */; };
 		85C771361C5FEB6400B18A02 /* GothamRnd-BoldIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC71C5FA1C000B73619 /* GothamRnd-BoldIta.otf */; };
 		85C771371C5FEB6400B18A02 /* GothamRnd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85A96DC81C5FA1C000B73619 /* GothamRnd-Book.otf */; };
@@ -120,6 +123,9 @@
 		85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+GothamRnd.swift"; sourceTree = "<group>"; };
 		85B9A5771C63A1CC000F4C62 /* GlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
 		85B9A57A1C649710000F4C62 /* ButtonStateConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStateConfiguration.swift; sourceTree = "<group>"; };
+		85B9A5841C64A9C6000F4C62 /* SnapSearchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapSearchBarController.swift; sourceTree = "<group>"; };
+		85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SnapTagsView.storyboard; sourceTree = "<group>"; };
+		85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsHorizontalScrollView.swift; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA311C4992F300B18895 /* UISearchBar+internalViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+internalViews.swift"; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
@@ -242,6 +248,9 @@
 				85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */,
 				854494F51C61F156006489E8 /* SnapTextSizer.swift */,
 				857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */,
+				85B9A5841C64A9C6000F4C62 /* SnapSearchBarController.swift */,
+				85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */,
+				85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */,
 			);
 			name = "CollectionView Implementation";
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 				85572C511C49A6860003BE70 /* Localizable.strings in Resources */,
 				85C771351C5FEB6400B18A02 /* GothamRnd-Bold.otf in Resources */,
 				85C771391C5FEB6400B18A02 /* GothamRnd-MedIta.otf in Resources */,
+				85B9A5891C64AA75000F4C62 /* SnapTagsView.storyboard in Resources */,
 				85C7713A1C5FEB6400B18A02 /* GothamRnd-Medium.otf in Resources */,
 				85C771371C5FEB6400B18A02 /* GothamRnd-Book.otf in Resources */,
 				85572C561C49A8380003BE70 /* DefaultImages.xcassets in Resources */,
@@ -548,8 +558,10 @@
 				85572C591C49A90D0003BE70 /* ImageConstants.swift in Sources */,
 				85B9A57B1C649710000F4C62 /* ButtonStateConfiguration.swift in Sources */,
 				85D9BA301C4991C700B18895 /* SnapTagButtonConfiguration.swift in Sources */,
+				85B9A5851C64A9C6000F4C62 /* SnapSearchBarController.swift in Sources */,
 				85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */,
 				85B9A5811C649B67000F4C62 /* GlobalHelpers.swift in Sources */,
+				85B9A58B1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift in Sources */,
 				85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */,
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				85572C491C49A5A00003BE70 /* SnapTagsButtonDelegate.swift in Sources */,
