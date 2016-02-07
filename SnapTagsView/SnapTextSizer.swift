@@ -16,7 +16,7 @@ public class SnapTextWidthSizers {
         let attrStr = NSMutableAttributedString(string:string)
         attrStr.addAttribute(NSFontAttributeName,
             value:font,
-            range:NSMakeRange(0, string.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)))
+            range:NSMakeRange(0, string.characters.count))
         let size = attrStr.boundingRectWithSize(CGSizeMake(CGFloat.max, CGFloat.max), options: [], context: nil)
 
         nonPurgingCache[key] = size.size

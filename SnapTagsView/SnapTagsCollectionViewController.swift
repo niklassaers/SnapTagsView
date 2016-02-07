@@ -217,8 +217,8 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
+        let tag = data[indexPath.row]
         if buttonConfiguration.canBeTurnedOnAndOff {
-            let tag = data[indexPath.row]
             tag.isOn = !tag.isOn
             data[indexPath.row] = tag
 
@@ -230,8 +230,16 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
                     cell.setOffState()
                 }
             }
+            
+            delegate?.snapTagButtonTapped(tag, sender: self)
+            if tag.isOn {
+                delegate?.snapTagButtonTurnedOn?(tag.tag)
+            } else {
+                delegate?.snapTagButtonTurnedOff?(tag.tag)
+            }
+            
         } else if buttonConfiguration.isTappable {
-            print("did tap")
+            delegate?.snapTagButtonTapped(tag, sender: self)
         }
     }
 
