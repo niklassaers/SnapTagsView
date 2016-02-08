@@ -144,6 +144,10 @@ public class SnapTagsCollectionViewController: UIViewController {
             collectionView.scrollEnabled = value
         }
     }
+
+    public func reloadData() {
+        collectionView.reloadData()
+    }
 }
 
 extension SnapTagsCollectionViewController : UICollectionViewDataSource {
