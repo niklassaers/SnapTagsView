@@ -144,6 +144,10 @@ public class SnapTagsCollectionViewController: UIViewController {
             collectionView.scrollEnabled = value
         }
     }
+
+    public func reloadData() {
+        collectionView.reloadData()
+    }
 }
 
 extension SnapTagsCollectionViewController : UICollectionViewDataSource {
@@ -233,9 +237,9 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
             
             delegate?.snapTagButtonTapped(tag, sender: self)
             if tag.isOn {
-                delegate?.snapTagButtonTurnedOn?(tag.tag)
+                delegate?.snapTagButtonTurnedOn(tag.tag)
             } else {
-                delegate?.snapTagButtonTurnedOff?(tag.tag)
+                delegate?.snapTagButtonTurnedOff(tag.tag)
             }
             
         } else if buttonConfiguration.isTappable {
