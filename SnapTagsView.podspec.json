@@ -1,6 +1,6 @@
 {
   "name": "SnapTagsView",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "summary": "Tag buttons, a tag bar and UISearchBar with tags",
   "description": "",
   "homepage": "https://github.com/skylib/SnapTagsView",
@@ -14,7 +14,7 @@
   "social_media_url": "http://twitter.com/snapsale_com",
   "source": {
     "git": "https://github.com/skylib/SnapTagsView.git",
-    "tag": "0.6"
+    "commit": "f0c23922d4d72a8fbadb25d44c5a10b1ccb2011d"
   },
   "platforms": {
     "ios": 8.0
