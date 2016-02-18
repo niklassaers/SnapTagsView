@@ -14,7 +14,7 @@
   "social_media_url": "http://twitter.com/snapsale_com",
   "source": {
     "git": "https://github.com/skylib/SnapTagsView.git",
-    "commit": "f0c23922d4d72a8fbadb25d44c5a10b1ccb2011d"
+    "commit": "c056748ce11de37c917dce5221a066c628ef8a72"
   },
   "platforms": {
     "ios": 8.0
