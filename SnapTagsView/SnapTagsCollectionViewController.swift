@@ -10,7 +10,7 @@ public class SnapTagsCollectionViewController: UIViewController {
     public var data = [SnapTagRepresentation]()
     public var configuration : SnapTagsViewConfiguration!
     public var buttonConfiguration : SnapTagButtonConfiguration!
-    public var delegate : SnapTagsButtonDelegate?
+    public weak var delegate : SnapTagsButtonDelegate?
 
     internal var collectionView : UICollectionView!
 
