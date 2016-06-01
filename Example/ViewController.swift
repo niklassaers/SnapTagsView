@@ -254,7 +254,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        c.labelVOffset = 0.5
+        //c.labelVOffset = 0.5
 
 
         var onState = ButtonStateConfiguration()
@@ -304,7 +304,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        c.labelVOffset = 0.5
+        //c.labelVOffset = 0.5
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -354,7 +354,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        c.labelVOffset = 0.5
+        //c.labelVOffset = 0.5
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -403,10 +403,10 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        c.labelVOffset = 0.5
+        //c.labelVOffset = 0.5
         c.isTappable = true
-        c.horizontalMargin = 6.0
-        c.verticalMargin = 5.0
+//        c.horizontalMargin = 6.0
+//        c.verticalMargin = 5.0
 
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.roseColor()
@@ -454,7 +454,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        c.labelVOffset = 0.5
+//        c.labelVOffset = 0.5
 
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.whiteColor()

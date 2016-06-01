@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10115" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10084"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="GothamRnd-Medium.otf">
@@ -56,6 +56,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="500" constant="88" id="D1Y-8g-5Jj"/>
+                            <constraint firstAttribute="height" constant="28" id="vEl-dX-biT"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="GothamRounded-Medium" family="Gotham Rounded" pointSize="13"/>
                         <color key="textColor" red="0.99989503622055054" green="1" blue="0.99987143278121948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -94,11 +95,12 @@
             <constraints>
                 <constraint firstItem="xS8-mJ-FvD" firstAttribute="top" secondItem="8Y2-lg-6k0" secondAttribute="top" id="1P1-DJ-pti"/>
                 <constraint firstAttribute="bottom" secondItem="xS8-mJ-FvD" secondAttribute="bottom" id="7Hb-qR-X6D"/>
-                <constraint firstItem="sNq-Fa-Bcn" firstAttribute="top" secondItem="8Y2-lg-6k0" secondAttribute="top" constant="8" id="JXn-I4-zV2"/>
+                <constraint firstItem="sNq-Fa-Bcn" firstAttribute="top" secondItem="8Y2-lg-6k0" secondAttribute="top" priority="600" constant="8" id="JXn-I4-zV2"/>
                 <constraint firstAttribute="trailing" secondItem="xS8-mJ-FvD" secondAttribute="trailing" id="M6t-f9-zj0"/>
                 <constraint firstItem="xS8-mJ-FvD" firstAttribute="leading" secondItem="8Y2-lg-6k0" secondAttribute="leading" id="Uw1-2H-r5Q"/>
-                <constraint firstAttribute="bottom" secondItem="sNq-Fa-Bcn" secondAttribute="bottom" constant="8" id="Z6f-hr-zmQ"/>
+                <constraint firstAttribute="bottom" secondItem="sNq-Fa-Bcn" secondAttribute="bottom" priority="600" constant="8" id="Z6f-hr-zmQ"/>
                 <constraint firstAttribute="trailing" secondItem="kDM-lU-QhE" secondAttribute="trailing" constant="8" id="cPg-9w-bgu"/>
+                <constraint firstItem="sNq-Fa-Bcn" firstAttribute="centerY" secondItem="8Y2-lg-6k0" secondAttribute="centerY" id="jWD-fI-Hdo"/>
                 <constraint firstItem="kDM-lU-QhE" firstAttribute="leading" secondItem="sNq-Fa-Bcn" secondAttribute="trailing" constant="8" id="tb0-JE-4Ds"/>
                 <constraint firstItem="sNq-Fa-Bcn" firstAttribute="leading" secondItem="8Y2-lg-6k0" secondAttribute="leading" constant="8" id="uke-0k-JXu"/>
                 <constraint firstItem="kDM-lU-QhE" firstAttribute="centerY" secondItem="8Y2-lg-6k0" secondAttribute="centerY" id="yiR-Pj-2z1"/>
@@ -110,6 +112,7 @@
                 <outlet property="bottomMargin" destination="Z6f-hr-zmQ" id="3FJ-EA-XRo"/>
                 <outlet property="highlightBackground" destination="n9z-Xy-e57" id="tNC-wS-LIv"/>
                 <outlet property="label" destination="sNq-Fa-Bcn" id="N1L-Gu-Ut9"/>
+                <outlet property="labelHeight" destination="vEl-dX-biT" id="Kdt-jc-qzi"/>
                 <outlet property="labelWidth" destination="D1Y-8g-5Jj" id="PT8-e2-hJn"/>
                 <outlet property="leadingMargin" destination="uke-0k-JXu" id="ghw-MP-8ld"/>
                 <outlet property="offButtonImage" destination="KLB-6i-uSg" id="Ia9-9S-Z9h"/>

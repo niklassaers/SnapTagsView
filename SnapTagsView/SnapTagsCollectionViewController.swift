@@ -12,7 +12,7 @@ public class SnapTagsCollectionViewController: UIViewController {
     public var buttonConfiguration : SnapTagButtonConfiguration!
     public weak var delegate : SnapTagsButtonDelegate?
 
-    internal var collectionView : UICollectionView!
+    internal var collectionView : UICollectionView?
 
     public lazy var sizer = SnapTextWidthSizers()
 
@@ -24,20 +24,15 @@ public class SnapTagsCollectionViewController: UIViewController {
 
         setupLayout()
 
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
 
         setupConstraints()
         self.view.backgroundColor = UIColor.clearColor()
+        collectionView?.userInteractionEnabled = true
 
         // Register cell classes
-        self.collectionView.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
-
-        /*
-        delay(0.3) {
-            print("\(self.collectionView.frame) in \(self.view.frame) in \(self.view.superview!.frame)")
-        }*/
-
+        collectionView?.registerNib(UINib(nibName: "SnapTagCell", bundle: NSBundle(forClass: SnapTagCell.self)), forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     internal func setupLayout() {
@@ -47,9 +42,9 @@ public class SnapTagsCollectionViewController: UIViewController {
         } else if configuration.alignment == .Right {
             layout = UICollectionViewRightAlignedLayout()
         } else if configuration.alignment == .Left {
-            layout = UICollectionViewLeftAlignedLayout()
+            layout =  UICollectionViewLeftAlignedLayout()
         } else {
-            layout = UICollectionViewFlowLayout()
+            layout = LessBuggyCollectionViewFlowLayout()
         }
 
         layout.minimumLineSpacing = configuration.spacing
@@ -58,16 +53,43 @@ public class SnapTagsCollectionViewController: UIViewController {
         layout.scrollDirection = configuration.scrollDirection
         layout.headerReferenceSize = CGSizeZero
         layout.footerReferenceSize = CGSizeZero
-        layout.sectionInset = UIEdgeInsetsZero
+        layout.sectionInset = configuration.padding
         layout.itemSize = buttonConfiguration.intrinsicContentSize
 
 
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.clearColor()
-        self.view.addSubview(collectionView)
+        if let collectionView = collectionView {
+            collectionView.showsVerticalScrollIndicator = false
+            collectionView.showsHorizontalScrollIndicator = false
+            collectionView.backgroundColor = UIColor.clearColor()
+            
+            let backgroundView = UIView()
+            backgroundView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.backgroundView = backgroundView
+            backgroundView.backgroundColor = UIColor.clearColor()
+            let tapGr = UITapGestureRecognizer(target: self, action: #selector(SnapTagsCollectionViewController.tappedOutsideCell))
+            backgroundView.addGestureRecognizer(tapGr)
+            
+            let viewDict = [ "collectionView": collectionView, "backgroundView": backgroundView ]
+            let leading = NSLayoutConstraint(expressionFormat: "backgroundView.leading = collectionView.leading", parameters: viewDict)
+            let trailing = NSLayoutConstraint(expressionFormat: "backgroundView.trailing = collectionView.trailing", parameters: viewDict)
+            let top = NSLayoutConstraint(expressionFormat: "backgroundView.top = collectionView.top", parameters: viewDict)
+            let bottom = NSLayoutConstraint(expressionFormat: "backgroundView.bottom = collectionView.bottom", parameters: viewDict)
+            collectionView.addConstraints([leading, trailing, top, bottom])
+            
+            view.addSubview(collectionView)
+        }
+    }
+    
+    @objc private func tappedOutsideCell(gestureRecognizer: UITapGestureRecognizer) {
+        delegate?.tappedOutsideTagButtons?()
     }
 
     internal func setupConstraints() {
+        guard let collectionView = collectionView else {
+            return
+        }
+        
         self.view.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         let metrics = [
@@ -91,7 +113,7 @@ public class SnapTagsCollectionViewController: UIViewController {
 
         let size = sizer.calculateSizeFor(tag.tag, font: buttonConfiguration.font)
         var width = size.width
-        width += buttonConfiguration.horizontalMargin * 2
+        width += buttonConfiguration.buttonInset.left + buttonConfiguration.buttonInset.right
 
         if buttonConfiguration.hasOnOffButton {
             width += buttonConfiguration.onState.spacingBetweenLabelAndOnOffButton
@@ -99,21 +121,29 @@ public class SnapTagsCollectionViewController: UIViewController {
         }
 
         var height = size.height
-        height += buttonConfiguration.verticalMargin * 2
+        height += buttonConfiguration.buttonInset.top + buttonConfiguration.buttonInset.bottom
 
         return CGSizeMake(width, height)
     }
 
     public func allowBouncingHorizontally(horizontalBounce: Bool, vertically verticalBounce: Bool) {
-        self.collectionView.bounces = horizontalBounce || verticalBounce
-        self.collectionView.alwaysBounceHorizontal = horizontalBounce
-        self.collectionView.alwaysBounceVertical = verticalBounce
+        guard let collectionView = collectionView else {
+            return
+        }
+
+        collectionView.bounces = horizontalBounce || verticalBounce
+        collectionView.alwaysBounceHorizontal = horizontalBounce
+        collectionView.alwaysBounceVertical = verticalBounce
     }
 
     public func calculateContentSizeForTags(tags: [SnapTagRepresentation]) -> CGSize {
-        var width = CGFloat(0.0) // configuration.horizontalMargin * 2
-        width += CGFloat(collectionView.numberOfItemsInSection(0) - 1) * configuration.spacing
-        var height = CGFloat(0.0) // configuration.verticalMargin * 2 + configuration.contentHeight
+        guard let collectionView = collectionView else {
+            return CGSizeZero
+        }
+
+        var width = CGFloat(0.0)
+        width += fmax(0.0 ,CGFloat(collectionView.numberOfItemsInSection(0) - 1) * configuration.spacing)
+        var height = CGFloat(0.0)
         let sizes = tags.map { calculateContentSizeForTag($0) }
         height += sizes.reduce(CGFloat(0.0), combine: { (last, size) -> CGFloat in
             return fmax(last, size.height)
@@ -125,11 +155,11 @@ public class SnapTagsCollectionViewController: UIViewController {
     }
 
     public func contentOffset() -> CGPoint {
-        return collectionView.contentOffset
+        return collectionView?.contentOffset ?? CGPointMake(0,0)
     }
 
     public func contentSize() -> CGSize {
-        var size = collectionView.contentSize
+        var size = collectionView?.contentSize ?? CGSizeMake(0, 0)
         size.width += 2 * configuration.horizontalMargin
         size.height += 2 * configuration.verticalMargin
         return size
@@ -137,16 +167,16 @@ public class SnapTagsCollectionViewController: UIViewController {
 
     public var scrollEnabled : Bool {
         get {
-            return collectionView.scrollEnabled
+            return collectionView?.scrollEnabled ?? false
         }
 
         set(value) {
-            collectionView.scrollEnabled = value
+            collectionView?.scrollEnabled = value
         }
     }
 
     public func reloadData() {
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
 }
 
@@ -162,7 +192,16 @@ extension SnapTagsCollectionViewController : UICollectionViewDataSource {
     }
 
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let tag = data[indexPath.item]
+        
+        let tag : SnapTagRepresentation
+        
+        // Guard against reload situations where the indexpath and data are out of sync
+        if indexPath.item < data.count {
+            tag = data[indexPath.item]
+        } else {
+            tag = SnapTagRepresentation(tag: "OutOfBounds", isOn: false)
+        }
+
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SnapTagCell
         var config = buttonConfiguration
 
@@ -179,16 +218,17 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout 
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let tag = data[indexPath.item]
 
-        let height = buttonConfiguration.verticalMargin * 2 + buttonConfiguration.font.pointSize
+        let height = buttonConfiguration.labelInset.top + buttonConfiguration.font.pointSize + buttonConfiguration.labelInset.bottom
 
         let label = UILabel(frame: CGRectZero)
         label.text = tag.tag.uppercaseString
         label.font = buttonConfiguration.font
 
         let labelSize = sizer.calculateSizeFor(label.text ?? "", font: label.font)
-        var width = buttonConfiguration.horizontalMargin * 2 + labelSize.width
+        var width = buttonConfiguration.labelInset.left + labelSize.width + buttonConfiguration.labelInset.right
         if buttonConfiguration.hasOnOffButton {
-            width += buttonConfiguration.onState.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onState.buttonImage?.size.width ?? 0.0)
+            width -= buttonConfiguration.labelInset.right
+            width += buttonConfiguration.onState.spacingBetweenLabelAndOnOffButton + (buttonConfiguration.onState.buttonImage?.size.width ?? 0.0) + buttonConfiguration.buttonInset.right
         }
         return CGSizeMake(width, height)
     }
@@ -196,31 +236,50 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegateFlowLayout 
 
 extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
+//    private func printIsMainThread() {
+//        let t = NSThread.isMainThread()
+//        if t {
+//            print("Is main thread")
+//        } else {
+//            print("IS NOT MAIN THREAD!!!!!")
+//        }
+//    }
 
     public func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        printIsMainThread()
+//        print("shouldHighlightItemAtIndexPath")
         return buttonConfiguration.canBeTurnedOnAndOff || buttonConfiguration.isTappable
     }
 
     public func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+//        printIsMainThread()
+//        print("didHighlightItemAtIndexPath")
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
         cell.setHighlightState(true)
     }
 
     public func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+//        printIsMainThread()
+//        print("didUnhighlightItemAtIndexPath")
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SnapTagCell
         UIView.animateWithDuration(0.3) {
             cell.setHighlightState(false)
         }
+        didSelect(collectionView, indexPath: indexPath)
     }
 
     public func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        printIsMainThread()
+//        print("shouldSelectItemAtIndexPath")
         return buttonConfiguration.canBeTurnedOnAndOff || buttonConfiguration.isTappable
     }
 
 
 
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
+//    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    private func didSelect(collectionView: UICollectionView, indexPath: NSIndexPath) {
+//        printIsMainThread()
+//        print("YES!!! didSelectItemAtIndexPath")
         let tag = data[indexPath.row]
         if buttonConfiguration.canBeTurnedOnAndOff {
             tag.isOn = !tag.isOn
@@ -237,9 +296,9 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
             
             delegate?.snapTagButtonTapped(tag, sender: self)
             if tag.isOn {
-                delegate?.snapTagButtonTurnedOn(tag.tag)
+                delegate?.snapTagButtonTurnedOn?(tag.tag)
             } else {
-                delegate?.snapTagButtonTurnedOff(tag.tag)
+                delegate?.snapTagButtonTurnedOff?(tag.tag)
             }
             
         } else if buttonConfiguration.isTappable {
@@ -250,6 +309,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
     public func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
 
+//        printIsMainThread()
         return buttonConfiguration.canBeTurnedOnAndOff
     }
 

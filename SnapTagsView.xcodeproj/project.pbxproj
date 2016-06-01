@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C92BF5BE4D74750262CF980 /* Pods_SnapTagsViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C4B7F9EA052F6BB13D4EC3 /* Pods_SnapTagsViewTests.framework */; };
+		64A0FC87416E8A7F910540F8 /* Pods_SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2CC1EA1477065A9AFACE53E /* Pods_SnapTagsView.framework */; };
+		838D32AE9CEFBB85C49510F3 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C99599D8C88494224379CA5 /* Pods_Example.framework */; };
 		850FC5101C453F5200E1F75D /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
 		850FC5151C453F5200E1F75D /* SnapTagsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5141C453F5200E1F75D /* SnapTagsViewTests.swift */; };
 		850FC5261C453F7700E1F75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5251C453F7700E1F75D /* AppDelegate.swift */; };
@@ -51,7 +52,8 @@
 		85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */; };
 		85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FC5051C453F5200E1F75D /* SnapTagsView.framework */; };
 		85D9BA381C4AC7B000B18895 /* DefaultImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85572C551C49A8380003BE70 /* DefaultImages.xcassets */; };
-		C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */; };
+		85E1497C1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E1497B1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift */; };
+		F0D02D2852AC6E69AB21F2DF /* Pods_SnapTagsViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D0C9AF9B564D259ECF6A3E /* Pods_SnapTagsViewTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,11 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapTagsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		55C4B7F9EA052F6BB13D4EC3 /* Pods_SnapTagsViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapTagsViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		562F7EEEEF14114A83C5D0F7 /* Pods-SnapTagsViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5B80C358BC507F3F953E0879 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		771DBC4DF57810C2A5C98628 /* Pods-SnapTagsViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		18B045FFB1B9894608E1C450 /* Pods-SnapTagsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.release.xcconfig"; sourceTree = "<group>"; };
+		44D0C9AF9B564D259ECF6A3E /* Pods_SnapTagsViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapTagsViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C99599D8C88494224379CA5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C5AC0390C976BD59911DF3 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		850FC5051C453F5200E1F75D /* SnapTagsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapTagsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FC5081C453F5200E1F75D /* SnapTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapTagsView.h; sourceTree = "<group>"; };
 		850FC50A1C453F5200E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,10 +119,12 @@
 		85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsHorizontalScrollView.swift; sourceTree = "<group>"; };
 		85D9BA2F1C4991C700B18895 /* SnapTagButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagButtonConfiguration.swift; sourceTree = "<group>"; };
 		85D9BA331C49995C00B18895 /* SnapTagsViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapTagsViewConfiguration.swift; sourceTree = "<group>"; };
-		AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.release.xcconfig"; sourceTree = "<group>"; };
-		ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.debug.xcconfig"; sourceTree = "<group>"; };
-		C064C84DA8E616C6834C0FA8 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		D5AC5BD68EC0C15200F91549 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		85E1497B1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessBuggyCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A5776491709BE9F278F8A093 /* Pods-SnapTagsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView.debug.xcconfig"; sourceTree = "<group>"; };
+		CC8B72BC620A9FA1649468A9 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E90EE9B32E5B4728A067CF6F /* Pods-SnapTagsViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		F2CC1EA1477065A9AFACE53E /* Pods_SnapTagsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapTagsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2DC3FD1CA192724591B94B3 /* Pods-SnapTagsViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapTagsViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C846B9C633A7966F828E8605 /* Pods_SnapTagsView.framework in Frameworks */,
+				64A0FC87416E8A7F910540F8 /* Pods_SnapTagsView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				850FC5101C453F5200E1F75D /* SnapTagsView.framework in Frameworks */,
-				2C92BF5BE4D74750262CF980 /* Pods_SnapTagsViewTests.framework in Frameworks */,
+				F0D02D2852AC6E69AB21F2DF /* Pods_SnapTagsViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,22 +150,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D9BA371C4A3EF800B18895 /* SnapTagsView.framework in Frameworks */,
+				838D32AE9CEFBB85C49510F3 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E1CF6DD8033E6075E43E5CC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				14E573470640F582F2D8C7D8 /* Pods_SnapTagsView.framework */,
-				5B80C358BC507F3F953E0879 /* Pods_Example.framework */,
-				55C4B7F9EA052F6BB13D4EC3 /* Pods_SnapTagsViewTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		850FC4FB1C453F5200E1F75D = {
 			isa = PBXGroup;
 			children = (
@@ -170,8 +164,8 @@
 				850FC5131C453F5200E1F75D /* SnapTagsViewTests */,
 				850FC5241C453F7700E1F75D /* Example */,
 				850FC5061C453F5200E1F75D /* Products */,
-				CA143C1A735A94E393E0A65D /* Pods */,
-				6E1CF6DD8033E6075E43E5CC /* Frameworks */,
+				CDFDAF30FC694204DC762832 /* Pods */,
+				B29CB69600C9ADA670FCFD17 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -229,6 +223,7 @@
 				85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */,
 				854494F51C61F156006489E8 /* SnapTextSizer.swift */,
 				857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */,
+				85E1497B1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift */,
 				85B9A5841C64A9C6000F4C62 /* SnapSearchBarController.swift */,
 				85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */,
 				85B9A58A1C64AC23000F4C62 /* SnapTagsHorizontalScrollView.swift */,
@@ -275,15 +270,25 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		CA143C1A735A94E393E0A65D /* Pods */ = {
+		B29CB69600C9ADA670FCFD17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */,
-				AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */,
-				D5AC5BD68EC0C15200F91549 /* Pods-Example.debug.xcconfig */,
-				C064C84DA8E616C6834C0FA8 /* Pods-Example.release.xcconfig */,
-				562F7EEEEF14114A83C5D0F7 /* Pods-SnapTagsViewTests.debug.xcconfig */,
-				771DBC4DF57810C2A5C98628 /* Pods-SnapTagsViewTests.release.xcconfig */,
+				6C99599D8C88494224379CA5 /* Pods_Example.framework */,
+				F2CC1EA1477065A9AFACE53E /* Pods_SnapTagsView.framework */,
+				44D0C9AF9B564D259ECF6A3E /* Pods_SnapTagsViewTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDFDAF30FC694204DC762832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC8B72BC620A9FA1649468A9 /* Pods-Example.debug.xcconfig */,
+				75C5AC0390C976BD59911DF3 /* Pods-Example.release.xcconfig */,
+				A5776491709BE9F278F8A093 /* Pods-SnapTagsView.debug.xcconfig */,
+				18B045FFB1B9894608E1C450 /* Pods-SnapTagsView.release.xcconfig */,
+				F2DC3FD1CA192724591B94B3 /* Pods-SnapTagsViewTests.debug.xcconfig */,
+				E90EE9B32E5B4728A067CF6F /* Pods-SnapTagsViewTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -306,12 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC5191C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsView" */;
 			buildPhases = (
-				24453DCF000653595AEB84F1 /* Check Pods Manifest.lock */,
+				76E007D3E96A89DB0974AF6C /* 📦 Check Pods Manifest.lock */,
 				850FC5001C453F5200E1F75D /* Sources */,
 				850FC5011C453F5200E1F75D /* Frameworks */,
 				850FC5021C453F5200E1F75D /* Headers */,
 				850FC5031C453F5200E1F75D /* Resources */,
-				0C7782D29F74B4966E9DA852 /* Copy Pods Resources */,
+				34E9EBCD9D035CDF5464D3EB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,12 +331,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC51C1C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsViewTests" */;
 			buildPhases = (
-				21FA48A994D40BB24076B1C9 /* Check Pods Manifest.lock */,
+				1AA1C93FA7718917870A95CE /* 📦 Check Pods Manifest.lock */,
 				850FC50B1C453F5200E1F75D /* Sources */,
 				850FC50C1C453F5200E1F75D /* Frameworks */,
 				850FC50D1C453F5200E1F75D /* Resources */,
-				E22898D363510336AB9F4ADB /* Embed Pods Frameworks */,
-				4ADBC6909E2FEF9DE52E5902 /* Copy Pods Resources */,
+				7528DC891B16A9B55B49A65D /* 📦 Embed Pods Frameworks */,
+				897BACB66D11B4D67A5765B4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,9 +352,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC5321C453F7800E1F75D /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				98C995AD6282A132CE1D9CDD /* 📦 Check Pods Manifest.lock */,
 				850FC51F1C453F7700E1F75D /* Sources */,
 				850FC5201C453F7700E1F75D /* Frameworks */,
 				850FC5211C453F7700E1F75D /* Resources */,
+				90F56A91214F20E91DC95185 /* 📦 Embed Pods Frameworks */,
+				4D3AA2721E29AB17A5A80572 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -447,14 +455,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C7782D29F74B4966E9DA852 /* Copy Pods Resources */ = {
+		1AA1C93FA7718917870A95CE /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		34E9EBCD9D035CDF5464D3EB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,14 +485,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		21FA48A994D40BB24076B1C9 /* Check Pods Manifest.lock */ = {
+		4D3AA2721E29AB17A5A80572 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7528DC891B16A9B55B49A65D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76E007D3E96A89DB0974AF6C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,29 +530,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		24453DCF000653595AEB84F1 /* Check Pods Manifest.lock */ = {
+		897BACB66D11B4D67A5765B4 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		4ADBC6909E2FEF9DE52E5902 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,19 +545,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E22898D363510336AB9F4ADB /* Embed Pods Frameworks */ = {
+		90F56A91214F20E91DC95185 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98C995AD6282A132CE1D9CDD /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -530,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */,
+				85E1497C1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift in Sources */,
 				854494F21C60A589006489E8 /* SnapTagsCollectionViewController.swift in Sources */,
 				854494EE1C6094D8006489E8 /* SnapTagCell.swift in Sources */,
 				854494F41C60A5F4006489E8 /* SnapTagRepresentation.swift in Sources */,
@@ -701,7 +755,7 @@
 		};
 		850FC51A1C453F5200E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADDE32E06D1C7928212A4C76 /* Pods-SnapTagsView.debug.xcconfig */;
+			baseConfigurationReference = A5776491709BE9F278F8A093 /* Pods-SnapTagsView.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -720,7 +774,7 @@
 		};
 		850FC51B1C453F5200E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA4A08874CBC7A1E7CD3FA19 /* Pods-SnapTagsView.release.xcconfig */;
+			baseConfigurationReference = 18B045FFB1B9894608E1C450 /* Pods-SnapTagsView.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -738,7 +792,7 @@
 		};
 		850FC51D1C453F5200E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 562F7EEEEF14114A83C5D0F7 /* Pods-SnapTagsViewTests.debug.xcconfig */;
+			baseConfigurationReference = F2DC3FD1CA192724591B94B3 /* Pods-SnapTagsViewTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SnapTagsViewTests/Info.plist;
@@ -751,7 +805,7 @@
 		};
 		850FC51E1C453F5200E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 771DBC4DF57810C2A5C98628 /* Pods-SnapTagsViewTests.release.xcconfig */;
+			baseConfigurationReference = E90EE9B32E5B4728A067CF6F /* Pods-SnapTagsViewTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SnapTagsViewTests/Info.plist;
@@ -763,7 +817,7 @@
 		};
 		850FC5331C453F7800E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5AC5BD68EC0C15200F91549 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = CC8B72BC620A9FA1649468A9 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -775,7 +829,7 @@
 		};
 		850FC5341C453F7800E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C064C84DA8E616C6834C0FA8 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 75C5AC0390C976BD59911DF3 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;

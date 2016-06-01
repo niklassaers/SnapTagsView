@@ -6,6 +6,7 @@ public class SnapTagCell: UICollectionViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelWidth: NSLayoutConstraint!
+    @IBOutlet weak var labelHeight: NSLayoutConstraint!
 
     @IBOutlet weak var backgroundImageForOnState: UIImageView!
     @IBOutlet weak var backgroundImageForOffState: UIImageView!
@@ -76,6 +77,9 @@ public class SnapTagCell: UICollectionViewCell {
         } else {
             setOffState()
         }
+        
+//        trailingMargin.constant = 10
+//        spacingMargin.constant = 6
     }
 
     public override func intrinsicContentSize() -> CGSize {
@@ -121,9 +125,10 @@ public class SnapTagCell: UICollectionViewCell {
     }
 
     internal func setupMargins() {
-        topMargin.constant = configuration.horizontalMargin + configuration.labelVOffset
-        bottomMargin.constant = configuration.horizontalMargin - configuration.labelVOffset
-        leadingMargin.constant = configuration.verticalMargin + configuration.labelHOffset
+        topMargin.constant = max(configuration.labelInset.top, configuration.buttonInset.top)
+        bottomMargin.constant = max(configuration.labelInset.bottom, configuration.buttonInset.bottom)
+        leadingMargin.constant = configuration.labelInset.left
+        trailingMargin.constant = configuration.buttonInset.right
     }
 
     internal func disableOnOffButton() {
@@ -146,6 +151,7 @@ public class SnapTagCell: UICollectionViewCell {
 
             let size = sizeForLabel(label)
             labelWidth.constant = size.width
+            labelHeight.constant = size.height
         }
     }
 
@@ -193,15 +199,18 @@ public class SnapTagCell: UICollectionViewCell {
         if let sizer = sizer {
             let size = sizer.calculateSizeFor(lastText, font: configuration.font)
             width = size.width
-            width += configuration.horizontalMargin * 2
+            width += configuration.labelInset.left + configuration.labelInset.right
 
             if configuration.hasOnOffButton {
+                width -= configuration.labelInset.right
                 width += configuration.onState.spacingBetweenLabelAndOnOffButton
                 width += configuration.onState.buttonImage?.size.width ?? 0.0
+                width += configuration.buttonInset.right
             }
 
             height = size.height
-            height += configuration.verticalMargin * 2
+            height += max(configuration.buttonInset.top, configuration.labelInset.top)
+            height += max(configuration.buttonInset.bottom, configuration.labelInset.bottom)
 
         } else {
             print("argh")
@@ -212,7 +221,6 @@ public class SnapTagCell: UICollectionViewCell {
         let size = CGSizeMake(round(width), round(height))
 
         if size == layoutAttributes.frame.size {
-            print("yay")
             return layoutAttributes
         } else {
 
@@ -222,7 +230,6 @@ public class SnapTagCell: UICollectionViewCell {
             var frame = layoutAttributes.frame
             frame.size.height = size.height
             if abs(frame.size.width - size.width) > 2.0 { // Less is just not worth quarelling about
-                print("\(size.width) vs \(layoutAttributes.frame.size.width)")
                 frame.size.width = size.width
             }
             attr.frame = frame

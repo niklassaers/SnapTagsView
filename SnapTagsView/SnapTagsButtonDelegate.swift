@@ -1,8 +1,11 @@
 import Foundation
 
-public protocol SnapTagsButtonDelegate : class {
+@objc public protocol SnapTagsButtonDelegate : class {
     func snapTagButtonTapped(tag: SnapTagRepresentation, sender: SnapTagsCollectionViewController)
 
-    func snapTagButtonTurnedOn(tag: String)
-    func snapTagButtonTurnedOff(tag: String)
+    optional func snapTagButtonTurnedOn(tag: String)
+    optional func snapTagButtonTurnedOff(tag: String)
+    optional func tappedOutsideTagButtons()
+    optional func searchTextChanged(text: String)
+    optional func searchCompletedWithString(text: String)
 }
