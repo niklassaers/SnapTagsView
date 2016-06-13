@@ -14,13 +14,11 @@ public struct SnapTagButtonConfiguration {
     public var highlightedWhileOffState = ButtonStateConfiguration()
 
 
-    public var horizontalMargin : CGFloat = 10.0
-    public var verticalMargin : CGFloat = 10.0
-
     public var intrinsicContentSize = CGSizeMake(30, 30)
 
-    public var labelVOffset : CGFloat = 0.0
-    public var labelHOffset : CGFloat = 0.0
+    public var margin : UIEdgeInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+    public var labelInset : UIEdgeInsets = UIEdgeInsetsZero
+    public var buttonInset : UIEdgeInsets = UIEdgeInsetsZero
 
     public init() {
 

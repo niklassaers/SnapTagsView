@@ -14,7 +14,7 @@ target 'SnapTagsView' do
 end
 
 target 'SnapTagsViewTests' do
-  pod 'FBSnapshotTestCase/Core'
+  pod 'FBSnapshotTestCase/Core', :git => 'https://github.com/facebook/ios-snapshot-test-case.git', :commit => 'b898c25'
 end
 
 target 'Example' do
