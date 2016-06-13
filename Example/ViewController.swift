@@ -254,8 +254,8 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        //c.labelVOffset = 0.5
-
+        c.margin = UIEdgeInsetsZero
+        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 8.0)
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
@@ -304,7 +304,9 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        //c.labelVOffset = 0.5
+        c.margin = UIEdgeInsetsZero
+        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
+        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -354,7 +356,9 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        //c.labelVOffset = 0.5
+        c.margin = UIEdgeInsetsZero
+        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
+        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -390,10 +394,12 @@ class ViewController: UIViewController {
 
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
-        config.horizontalMargin = 1.0
-        config.verticalMargin = 1.0
-        config.contentHeight = 13.0
+        config.horizontalMargin = 0.0
+        config.verticalMargin = 0.0
+        config.contentHeight = 36.0
         config.alignment = .Left
+        config.scrollDirection = .Horizontal
+        config.padding = UIEdgeInsetsMake(3.0, 0.0, 3.0, 66.0)
 
         return config
     }
@@ -401,37 +407,41 @@ class ViewController: UIViewController {
     internal func searchBarViewButtonConfig() -> SnapTagButtonConfiguration {
 
         var c = SnapTagButtonConfiguration()
-        c.font = UIFont.boldWithSize(13.0)
+        c.intrinsicContentSize = CGSize(width: 80, height: 36)
+        
+        c.font = UIFont.mediumWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        //c.labelVOffset = 0.5
         c.isTappable = true
-//        c.horizontalMargin = 6.0
-//        c.verticalMargin = 5.0
-
+        c.margin = UIEdgeInsets(top: 11.0, left: 1.0, bottom: 11.0, right: 0.0)
+        c.labelInset = UIEdgeInsetsMake(10.0, 8.0, 7.0, 0.0)
+        c.buttonInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0)
+        
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.roseColor()
         onState.textColor = UIColor.whiteColor()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.hasButton = true
         onState.cornerRadius = 3.0
-
+        onState.spacingBetweenLabelAndOnOffButton = 0
+        
         var offState = onState
         offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
         offState.backgroundColor = UIColor.whiteColor()
         offState.textColor = UIColor.roseColor()
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
         offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-
+        
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-
+        
         var highlightedOffState = offState
         highlightedOffState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
-
+        
         c.onState = onState
         c.offState = offState
         c.highlightedWhileOnState = highlightedOnState
         c.highlightedWhileOffState = highlightedOffState
+
 
         return c
     }
@@ -454,7 +464,9 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-//        c.labelVOffset = 0.5
+        c.margin = UIEdgeInsetsZero
+        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
+        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
 
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.whiteColor()
