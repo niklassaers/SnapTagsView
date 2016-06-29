@@ -27,7 +27,6 @@
 		85572C591C49A90D0003BE70 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C571C49A90D0003BE70 /* ImageConstants.swift */; };
 		85572C5A1C49A90D0003BE70 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C581C49A90D0003BE70 /* LocalizedStrings.swift */; };
 		85572C5C1C49AA0F0003BE70 /* UIColor+roseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */; };
-		857D431A1C6222D1009316C8 /* KTCenterFlowLayoutFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */; };
 		85A96DCF1C5FA28800B73619 /* UIFont+GothamRnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A96DCE1C5FA28800B73619 /* UIFont+GothamRnd.swift */; };
 		85B9A5781C63A1CC000F4C62 /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A5771C63A1CC000F4C62 /* GlobalHelper.swift */; };
 		85B9A57B1C649710000F4C62 /* ButtonStateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9A57A1C649710000F4C62 /* ButtonStateConfiguration.swift */; };
@@ -104,7 +103,6 @@
 		85572C571C49A90D0003BE70 /* ImageConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConstants.swift; sourceTree = "<group>"; };
 		85572C581C49A90D0003BE70 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		85572C5B1C49AA0F0003BE70 /* UIColor+roseColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+roseColor.swift"; sourceTree = "<group>"; };
-		857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTCenterFlowLayoutFix.swift; sourceTree = "<group>"; };
 		85A96DC61C5FA1C000B73619 /* GothamRnd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Bold.otf"; path = "Fonts/GothamRnd-Bold.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DC71C5FA1C000B73619 /* GothamRnd-BoldIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-BoldIta.otf"; path = "Fonts/GothamRnd-BoldIta.otf"; sourceTree = SOURCE_ROOT; };
 		85A96DC81C5FA1C000B73619 /* GothamRnd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamRnd-Book.otf"; path = "Fonts/GothamRnd-Book.otf"; sourceTree = SOURCE_ROOT; };
@@ -222,7 +220,6 @@
 				854494F31C60A5F4006489E8 /* SnapTagRepresentation.swift */,
 				85572C431C49A5A00003BE70 /* SnapTagsButtonDelegate.swift */,
 				854494F51C61F156006489E8 /* SnapTextSizer.swift */,
-				857D43181C622078009316C8 /* KTCenterFlowLayoutFix.swift */,
 				85E1497B1CFF71A7007D7446 /* LessBuggyCollectionViewFlowLayout.swift */,
 				85B9A5841C64A9C6000F4C62 /* SnapSearchBarController.swift */,
 				85B9A5881C64AA75000F4C62 /* SnapTagsView.storyboard */,
@@ -311,12 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC5191C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsView" */;
 			buildPhases = (
-				76E007D3E96A89DB0974AF6C /* 📦 Check Pods Manifest.lock */,
+				76E007D3E96A89DB0974AF6C /* [CP] Check Pods Manifest.lock */,
 				850FC5001C453F5200E1F75D /* Sources */,
 				850FC5011C453F5200E1F75D /* Frameworks */,
 				850FC5021C453F5200E1F75D /* Headers */,
 				850FC5031C453F5200E1F75D /* Resources */,
-				34E9EBCD9D035CDF5464D3EB /* 📦 Copy Pods Resources */,
+				34E9EBCD9D035CDF5464D3EB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,12 +328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC51C1C453F5200E1F75D /* Build configuration list for PBXNativeTarget "SnapTagsViewTests" */;
 			buildPhases = (
-				1AA1C93FA7718917870A95CE /* 📦 Check Pods Manifest.lock */,
+				1AA1C93FA7718917870A95CE /* [CP] Check Pods Manifest.lock */,
 				850FC50B1C453F5200E1F75D /* Sources */,
 				850FC50C1C453F5200E1F75D /* Frameworks */,
 				850FC50D1C453F5200E1F75D /* Resources */,
-				7528DC891B16A9B55B49A65D /* 📦 Embed Pods Frameworks */,
-				897BACB66D11B4D67A5765B4 /* 📦 Copy Pods Resources */,
+				7528DC891B16A9B55B49A65D /* [CP] Embed Pods Frameworks */,
+				897BACB66D11B4D67A5765B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,12 +349,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850FC5321C453F7800E1F75D /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				98C995AD6282A132CE1D9CDD /* 📦 Check Pods Manifest.lock */,
+				98C995AD6282A132CE1D9CDD /* [CP] Check Pods Manifest.lock */,
 				850FC51F1C453F7700E1F75D /* Sources */,
 				850FC5201C453F7700E1F75D /* Frameworks */,
 				850FC5211C453F7700E1F75D /* Resources */,
-				90F56A91214F20E91DC95185 /* 📦 Embed Pods Frameworks */,
-				4D3AA2721E29AB17A5A80572 /* 📦 Copy Pods Resources */,
+				90F56A91214F20E91DC95185 /* [CP] Embed Pods Frameworks */,
+				4D3AA2721E29AB17A5A80572 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,14 +452,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1AA1C93FA7718917870A95CE /* 📦 Check Pods Manifest.lock */ = {
+		1AA1C93FA7718917870A95CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,14 +467,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		34E9EBCD9D035CDF5464D3EB /* 📦 Copy Pods Resources */ = {
+		34E9EBCD9D035CDF5464D3EB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,14 +482,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsView/Pods-SnapTagsView-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D3AA2721E29AB17A5A80572 /* 📦 Copy Pods Resources */ = {
+		4D3AA2721E29AB17A5A80572 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,14 +497,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7528DC891B16A9B55B49A65D /* 📦 Embed Pods Frameworks */ = {
+		7528DC891B16A9B55B49A65D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,14 +512,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		76E007D3E96A89DB0974AF6C /* 📦 Check Pods Manifest.lock */ = {
+		76E007D3E96A89DB0974AF6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,14 +527,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		897BACB66D11B4D67A5765B4 /* 📦 Copy Pods Resources */ = {
+		897BACB66D11B4D67A5765B4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,14 +542,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapTagsViewTests/Pods-SnapTagsViewTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90F56A91214F20E91DC95185 /* 📦 Embed Pods Frameworks */ = {
+		90F56A91214F20E91DC95185 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,14 +557,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98C995AD6282A132CE1D9CDD /* 📦 Check Pods Manifest.lock */ = {
+		98C995AD6282A132CE1D9CDD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,7 +595,6 @@
 				85D9BA341C49995C00B18895 /* SnapTagsViewConfiguration.swift in Sources */,
 				85572C491C49A5A00003BE70 /* SnapTagsButtonDelegate.swift in Sources */,
 				854494F61C61F156006489E8 /* SnapTextSizer.swift in Sources */,
-				857D431A1C6222D1009316C8 /* KTCenterFlowLayoutFix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
