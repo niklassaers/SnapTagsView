@@ -3,6 +3,8 @@
 import Foundation
 import UIKit
 
+private class classInSameBundleAsAssets: NSObject {}
+
 public extension UIImage {
   public enum SnapTagsViewAssets : String {
     case RedCloseButton = "RedCloseButton"
@@ -17,6 +19,7 @@ public extension UIImage {
   }
 
   convenience init!(asset: SnapTagsViewAssets) {
-    self.init(named: asset.rawValue)
+    let bundle = NSBundle(forClass: classInSameBundleAsAssets.self)
+    self.init(named: asset.rawValue, inBundle: bundle, compatibleWithTraitCollection: nil)
   }
 }
