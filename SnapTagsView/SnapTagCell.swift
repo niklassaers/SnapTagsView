@@ -158,7 +158,7 @@ public class SnapTagCell: UICollectionViewCell {
     internal func sizeForLabel(label: UILabel) -> CGSize {
         let size : CGSize
         if let sizer = sizer {
-            size = sizer.calculateSizeFor(label.text ?? "", font: label.font)
+            size = sizer.calculateSizeForText(label.text ?? "", font: label.font)
         } else {
             size = label.sizeThatFits(CGSizeMake(2000, 100))
         }
@@ -193,37 +193,19 @@ public class SnapTagCell: UICollectionViewCell {
 
     public override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
-        var width : CGFloat
-        var height : CGFloat
+        let size: CGSize
 
         if let sizer = sizer {
-            let size = sizer.calculateSizeFor(lastText, font: configuration.font)
-            width = size.width
-            width += configuration.labelInset.left + configuration.labelInset.right
-
-            if configuration.hasOnOffButton {
-                width -= configuration.labelInset.right
-                width += configuration.onState.spacingBetweenLabelAndOnOffButton
-                width += configuration.onState.buttonImage?.size.width ?? 0.0
-                width += configuration.buttonInset.right
-            }
-
-            height = size.height
-            height += max(configuration.buttonInset.top, configuration.labelInset.top)
-            height += max(configuration.buttonInset.bottom, configuration.labelInset.bottom)
-
+            let calculatedSize = sizer.calculateSizeForTag(lastText, configuration: configuration)
+            size = CGSize(width: round(calculatedSize.width), height: round(calculatedSize.height))
         } else {
-            print("argh")
-            width = configuration.intrinsicContentSize.width
-            height = configuration.intrinsicContentSize.height
+            let intrinsicSize = configuration.intrinsicContentSize
+            size = CGSize(width: round(intrinsicSize.width), height: round(intrinsicSize.height))
         }
-
-        let size = CGSizeMake(round(width), round(height))
 
         if size == layoutAttributes.frame.size {
             return layoutAttributes
         } else {
-
 
             let attr = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
 

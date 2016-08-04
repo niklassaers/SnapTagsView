@@ -3,7 +3,7 @@
 import Foundation
 import UIKit
 
-private class classInSameBundleAsAssets: NSObject {}
+private class ClassInSameBundleAsAssets: NSObject {}
 
 public extension UIImage {
   public enum SnapTagsViewAssets : String {
@@ -19,7 +19,7 @@ public extension UIImage {
   }
 
   convenience init!(asset: SnapTagsViewAssets) {
-    let bundle = NSBundle(forClass: classInSameBundleAsAssets.self)
+    let bundle = NSBundle(forClass: ClassInSameBundleAsAssets.self)
     self.init(named: asset.rawValue, inBundle: bundle, compatibleWithTraitCollection: nil)
   }
 }
