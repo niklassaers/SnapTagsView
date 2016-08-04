@@ -22,17 +22,17 @@ public class SnapTagsHorizontalScrollView : UIViewController {
         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public static func setupTagScrollViewAsSubviewOf(view: UIView) -> UIScrollView {
+    public static func setupTagScrollViewAsSubviewOf(view: UIView, horizontalMargin: CGFloat = 3, verticalMargin: CGFloat = 4) -> UIScrollView {
         let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
         setupTagScrollView(tagScrollView)
         view.addSubview(tagScrollView)
 
         var constraints = [NSLayoutConstraint]()
         let dict : [String:UIView] = ["self": tagScrollView, "super": view]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right - 3", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top + 4", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom - 4", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.left = super.left + \(horizontalMargin)", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right - \(horizontalMargin)", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.top = super.top + \(verticalMargin)", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom - \(verticalMargin)", parameters: dict))
         view.addConstraints(constraints)
         return tagScrollView
     }

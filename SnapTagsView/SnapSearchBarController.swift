@@ -65,6 +65,7 @@ public class SnapSearchBarController : UIViewController {
         configuration.alignment = .Natural
         tagsVc.configuration = configuration
         tagsVc.buttonConfiguration = buttonConfiguration
+        tagsVc.handlesViewConfigurationMargins = false
 
         searchBar.delegate = self
         searchBar.setNeedsLayout()
@@ -94,7 +95,10 @@ public class SnapSearchBarController : UIViewController {
         searchTextField.tintColor = UIColor.roseColor()
         self.searchTextField = searchTextField
 
-        tagScrollView = SnapTagsHorizontalScrollView.setupTagScrollViewAsSubviewOf(searchBar)
+        let hMargin = configuration.horizontalMargin
+        let vMargin = configuration.verticalMargin
+        
+        tagScrollView = SnapTagsHorizontalScrollView.setupTagScrollViewAsSubviewOf(searchBar, horizontalMargin: hMargin, verticalMargin: vMargin)
 
         self.addChildViewController(tagsVc)
         tagScrollView?.addSubview(tagsVc.view)

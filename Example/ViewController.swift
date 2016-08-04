@@ -102,7 +102,6 @@ class ViewController: UIViewController {
 
         contentStackView.insertArrangedSubview(searchBarController.view, atIndex: index)
 
-
     }
 
 
@@ -394,8 +393,8 @@ class ViewController: UIViewController {
 
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
-        config.horizontalMargin = 0.0
-        config.verticalMargin = 0.0
+        config.horizontalMargin = 11.0
+        config.verticalMargin = 4.0
         config.contentHeight = 36.0
         config.alignment = .Left
         config.scrollDirection = .Horizontal
@@ -413,7 +412,7 @@ class ViewController: UIViewController {
         c.canBeTurnedOnAndOff = false
         c.isTappable = true
         c.margin = UIEdgeInsets(top: 11.0, left: 1.0, bottom: 11.0, right: 0.0)
-        c.labelInset = UIEdgeInsetsMake(7.0, 8.0, 7.0, 0.0)
+        c.labelInset = UIEdgeInsets(top: 7.0, left: 8.0, bottom: 7.0, right: 0.0)
         c.buttonInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0)
         
         var onState = ButtonStateConfiguration()
