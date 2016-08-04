@@ -413,7 +413,7 @@ class ViewController: UIViewController {
         c.canBeTurnedOnAndOff = false
         c.isTappable = true
         c.margin = UIEdgeInsets(top: 11.0, left: 1.0, bottom: 11.0, right: 0.0)
-        c.labelInset = UIEdgeInsetsMake(10.0, 8.0, 7.0, 0.0)
+        c.labelInset = UIEdgeInsetsMake(7.0, 8.0, 7.0, 0.0)
         c.buttonInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0)
         
         var onState = ButtonStateConfiguration()
