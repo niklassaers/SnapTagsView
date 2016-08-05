@@ -102,7 +102,6 @@ class ViewController: UIViewController {
 
         contentStackView.insertArrangedSubview(searchBarController.view, atIndex: index)
 
-
     }
 
 
@@ -118,7 +117,6 @@ class ViewController: UIViewController {
         constraints.append(NSLayoutConstraint(expressionFormat: "self.width = super.width", parameters: dict))
         constraints.append(NSLayoutConstraint(expressionFormat: "self.height = 44", parameters: dict))
         view.addConstraints(constraints)
-
 
         tagBarViewController = SnapTagsCollectionViewController()
         tagBarViewController.sizer = sizer
@@ -142,10 +140,9 @@ class ViewController: UIViewController {
 
         constraints = [NSLayoutConstraint]()
         dict = ["self": tagBarViewController.view, "super": tagScrollView]
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.width >= \(sizeForTags.width)", parameters: dict))
-        constraints.append(NSLayoutConstraint(expressionFormat: "self.height >= \(sizeForTags.height + (tagBarViewController.configuration.verticalMargin * 2))", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.width >= \(round(sizeForTags.width) + (tagBarViewController.configuration.horizontalMargin * 2))", parameters: dict))
+        constraints.append(NSLayoutConstraint(expressionFormat: "self.height >= \(round(sizeForTags.height) + (tagBarViewController.configuration.verticalMargin * 2))", parameters: dict))
         tagScrollView.addConstraints(constraints)
-
 
     }
 
@@ -255,7 +252,7 @@ class ViewController: UIViewController {
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
         c.margin = UIEdgeInsetsZero
-        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 8.0)
+        c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 8.0)
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
@@ -305,8 +302,8 @@ class ViewController: UIViewController {
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
         c.margin = UIEdgeInsetsZero
-        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
-        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
+        c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 0.0)
+        c.buttonInset = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 10.0)
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -357,8 +354,8 @@ class ViewController: UIViewController {
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
         c.margin = UIEdgeInsetsZero
-        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
-        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
+        c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 0.0)
+        c.buttonInset = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 10.0)
         c.isTappable = true
 
         var onState = ButtonStateConfiguration()
@@ -394,12 +391,12 @@ class ViewController: UIViewController {
 
         var config = SnapTagsViewConfiguration()
         config.spacing = 5.0
-        config.horizontalMargin = 0.0
-        config.verticalMargin = 0.0
+        config.horizontalMargin = 11.0
+        config.verticalMargin = 4.0
         config.contentHeight = 36.0
         config.alignment = .Left
         config.scrollDirection = .Horizontal
-        config.padding = UIEdgeInsetsMake(3.0, 0.0, 3.0, 66.0)
+        config.padding = UIEdgeInsets(top: 3.0, left: 0.0, bottom: 3.0, right: 66.0)
 
         return config
     }
@@ -413,7 +410,7 @@ class ViewController: UIViewController {
         c.canBeTurnedOnAndOff = false
         c.isTappable = true
         c.margin = UIEdgeInsets(top: 11.0, left: 1.0, bottom: 11.0, right: 0.0)
-        c.labelInset = UIEdgeInsetsMake(10.0, 8.0, 7.0, 0.0)
+        c.labelInset = UIEdgeInsets(top: 7.0, left: 8.0, bottom: 7.0, right: 0.0)
         c.buttonInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0)
         
         var onState = ButtonStateConfiguration()
@@ -465,8 +462,7 @@ class ViewController: UIViewController {
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
         c.margin = UIEdgeInsetsZero
-        c.labelInset = UIEdgeInsetsMake(8.0, 8.0, 5.0, 0.0)
-        c.buttonInset = UIEdgeInsetsMake(0.0, 8.0, 0.0, 10.0)
+        c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 8.0)
 
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.whiteColor()

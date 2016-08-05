@@ -18,5 +18,5 @@ target 'SnapTagsViewTests' do
 end
 
 target 'Example' do
+  pod 'SnapTagsView', :path => '.'
 end
-

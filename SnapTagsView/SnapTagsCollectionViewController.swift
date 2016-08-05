@@ -13,6 +13,7 @@ public class SnapTagsCollectionViewController: UIViewController {
     public weak var delegate : SnapTagsButtonDelegate?
 
     internal var collectionView : UICollectionView?
+    internal var handlesViewConfigurationMargins = true
 
     public lazy var sizer = SnapTextWidthSizers()
 
@@ -96,6 +97,13 @@ public class SnapTagsCollectionViewController: UIViewController {
         
         self.view.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        var configuration = self.configuration
+        if !handlesViewConfigurationMargins {
+            configuration.horizontalMargin = 0.0
+            configuration.verticalMargin = 0.0
+        }
+
         let metrics = [
             "hMargin": configuration.horizontalMargin,
             "vMargin": configuration.verticalMargin,
