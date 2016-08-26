@@ -106,14 +106,13 @@ public class SnapTagsCollectionViewController: UIViewController {
 
         let metrics = [
             "hMargin": configuration.horizontalMargin,
-            "vMargin": configuration.verticalMargin,
-            "height": configuration.contentHeight]
+            "vMargin": configuration.verticalMargin]
         let views = [ "cv": collectionView ]
         let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hMargin)-[cv]-(hMargin)-|",
             options: [],
             metrics: metrics,
             views: views)
-        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[cv(>=height)]-(vMargin)-|",
+        let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vMargin)-[cv]-(vMargin)-|",
             options: [],
             metrics: metrics,
             views: views)

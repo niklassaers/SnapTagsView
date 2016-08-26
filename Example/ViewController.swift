@@ -240,7 +240,6 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.contentHeight = 13.0
         config.alignment = .Left
 
         return config
@@ -290,7 +289,6 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.contentHeight = 13.0
         config.alignment = .Center
 
         return config
@@ -342,7 +340,6 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.contentHeight = 13.0
         config.alignment = .Left
 
         return config
@@ -393,7 +390,6 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 11.0
         config.verticalMargin = 4.0
-        config.contentHeight = 36.0
         config.alignment = .Left
         config.scrollDirection = .Horizontal
         config.padding = UIEdgeInsets(top: 3.0, left: 0.0, bottom: 3.0, right: 66.0)
@@ -450,7 +446,6 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.contentHeight = 13.0
         config.alignment = .Left
 
         return config
