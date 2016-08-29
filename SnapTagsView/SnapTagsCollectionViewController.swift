@@ -248,7 +248,6 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
         UIView.animateWithDuration(0.3) {
             cell.setHighlightState(false)
         }
-        didSelect(collectionView, indexPath: indexPath)
     }
 
     public func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -259,10 +258,9 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
 
 
-//    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    private func didSelect(collectionView: UICollectionView, indexPath: NSIndexPath) {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        printIsMainThread()
-//        print("YES!!! didSelectItemAtIndexPath")
+//        print("didSelectItemAtIndexPath")
         let tag = data[indexPath.row]
         if buttonConfiguration.canBeTurnedOnAndOff {
             tag.isOn = !tag.isOn
@@ -291,7 +289,6 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
 
 
     public func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-
 //        printIsMainThread()
         return buttonConfiguration.canBeTurnedOnAndOff
     }
