@@ -56,12 +56,6 @@ public class SnapTagsCollectionViewController: UIViewController {
         layout.sectionInset = configuration.padding
         layout.itemSize = buttonConfiguration.intrinsicContentSize
 
-        // KTCenterFlowLayout crashes if estimatedItemSize != (0.0, 0.0) (see their README on GitHub)
-        if configuration.alignment != .Center {
-            layout.estimatedItemSize = buttonConfiguration.intrinsicContentSize
-        }
-
-
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         if let collectionView = collectionView {
             collectionView.showsVerticalScrollIndicator = false
