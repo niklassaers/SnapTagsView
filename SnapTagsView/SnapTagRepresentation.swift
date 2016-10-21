@@ -1,8 +1,8 @@
 import Foundation
 
-public class SnapTagRepresentation : NSObject {
-    public var tag : String = ""
-    public var isOn : Bool = true
+open class SnapTagRepresentation : NSObject {
+    open var tag : String = ""
+    open var isOn : Bool = true
     
     public override init() {
         

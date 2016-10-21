@@ -1,12 +1,12 @@
 import Foundation
 
-public class SnapTextWidthSizers {
+open class SnapTextWidthSizers {
 
     internal var nonPurgingCache = [String: CGSize]()
 
     public init() { }
 
-    public func calculateSizeForText(string: String, font: UIFont) -> CGSize {
+    open func calculateSizeForText(_ string: String, font: UIFont) -> CGSize {
 
         let key = "\(string)-\(font.fontName)-\(font.pointSize)"
         if let value = nonPurgingCache[key] {
@@ -17,14 +17,14 @@ public class SnapTextWidthSizers {
         attrStr.addAttribute(NSFontAttributeName,
             value:font,
             range:NSMakeRange(0, string.characters.count))
-        let size = attrStr.boundingRectWithSize(CGSizeMake(CGFloat.max, CGFloat.max), options: [], context: nil)
+        let size = attrStr.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [], context: nil)
 
         nonPurgingCache[key] = size.size
         return size.size
     }
 
-    public func calculateSizeForTag(string: String, configuration: SnapTagButtonConfiguration) -> CGSize {
-        let textSize = self.calculateSizeForText(string.uppercaseString, font: configuration.font)
+    open func calculateSizeForTag(_ string: String, configuration: SnapTagButtonConfiguration) -> CGSize {
+        let textSize = self.calculateSizeForText(string.uppercased(), font: configuration.font)
 
         var width = textSize.width
         width += configuration.labelInset.left + configuration.labelInset.right

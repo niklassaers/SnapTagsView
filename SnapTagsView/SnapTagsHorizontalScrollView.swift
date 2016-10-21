@@ -1,20 +1,20 @@
 import UIKit
 import NSLayoutConstraint_ExpressionFormat
 
-public class SnapTagsHorizontalScrollView : UIViewController {
+open class SnapTagsHorizontalScrollView : UIViewController {
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public static func createTagScrollView() -> UIScrollView {
-        let tagScrollView = UIScrollView(frame: CGRectZero)
+    open static func createTagScrollView() -> UIScrollView {
+        let tagScrollView = UIScrollView(frame: CGRect.zero)
         setupTagScrollView(tagScrollView)
         return tagScrollView
     }
 
-    public static func setupTagScrollView(tagScrollView: UIScrollView) {
+    open static func setupTagScrollView(_ tagScrollView: UIScrollView) {
         tagScrollView.showsHorizontalScrollIndicator = false
         tagScrollView.showsVerticalScrollIndicator = false
         tagScrollView.bounces = true
@@ -22,7 +22,7 @@ public class SnapTagsHorizontalScrollView : UIViewController {
         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    public static func setupTagScrollViewAsSubviewOf(view: UIView, horizontalMargin: CGFloat = 3, verticalMargin: CGFloat = 4) -> UIScrollView {
+    open static func setupTagScrollViewAsSubviewOf(_ view: UIView, horizontalMargin: CGFloat = 3, verticalMargin: CGFloat = 4) -> UIScrollView {
         let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
         setupTagScrollView(tagScrollView)
         view.addSubview(tagScrollView)

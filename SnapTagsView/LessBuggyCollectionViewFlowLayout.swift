@@ -5,10 +5,10 @@ import Foundation
  and use that cache to show it incorrectly when coming on-screen again
  */
 
-public class LessBuggyCollectionViewFlowLayout : UICollectionViewFlowLayout {
+open class LessBuggyCollectionViewFlowLayout : UICollectionViewFlowLayout {
  
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        if var attributes = super.layoutAttributesForElementsInRect(rect) {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        if var attributes = super.layoutAttributesForElements(in: rect) {
             var i = 0
             var fixInvaliidLayout = false
             for attribute in attributes {
@@ -25,11 +25,11 @@ public class LessBuggyCollectionViewFlowLayout : UICollectionViewFlowLayout {
             }
             
             if fixInvaliidLayout == true {
-                let sortedAttributes = attributes.sort({ (a, b) -> Bool in
-                    if a.indexPath.section == b.indexPath.section {
-                        return a.indexPath.item < b.indexPath.row
+                let sortedAttributes = attributes.sorted(by: { (a, b) -> Bool in
+                    if (a.indexPath as NSIndexPath).section == (b.indexPath as NSIndexPath).section {
+                        return (a.indexPath as NSIndexPath).item < (b.indexPath as NSIndexPath).row
                     }
-                    return a.indexPath.section < b.indexPath.section
+                    return (a.indexPath as NSIndexPath).section < (b.indexPath as NSIndexPath).section
                 })
 
                 var pos = sectionInset.left as CGFloat

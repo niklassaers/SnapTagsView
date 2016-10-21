@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         setupTagBarViewControllerAtIndex(13)
     }
 
-    internal func setupLeftAlignedCollectionViewControllerAtIndex(index: Int) {
+    internal func setupLeftAlignedCollectionViewControllerAtIndex(_ index: Int) {
         leftAlignedCollectionViewController = SnapTagsCollectionViewController()
         leftAlignedCollectionViewController.sizer = sizer
         leftAlignedCollectionViewController.configuration = leftAlignedTagsViewConfig()
@@ -46,14 +46,14 @@ class ViewController: UIViewController {
         leftAlignedCollectionViewController.data = stringArrayToTags(initialTags())
 
         self.addChildViewController(leftAlignedCollectionViewController)
-        contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, atIndex: index)
+        contentStackView.insertArrangedSubview(leftAlignedCollectionViewController.view, at: index)
         leftAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         leftAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedCollectionViewController.view])
         leftAlignedCollectionViewController.view.addConstraint(leftAlignedCollectionViewHeightConstraint)
     }
 
-    internal func setupCenterAlignedCollectionViewControllerAtIndex(index: Int) {
+    internal func setupCenterAlignedCollectionViewControllerAtIndex(_ index: Int) {
         centerAlignedCollectionViewController = SnapTagsCollectionViewController()
         centerAlignedCollectionViewController.sizer = sizer
         centerAlignedCollectionViewController.configuration = centerAlignedTagsViewConfig()
@@ -61,14 +61,14 @@ class ViewController: UIViewController {
         centerAlignedCollectionViewController.data = stringArrayToTags(initialTags())
 
         self.addChildViewController(centerAlignedCollectionViewController)
-        contentStackView.insertArrangedSubview(centerAlignedCollectionViewController.view, atIndex: index)
+        contentStackView.insertArrangedSubview(centerAlignedCollectionViewController.view, at: index)
         centerAlignedCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         centerAlignedCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": centerAlignedCollectionViewController.view])
         centerAlignedCollectionViewController.view.addConstraint(centerAlignedCollectionViewHeightConstraint)
     }
 
-    internal func setupLeftAlignedMixedOnOffCollectionViewControllerAtIndex(index: Int) {
+    internal func setupLeftAlignedMixedOnOffCollectionViewControllerAtIndex(_ index: Int) {
         leftAlignedMixedOnOffCollectionViewController = SnapTagsCollectionViewController()
         leftAlignedMixedOnOffCollectionViewController.sizer = sizer
         leftAlignedMixedOnOffCollectionViewController.configuration = leftAlignedMixedOnOffTagsViewConfig()
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         }
 
         self.addChildViewController(leftAlignedMixedOnOffCollectionViewController)
-        contentStackView.insertArrangedSubview(leftAlignedMixedOnOffCollectionViewController.view, atIndex: index)
+        contentStackView.insertArrangedSubview(leftAlignedMixedOnOffCollectionViewController.view, at: index)
         leftAlignedMixedOnOffCollectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
         leftAlignedMixedOnOffCollectionViewHeightConstraint = NSLayoutConstraint(expressionFormat: "self.height = 190", parameters: ["self": leftAlignedMixedOnOffCollectionViewController.view])
@@ -91,16 +91,16 @@ class ViewController: UIViewController {
 
 
 
-    internal func setupSearchBarControllerAtIndex(index: Int) {
+    internal func setupSearchBarControllerAtIndex(_ index: Int) {
 
-        let storyBoard = UIStoryboard(name: "SnapTagsView", bundle: NSBundle(forClass: SnapSearchBarController.self))
-        searchBarController = storyBoard.instantiateViewControllerWithIdentifier(String(SnapSearchBarController)) as! SnapSearchBarController
+        let storyBoard = UIStoryboard(name: "SnapTagsView", bundle: Bundle(for: SnapSearchBarController.self))
+        searchBarController = storyBoard.instantiateViewController(withIdentifier: String(describing: SnapSearchBarController())) as! SnapSearchBarController
         searchBarController.sizer = sizer
         searchBarController.configuration = searchBarViewConfig()
         searchBarController.buttonConfiguration = searchBarViewButtonConfig()
         searchBarController.data = stringArrayToTags(initialTags())
 
-        contentStackView.insertArrangedSubview(searchBarController.view, atIndex: index)
+        contentStackView.insertArrangedSubview(searchBarController.view, at: index)
 
     }
 
@@ -108,10 +108,10 @@ class ViewController: UIViewController {
 
 
 
-    internal func setupTagBarViewControllerAtIndex(index: Int) {
+    internal func setupTagBarViewControllerAtIndex(_ index: Int) {
 
         let tagScrollView = SnapTagsHorizontalScrollView.createTagScrollView()
-        contentStackView.insertArrangedSubview(tagScrollView, atIndex: index)
+        contentStackView.insertArrangedSubview(tagScrollView, at: index)
         var constraints = [NSLayoutConstraint]()
         var dict : [String:UIView] = ["self": tagScrollView, "super": contentStackView]
         constraints.append(NSLayoutConstraint(expressionFormat: "self.width = super.width", parameters: dict))
@@ -146,18 +146,16 @@ class ViewController: UIViewController {
 
     }
 
-    internal func stringArrayToTags(strings: [String]) -> [SnapTagRepresentation] {
+    internal func stringArrayToTags(_ strings: [String]) -> [SnapTagRepresentation] {
         return strings.map {
             let tag = SnapTagRepresentation()
-            tag.tag = $0.stringByTrimmingCharactersInSet(
-                NSCharacterSet.whitespaceAndNewlineCharacterSet()
-            )
+            tag.tag = $0.trimmingCharacters(in: .whitespacesAndNewlines )
             return tag
         }
     }
 
     internal func initialTags() -> [String] {
-        return "Sienaasappellimonadesiroop Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".componentsSeparatedByString(" ")
+        return "Sienaasappellimonadesiroop Ave maris stella Dei Mater alma Atque semper Virgo Felix caeli porta".components(separatedBy: " ")
     }
 
     /*
@@ -194,14 +192,14 @@ class ViewController: UIViewController {
         return tag
     }*/
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         slider.minimumValue = Float(self.view.bounds.size.width) * (-1.0)
         self.sliderValueChanged(slider)
 
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         leftAlignedCollectionViewController.scrollEnabled = false
@@ -221,7 +219,7 @@ class ViewController: UIViewController {
 
     }
 
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         spacerWidthLayoutConstraint.constant = CGFloat(sender.value) * (-1.0)
         self.view.setNeedsLayout()
     }
@@ -240,7 +238,7 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.alignment = .Left
+        config.alignment = .left
 
         return config
     }
@@ -250,20 +248,20 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        c.margin = UIEdgeInsetsZero
+        c.margin = UIEdgeInsets.zero
         c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 8.0)
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
-        onState.textColor = UIColor.whiteColor()
+        onState.textColor = UIColor.white
         onState.hasButton = false
         onState.cornerRadius = 5.0
 
         var offState = onState
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
-        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
-        offState.backgroundColor = UIColor.whiteColor()
+        offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
+        offState.backgroundColor = UIColor.white
         offState.textColor = UIColor.roseColor()
         offState.borderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
         offState.borderWidth = 1.0
@@ -289,7 +287,7 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.alignment = .Center
+        config.alignment = .center
 
         return config
     }
@@ -299,7 +297,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        c.margin = UIEdgeInsetsZero
+        c.margin = UIEdgeInsets.zero
         c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 0.0)
         c.buttonInset = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 10.0)
         c.isTappable = true
@@ -307,16 +305,16 @@ class ViewController: UIViewController {
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
-        onState.textColor = UIColor.whiteColor()
+        onState.textColor = UIColor.white
         onState.hasButton = true
         onState.cornerRadius = 5.0
 
         var offState = onState
         offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
-        offState.backgroundColor = UIColor.whiteColor()
+        offState.backgroundColor = UIColor.white
         offState.textColor = UIColor.roseColor()
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
-        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
 
 
         var highlightedOnState = onState
@@ -340,7 +338,7 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.alignment = .Left
+        config.alignment = .left
 
         return config
     }
@@ -350,7 +348,7 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = true
-        c.margin = UIEdgeInsetsZero
+        c.margin = UIEdgeInsets.zero
         c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 0.0)
         c.buttonInset = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 10.0)
         c.isTappable = true
@@ -358,16 +356,16 @@ class ViewController: UIViewController {
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.backgroundColor = UIColor.roseColor()
-        onState.textColor = UIColor.whiteColor()
+        onState.textColor = UIColor.white
         onState.hasButton = true
         onState.cornerRadius = 5.0
 
         var offState = onState
         offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
-        offState.backgroundColor = UIColor.whiteColor()
-        offState.textColor = UIColor.blackColor()
+        offState.backgroundColor = UIColor.white
+        offState.textColor = UIColor.black
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
-        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
 
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
@@ -390,8 +388,8 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 11.0
         config.verticalMargin = 4.0
-        config.alignment = .Left
-        config.scrollDirection = .Horizontal
+        config.alignment = .left
+        config.scrollDirection = .horizontal
         config.padding = UIEdgeInsets(top: 3.0, left: 0.0, bottom: 3.0, right: 66.0)
 
         return config
@@ -411,7 +409,7 @@ class ViewController: UIViewController {
         
         var onState = ButtonStateConfiguration()
         onState.backgroundColor = UIColor.roseColor()
-        onState.textColor = UIColor.whiteColor()
+        onState.textColor = UIColor.white
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.hasButton = true
         onState.cornerRadius = 3.0
@@ -419,10 +417,10 @@ class ViewController: UIViewController {
         
         var offState = onState
         offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
-        offState.backgroundColor = UIColor.whiteColor()
+        offState.backgroundColor = UIColor.white
         offState.textColor = UIColor.roseColor()
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
-        offState.buttonTransform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(M_PI*45.0/180.0))
+        offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
         
         var highlightedOnState = onState
         highlightedOnState.backgroundColor = UIColor(red: 229.0/255.0, green: 0.0, blue: 79.0/255.0, alpha: 1.0)
@@ -446,7 +444,7 @@ class ViewController: UIViewController {
         config.spacing = 5.0
         config.horizontalMargin = 5.0
         config.verticalMargin = 5.0
-        config.alignment = .Left
+        config.alignment = .left
 
         return config
     }
@@ -456,11 +454,11 @@ class ViewController: UIViewController {
         var c = SnapTagButtonConfiguration()
         c.font = UIFont.boldWithSize(13.0)
         c.canBeTurnedOnAndOff = false
-        c.margin = UIEdgeInsetsZero
+        c.margin = UIEdgeInsets.zero
         c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 8.0)
 
         var onState = ButtonStateConfiguration()
-        onState.backgroundColor = UIColor.whiteColor()
+        onState.backgroundColor = UIColor.white
         onState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
         onState.textColor = UIColor.roseColor()
         onState.cornerRadius = 0.0

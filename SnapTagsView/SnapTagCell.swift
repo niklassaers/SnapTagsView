@@ -1,6 +1,6 @@
 import UIKit
 
-public class SnapTagCell: UICollectionViewCell {
+open class SnapTagCell: UICollectionViewCell {
 
     weak var sizer : SnapTextWidthSizers?
 
@@ -28,7 +28,7 @@ public class SnapTagCell: UICollectionViewCell {
     internal var configuration : SnapTagButtonConfiguration!
     internal var lastText: String = "Snapsale"
 
-    public func setOnState() {
+    open func setOnState() {
         backgroundImageForOnState.alpha = 1.0
         backgroundImageForOffState.alpha = 0.0
         onButtonImage.alpha = 0.0
@@ -39,10 +39,10 @@ public class SnapTagCell: UICollectionViewCell {
         highlightBackground.backgroundColor = configuration.highlightedWhileOnState.backgroundColor
         highlightBackground.layer.cornerRadius = configuration.highlightedWhileOnState.cornerRadius
 
-        self.selected = true
+        self.isSelected = true
     }
 
-    public func setOffState() {
+    open func setOffState() {
         backgroundImageForOnState.alpha = 0.0
         backgroundImageForOffState.alpha = 1.0
         onButtonImage.alpha = 1.0
@@ -53,10 +53,10 @@ public class SnapTagCell: UICollectionViewCell {
         highlightBackground.backgroundColor = configuration.highlightedWhileOffState.backgroundColor
         highlightBackground.layer.cornerRadius = configuration.highlightedWhileOffState.cornerRadius
 
-        self.selected = false
+        self.isSelected = false
     }
 
-    public func setHighlightState(enabled : Bool) {
+    open func setHighlightState(_ enabled : Bool) {
         let onValue = configuration.isOn ?
             configuration.highlightedWhileOnState.alpha :
             configuration.highlightedWhileOffState.alpha
@@ -64,7 +64,7 @@ public class SnapTagCell: UICollectionViewCell {
         self.highlightBackground.alpha = enabled ? onValue : 0.0
     }
 
-    public func applyConfiguration(configuration: SnapTagButtonConfiguration) {
+    open func applyConfiguration(_ configuration: SnapTagButtonConfiguration) {
         self.configuration = configuration
 
         setupMargins()
@@ -82,11 +82,11 @@ public class SnapTagCell: UICollectionViewCell {
 //        spacingMargin.constant = 6
     }
 
-    public override func intrinsicContentSize() -> CGSize {
+    open override var intrinsicContentSize : CGSize {
         return configuration.intrinsicContentSize
     }
 
-    public func setTextColor(color: UIColor) {
+    open func setTextColor(_ color: UIColor) {
         label.textColor = color
     }
 
@@ -100,13 +100,13 @@ public class SnapTagCell: UICollectionViewCell {
 
         if let onBorderColor = configuration.onState.borderColor,
             let onBorderWidth = configuration.onState.borderWidth {
-                backgroundImageForOnState.layer.borderColor = onBorderColor.CGColor
+                backgroundImageForOnState.layer.borderColor = onBorderColor.cgColor
                 backgroundImageForOnState.layer.borderWidth = onBorderWidth
         }
 
         if let offBorderColor = configuration.offState.borderColor,
             let offBorderWidth = configuration.offState.borderWidth {
-                backgroundImageForOffState.layer.borderColor = offBorderColor.CGColor
+                backgroundImageForOffState.layer.borderColor = offBorderColor.cgColor
                 backgroundImageForOffState.layer.borderWidth = offBorderWidth
         }
 
@@ -145,7 +145,7 @@ public class SnapTagCell: UICollectionViewCell {
         spacingMargin.constant = configuration.onState.spacingBetweenLabelAndOnOffButton
     }
 
-    internal func setFont(font: UIFont) {
+    internal func setFont(_ font: UIFont) {
         label.font = font
         if label.text != "" {
 
@@ -155,43 +155,43 @@ public class SnapTagCell: UICollectionViewCell {
         }
     }
 
-    internal func sizeForLabel(label: UILabel) -> CGSize {
+    internal func sizeForLabel(_ label: UILabel) -> CGSize {
         let size : CGSize
         if let sizer = sizer {
             size = sizer.calculateSizeForText(label.text ?? "", font: label.font)
         } else {
-            size = label.sizeThatFits(CGSizeMake(2000, 100))
+            size = label.sizeThatFits(CGSize(width: 2000, height: 100))
         }
         return size
     }
 
-    internal func setText(text: String) {
-        lastText = text.uppercaseString
-        label.text = text.uppercaseString
+    internal func setText(_ text: String) {
+        lastText = text.uppercased()
+        label.text = text.uppercased()
 
         let size = sizeForLabel(label)
         labelWidth.constant = size.width
     }
 
-    internal func setBackgroundImages(onImage onImage: UIImage?, offImage: UIImage?) {
+    internal func setBackgroundImages(onImage: UIImage?, offImage: UIImage?) {
         backgroundImageForOnState.image = onImage
         backgroundImageForOffState.image = offImage
     }
 
-    internal func setBackgroundColor(onColor onColor: UIColor?, offColor: UIColor?) {
+    internal func setBackgroundColor(onColor: UIColor?, offColor: UIColor?) {
         backgroundImageForOnState.backgroundColor = onColor
         backgroundImageForOffState.backgroundColor = offColor
     }
 
     // And the classic bug-fix
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             contentView.frame = bounds
-            contentView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+            contentView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         }
     }
 
-    public override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+    open override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
 
         let size: CGSize
 

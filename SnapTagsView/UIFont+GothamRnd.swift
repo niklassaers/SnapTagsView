@@ -11,27 +11,27 @@ enum GothamRnd : String {
 
 public extension UIFont {
 
-    public static func boldWithSize(size: CGFloat) -> UIFont {
+    public static func boldWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Bold.rawValue, size: size)!
     }
 
-    public static func boldItalicWithSize(size: CGFloat) -> UIFont {
+    public static func boldItalicWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.BoldItalic.rawValue, size: size)!
     }
 
-    public static func bookWithSize(size: CGFloat) -> UIFont {
+    public static func bookWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Book.rawValue, size: size)!
     }
 
-    public static func bookItalicWithSize(size: CGFloat) -> UIFont {
+    public static func bookItalicWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.BookItalic.rawValue, size: size)!
     }
 
-    public static func mediumWithSize(size: CGFloat) -> UIFont {
+    public static func mediumWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.Medium.rawValue, size: size)!
     }
 
-    public static func mediumItalicWithSize(size: CGFloat) -> UIFont {
+    public static func mediumItalicWithSize(_ size: CGFloat) -> UIFont {
         return UIFont(name: GothamRnd.MediumItalic.rawValue, size: size)!
     }
 

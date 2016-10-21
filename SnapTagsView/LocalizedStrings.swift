@@ -3,7 +3,7 @@
 import Foundation
 
 enum L10n {
-  case SearchBarPlaceholder
+  case searchBarPlaceholder
 }
 
 extension L10n : CustomStringConvertible {
@@ -11,17 +11,17 @@ extension L10n : CustomStringConvertible {
 
   var string : String {
     switch self {
-      case .SearchBarPlaceholder:
+      case .searchBarPlaceholder:
         return L10n.tr("searchBarPlaceholder")
     }
   }
 
-  private static func tr(key: String, _ args: CVarArgType...) -> String {
+  fileprivate static func tr(_ key: String, _ args: CVarArg...) -> String {
     let format = NSLocalizedString(key, comment: "")
     return String(format: format, arguments: args)
   }
 }
 
-func tr(key: L10n) -> String {
+func tr(_ key: L10n) -> String {
   return key.string
 }

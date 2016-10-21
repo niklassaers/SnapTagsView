@@ -1,23 +1,23 @@
 import UIKit
 
-public class SnapSearchBarController : UIViewController {
+open class SnapSearchBarController : UIViewController {
 
-    public lazy var sizer = SnapTextWidthSizers()
-    public var configuration : SnapTagsViewConfiguration!
-    public var buttonConfiguration : SnapTagButtonConfiguration!
-    public var height : CGFloat = 36.0
-    private var tagScrollView : UIScrollView?
-    private var searchTextField : UITextField?
+    open lazy var sizer = SnapTextWidthSizers()
+    open var configuration : SnapTagsViewConfiguration!
+    open var buttonConfiguration : SnapTagButtonConfiguration!
+    open var height : CGFloat = 36.0
+    fileprivate var tagScrollView : UIScrollView?
+    fileprivate var searchTextField : UITextField?
     internal let tagsVc = SnapTagsCollectionViewController()
-    private var searchBarInteractionEnabled = false
+    fileprivate var searchBarInteractionEnabled = false
 
-    public var placeholderText : String? {
+    open var placeholderText : String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    private var placeholderTextRepresentation : String {
+    fileprivate var placeholderTextRepresentation : String {
         get {
             if data.count == 0 {
                 if let placeholderText = placeholderText {
@@ -31,13 +31,13 @@ public class SnapSearchBarController : UIViewController {
         }
     }
 
-    public var searchBar : UISearchBar {
+    open var searchBar : UISearchBar {
         get {
             return self.view as! UISearchBar
         }
     }
 
-    public var data : [SnapTagRepresentation] {
+    open var data : [SnapTagRepresentation] {
         get {
             return tagsVc.data
         }
@@ -47,7 +47,7 @@ public class SnapSearchBarController : UIViewController {
         }
     }
 
-    public var delegate : SnapTagsButtonDelegate? {
+    open var delegate : SnapTagsButtonDelegate? {
         get {
             return tagsVc.delegate
         }
@@ -57,12 +57,12 @@ public class SnapSearchBarController : UIViewController {
     }
 
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         assert(configuration != nil)
         assert(buttonConfiguration != nil)
 
-        configuration.alignment = .Natural
+        configuration.alignment = .natural
         tagsVc.configuration = configuration
         tagsVc.buttonConfiguration = buttonConfiguration
         tagsVc.handlesViewConfigurationMargins = false
@@ -74,7 +74,7 @@ public class SnapSearchBarController : UIViewController {
 
         var searchTextField_ : UITextField? = nil
         for firstLevelSubview in searchBar.subviews {
-            for subview in firstLevelSubview.subviews ?? [UIView]() {
+            for subview in firstLevelSubview.subviews {
                 if let subview = subview as? UITextField {
                     searchTextField_ = subview
                     break
@@ -88,10 +88,10 @@ public class SnapSearchBarController : UIViewController {
             return
         }
 
-        searchTextField.leftViewMode = .Never
-        searchTextField.rightViewMode = .Never
-        searchTextField.textAlignment = .Natural
-        searchTextField.textColor = UIColor.blackColor()
+        searchTextField.leftViewMode = .never
+        searchTextField.rightViewMode = .never
+        searchTextField.textAlignment = .natural
+        searchTextField.textColor = UIColor.black
         searchTextField.tintColor = UIColor.roseColor()
         self.searchTextField = searchTextField
 
@@ -131,11 +131,11 @@ public class SnapSearchBarController : UIViewController {
         tagsVc.scrollEnabled = true
     }
     
-    public func setFont(font: UIFont) {
+    open func setFont(_ font: UIFont) {
         searchTextField?.font = font
     }
 
-    override public func viewDidLayoutSubviews()
+    override open func viewDidLayoutSubviews()
     {
         super.viewDidLayoutSubviews()
         //self.searchBar.layoutIfNeeded()
@@ -151,30 +151,30 @@ public class SnapSearchBarController : UIViewController {
                     var currentTextFieldBounds = textField.bounds
                     currentTextFieldBounds.size.height = newHeight
                     textField.bounds = currentTextFieldBounds
-                    textField.borderStyle = UITextBorderStyle.RoundedRect
+                    textField.borderStyle = UITextBorderStyle.roundedRect
                 }
             }
         }
     }
     
-    public func beginEditingWithSearch(text: String) {
-        tagScrollView?.hidden = true
+    open func beginEditingWithSearch(_ text: String) {
+        tagScrollView?.isHidden = true
         searchBarInteractionEnabled = true
         
         searchBar.text = text
         searchTextField?.becomeFirstResponder()
     }
     
-    public func updateSearchString(text: String) {
+    open func updateSearchString(_ text: String) {
         searchBar.text = text
     }
     
-    public func updatePlaceholder() {
+    open func updatePlaceholder() {
         searchBar.placeholder = placeholderTextRepresentation
     }
     
-    public func endEditing(cancelled: Bool) -> String {
-        tagScrollView?.hidden = false
+    open func endEditing(_ cancelled: Bool) -> String {
+        tagScrollView?.isHidden = false
         searchBarInteractionEnabled = false
         
         searchBar.resignFirstResponder()
@@ -183,14 +183,14 @@ public class SnapSearchBarController : UIViewController {
         searchBar.text = ""
         
         if cancelled {
-            let oldText = data.map { $0.tag }.joinWithSeparator(" ")
+            let oldText = data.map { $0.tag }.joined(separator: " ")
             updatePlaceholder()
             delegate?.searchCompletedWithString?(oldText)
             return oldText
         }
         
         else {
-            let newData = newText.componentsSeparatedByString(" ").map { SnapTagRepresentation(tag: $0) }
+            let newData = newText.components(separatedBy: " ").map { SnapTagRepresentation(tag: $0) }
             self.data = newData
             reloadData()
 
@@ -200,7 +200,7 @@ public class SnapSearchBarController : UIViewController {
         }
     }
     
-    public func reloadData() {
+    open func reloadData() {
         tagsVc.reloadData()
         delay(0.2) {
             if let sv = self.tagScrollView?.subviews.first?.subviews.first as? UIScrollView {
@@ -212,24 +212,24 @@ public class SnapSearchBarController : UIViewController {
 }
 
 extension SnapSearchBarController : UISearchBarDelegate {
-    public func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return searchBarInteractionEnabled
     }
     
-    public func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //searchBar.text = searchBar.text?.uppercaseString
         delegate?.searchTextChanged?(searchBar.text ?? "")
     }
     
-    public func searchBarResultsListButtonClicked(searchBar: UISearchBar) {
+    public func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
         
     }
     
-    public func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        endEditing(false)
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let _ = endEditing(false)
     }
     
-    public func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        endEditing(true)
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        let _ = endEditing(true)
     }
 }
