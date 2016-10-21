@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 use_frameworks!
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 inhibit_all_warnings!
 
@@ -14,7 +14,7 @@ target 'SnapTagsView' do
 end
 
 target 'SnapTagsViewTests' do
-  pod 'FBSnapshotTestCase/Core', :git => 'https://github.com/facebook/ios-snapshot-test-case.git', :commit => 'b898c25'
+  pod 'FBSnapshotTestCase'
 end
 
 target 'Example' do
