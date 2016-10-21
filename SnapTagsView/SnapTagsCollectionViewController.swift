@@ -253,7 +253,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
     }
 
 
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        printIsMainThread()
 //        print("didSelectItemAtIndexPath")
         let tag = data[indexPath.row]
