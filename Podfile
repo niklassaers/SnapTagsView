@@ -8,7 +8,7 @@ inhibit_all_warnings!
 
 target 'SnapTagsView' do
   pod 'NSLayoutConstraint+ExpressionFormat'
-  pod 'KTCenterFlowLayout'
+  pod 'KTCenterFlowLayout', :commit => "a5b4a06a316cf070cf1b34a6fa1f52a9773b2b0c"
   pod 'UICollectionViewLeftAlignedLayout'
   pod 'UICollectionViewRightAlignedLayout'
 end
