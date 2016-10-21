@@ -253,7 +253,7 @@ class ViewController: UIViewController {
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
-        onState.backgroundColor = UIColor.roseColor()
+        onState.backgroundColor = UIColor.roseColor
         onState.textColor = UIColor.white
         onState.hasButton = false
         onState.cornerRadius = 5.0
@@ -262,7 +262,7 @@ class ViewController: UIViewController {
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
         offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
         offState.backgroundColor = UIColor.white
-        offState.textColor = UIColor.roseColor()
+        offState.textColor = UIColor.roseColor
         offState.borderColor = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
         offState.borderWidth = 1.0
 
@@ -304,15 +304,16 @@ class ViewController: UIViewController {
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
-        onState.backgroundColor = UIColor.roseColor()
+        onState.backgroundColor = UIColor.roseColor
         onState.textColor = UIColor.white
         onState.hasButton = true
         onState.cornerRadius = 5.0
 
         var offState = onState
-        offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
+        offState.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 229/255.0, alpha: 1.0)
+        offState.borderWidth = 1.0
         offState.backgroundColor = UIColor.white
-        offState.textColor = UIColor.roseColor()
+        offState.textColor = UIColor.roseColor
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
         offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
 
@@ -355,13 +356,14 @@ class ViewController: UIViewController {
 
         var onState = ButtonStateConfiguration()
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
-        onState.backgroundColor = UIColor.roseColor()
+        onState.backgroundColor = UIColor.roseColor
         onState.textColor = UIColor.white
         onState.hasButton = true
         onState.cornerRadius = 5.0
 
         var offState = onState
-        offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
+        offState.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 229/255.0, alpha: 1.0)
+        offState.borderWidth = 1.0
         offState.backgroundColor = UIColor.white
         offState.textColor = UIColor.black
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
@@ -408,7 +410,7 @@ class ViewController: UIViewController {
         c.buttonInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0)
         
         var onState = ButtonStateConfiguration()
-        onState.backgroundColor = UIColor.roseColor()
+        onState.backgroundColor = UIColor.roseColor
         onState.textColor = UIColor.white
         onState.buttonImage = UIImage.SnapTagsViewAssets.YellowCloseButton.image
         onState.hasButton = true
@@ -416,9 +418,10 @@ class ViewController: UIViewController {
         onState.spacingBetweenLabelAndOnOffButton = 0
         
         var offState = onState
-        offState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
+        offState.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 229/255.0, alpha: 1.0)
+        offState.borderWidth = 1.0
         offState.backgroundColor = UIColor.white
-        offState.textColor = UIColor.roseColor()
+        offState.textColor = UIColor.roseColor
         offState.buttonImage = UIImage.SnapTagsViewAssets.RedCloseButton.image
         offState.buttonTransform = CGAffineTransform.identity.rotated(by: CGFloat(M_PI*45.0/180.0))
         
@@ -458,10 +461,11 @@ class ViewController: UIViewController {
         c.labelInset = UIEdgeInsets(top: 6.5, left: 8.0, bottom: 6.5, right: 8.0)
 
         var onState = ButtonStateConfiguration()
+        onState.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 229/255.0, alpha: 1.0)
+        onState.borderWidth = 1.0
         onState.backgroundColor = UIColor.white
-        onState.backgroundImage = UIImage.SnapTagsViewAssets.RoundedButton_WhiteWithGreyBorder.image
-        onState.textColor = UIColor.roseColor()
-        onState.cornerRadius = 0.0
+        onState.textColor = UIColor.roseColor
+        onState.cornerRadius = 5.0
         onState.hasButton = false
 
         let offState = onState

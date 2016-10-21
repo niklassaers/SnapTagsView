@@ -93,7 +93,7 @@ open class SnapSearchBarController : UIViewController {
         searchTextField.rightViewMode = .never
         searchTextField.textAlignment = .natural
         searchTextField.textColor = UIColor.black
-        searchTextField.tintColor = UIColor.roseColor()
+        searchTextField.tintColor = UIColor.roseColor
         self.searchTextField = searchTextField
 
         let hMargin = configuration.horizontalMargin

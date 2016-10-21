@@ -8,9 +8,6 @@ private class ClassInSameBundleAsAssets: NSObject {}
 public extension UIImage {
   public enum SnapTagsViewAssets : String {
     case RedCloseButton = "RedCloseButton"
-    case RoundedButton = "RoundedButton"
-    case RoundedButton_WhiteWithGreyBorder = "RoundedButton_WhiteWithGreyBorder"
-    case RoundedButtonFilled = "RoundedButtonFilled"
     case YellowCloseButton = "YellowCloseButton"
 
     public var image: UIImage {
