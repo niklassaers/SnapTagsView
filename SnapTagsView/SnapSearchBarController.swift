@@ -104,7 +104,7 @@ open class SnapSearchBarController : UIViewController {
         tagScrollView?.addSubview(tagsVc.view)
 
         var constraints = [NSLayoutConstraint]()
-        let dict = ["self": tagsVc.view, "super": tagScrollView]
+        let dict = ["self": tagsVc.view!, "super": tagScrollView!]
         constraints.append(NSLayoutConstraint(expressionFormat: "self.right = super.right", parameters: dict))
         constraints.append(NSLayoutConstraint(expressionFormat: "self.bottom = super.bottom", parameters: dict))
         tagScrollView?.addConstraints(constraints)

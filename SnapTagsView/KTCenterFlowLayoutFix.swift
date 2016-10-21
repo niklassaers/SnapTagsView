@@ -3,18 +3,18 @@ import KTCenterFlowLayout
 
 public extension KTCenterFlowLayout {
 
-    override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
-        let modifiedLayoutAttributes = self.layoutAttributesForElementsInRect(CGRectInfinite)
+        let modifiedLayoutAttributes = self.layoutAttributesForElements(in: CGRect.infinite)
 
-        let layoutAttributesForIndexPath = modifiedLayoutAttributes?.filter({ indexPath.isEqual($0.indexPath) })
+        let layoutAttributesForIndexPath = modifiedLayoutAttributes?.filter({ indexPath == $0.indexPath })
         if let desiredLayAttr = layoutAttributesForIndexPath?.first {
             return desiredLayAttr
         }
         else
         {
             NSLog("error")
-            return super.layoutAttributesForItemAtIndexPath(indexPath)
+            return super.layoutAttributesForItem(at: indexPath)
         }
     }
 }

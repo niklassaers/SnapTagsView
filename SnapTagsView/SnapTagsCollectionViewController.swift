@@ -3,7 +3,7 @@ import KTCenterFlowLayout
 import UICollectionViewLeftAlignedLayout
 import UICollectionViewRightAlignedLayout
 
-private let reuseIdentifier = String(describing: SnapTagCell())
+private let reuseIdentifier = "SnapTagCell"
 
 open class SnapTagsCollectionViewController: UIViewController {
 
@@ -105,8 +105,8 @@ open class SnapTagsCollectionViewController: UIViewController {
         }
 
         let metrics = [
-            "hMargin": configuration?.horizontalMargin,
-            "vMargin": configuration?.verticalMargin]
+            "hMargin": configuration?.horizontalMargin ?? 5.0,
+            "vMargin": configuration?.verticalMargin ?? 5.0]
         let views = [ "cv": collectionView ]
         let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(hMargin)-[cv]-(hMargin)-|",
             options: [],

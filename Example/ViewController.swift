@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     internal func setupSearchBarControllerAtIndex(_ index: Int) {
 
         let storyBoard = UIStoryboard(name: "SnapTagsView", bundle: Bundle(for: SnapSearchBarController.self))
-        searchBarController = storyBoard.instantiateViewController(withIdentifier: String(describing: SnapSearchBarController())) as! SnapSearchBarController
+        searchBarController = storyBoard.instantiateViewController(withIdentifier: "SnapSearchBarController") as! SnapSearchBarController
         searchBarController.sizer = sizer
         searchBarController.configuration = searchBarViewConfig()
         searchBarController.buttonConfiguration = searchBarViewButtonConfig()
