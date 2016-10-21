@@ -67,6 +67,7 @@ open class SnapSearchBarController : UIViewController {
         tagsVc.buttonConfiguration = buttonConfiguration
         tagsVc.handlesViewConfigurationMargins = false
 
+        searchBar.gestureRecognizers?.forEach { $0.cancelsTouchesInView = false }
         searchBar.delegate = self
         searchBar.setNeedsLayout()
         searchBar.layoutIfNeeded()

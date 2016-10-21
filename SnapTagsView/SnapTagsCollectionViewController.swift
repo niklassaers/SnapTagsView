@@ -56,12 +56,6 @@ open class SnapTagsCollectionViewController: UIViewController {
         layout.sectionInset = configuration.padding
         layout.itemSize = buttonConfiguration.intrinsicContentSize
 
-        // KTCenterFlowLayout crashes if estimatedItemSize != (0.0, 0.0) (see their README on GitHub)
-        if configuration.alignment != .center {
-            layout.estimatedItemSize = buttonConfiguration.intrinsicContentSize
-        }
-
-
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         if let collectionView = collectionView {
             collectionView.showsVerticalScrollIndicator = false
@@ -249,8 +243,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! SnapTagCell
         UIView.animate(withDuration: 0.3, animations: {
             cell.setHighlightState(false)
-        }) 
-        didSelect(collectionView, indexPath: indexPath)
+        })
     }
 
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -260,12 +253,11 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
     }
 
 
-
-//    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    fileprivate func didSelect(_ collectionView: UICollectionView, indexPath: IndexPath) {
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        printIsMainThread()
-//        print("YES!!! didSelectItemAtIndexPath")
-        let tag = data[(indexPath as NSIndexPath).row]
+//        print("didSelectItemAtIndexPath")
+        let tag = data[indexPath.row]
+
         if buttonConfiguration.canBeTurnedOnAndOff {
             tag.isOn = !tag.isOn
             data[(indexPath as NSIndexPath).row] = tag
@@ -291,9 +283,7 @@ extension SnapTagsCollectionViewController : UICollectionViewDelegate {
         }
     }
 
-
     public func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-
 //        printIsMainThread()
         return buttonConfiguration.canBeTurnedOnAndOff
     }
